@@ -16,6 +16,14 @@ RESET='\e[0m'
 # [root@ocp-server1 tmp.rAYZ3VYI8C-openshift-avi-state]# grep Forbidden *
 # !!! 
 #
+#
+# Preqs
+#
+# 1. ssh access for openshift nodes (where to find root key from controller)
+# 2. clusteradminrole/api access for openshift
+# 3. admin account for avi
+# 4. api access to vmware or azure infrastructure or other underlay..
+#
 oc whoami
 # Initialize
 TMP_DIR=$(mktemp -d --suffix=-openshift-avi-state)
@@ -43,6 +51,7 @@ oc get routes -o wide --show-labels --all-namespaces &> $DEST/oc-get-routes-all-
 oc get routes --all-namespaces -o json &> $DEST/oc-get-routes-all-namespaces.json
 oc describe routes --all-namespaces &> $DEST/oc-describe-routes-all-namespaces.txt
 # 5 How many Egress Pods are deployed?
+# Need list of labels to limit the collection
 oc get pods -o wide --show-labels --all-namespaces  &> $DEST/oc-get-pods-all-namespaces.txt
 oc get pods --all-namespaces -o json &> $DEST/oc-get-pods-all-namespaces.json
 #heavy collecting
@@ -81,6 +90,9 @@ oc get hostsubnet --all-namespaces -o json &> $DEST/oc-get-hostsubnet.json
 # 99 clusterrolebinding
 oc get clusterrolebinding &> $DEST/oc-get-clusterrolebinding.txt
 
+# 99
+# collection if avi is deployed as pod
+
 ### SSH DISCOVERY
 NODES_LIST=`oc get nodes | tail -n +2 | awk '{printf $1"\n"}'`
 SSH_COLLECTION_CMDS="hostname;docker info;iptables -nvL;iptables -nvL -t nat;ip route show table all;ifconfig;ip link;ip addr;sysctl -a;df -h;date;ntpq -p;ping -c5 $AVI_CONTROLLER"
@@ -93,10 +105,9 @@ AVI_COOKIE=$DEST/avi_cookie
 curl --connect-timeout 5 -i -s -k -X POST -c $AVI_COOKIE -b $AVI_COOKIE -H 'Content-type: application/json' -H 'X-Avi-Tenant: admin' -H "Referer: https://$AVI_CONTROLLER" -d'{"username":"'$AVI_USERNAME'","password":"'$AVI_PASSWORD'"}' https://$AVI_CONTROLLER/login &> /dev/null
 curl -s -k -b $AVI_COOKIE -X GET -H "Referer: #https://$AVI_CONTROLLER" "https://$AVI_CONTROLLER/api/configuration/export?include_name=true&uuid_refs=true" &> $DEST/$AVI_CONTROLLER-configuration-export.json
 curl -s -k -b $AVI_COOKIE -X GET -H "Referer: #https://$AVI_CONTROLLER" "https://$AVI_CONTROLLER/api/serviceengine-inventory?include_name" &> $DEST/$AVI_CONTROLLER-serviceengine-inventory.json
+curl -s -k -b $AVI_COOKIE -X GET -H "Referer: #https://$AVI_CONTROLLER" "https://$AVI_CONTROLLER/api/virtualservice-inventory?include_name" &> $DEST/$AVI_CONTROLLER-virtualservice-inventory.json
 curl -s -k -b $AVI_COOKIE -X GET -H "Referer: #https://$AVI_CONTROLLER" "https://$AVI_CONTROLLER/api/alert?include_name" &> $DEST/$AVI_CONTROLLER-alert.json
 curl -s -k -b $AVI_COOKIE -X GET -H "Referer: #https://$AVI_CONTROLLER" "https://$AVI_CONTROLLER/api/cluster/runtime" &> $DEST/$AVI_CONTROLLER-cluster-runtime.json
-
-
 rm -f $AVI_COOKIE
 
 # Compress

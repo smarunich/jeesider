@@ -1,10 +1,32 @@
 {
     "apiVersion": "v1",
-    "items": [],
+    "items": [
+        {
+            "apiVersion": "network.openshift.io/v1",
+            "clusterNetworks": [
+                {
+                    "CIDR": "10.128.0.0/14",
+                    "hostSubnetLength": 9
+                }
+            ],
+            "hostsubnetlength": 9,
+            "kind": "ClusterNetwork",
+            "metadata": {
+                "creationTimestamp": "2018-11-15T02:29:02Z",
+                "name": "default",
+                "namespace": "",
+                "resourceVersion": "406",
+                "selfLink": "/apis/network.openshift.io/v1/clusternetworks/default",
+                "uid": "3735bf67-e87e-11e8-828f-0050568fd4c6"
+            },
+            "network": "10.128.0.0/14",
+            "pluginName": "redhat/openshift-ovs-subnet",
+            "serviceNetwork": "172.30.0.0/16"
+        }
+    ],
     "kind": "List",
     "metadata": {
         "resourceVersion": "",
         "selfLink": ""
     }
 }
-Error from server (Forbidden): clusternetworks.network.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list clusternetworks.network.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all clusternetworks.network.openshift.io in the cluster

@@ -1,1 +1,7 @@
-Error from server (Forbidden): routes.route.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list routes.route.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all routes.route.openshift.io in the cluster
+NAMESPACE                          NAME               HOST/PORT                                                                    PATH      SERVICES           PORT      TERMINATION   WILDCARD   LABELS
+default                            docker-registry    docker-registry-default.router.default.svc.cluster.local ... 1 more                    docker-registry    <all>     passthrough   None       <none>
+default                            registry-console   registry-console-default.router.default.svc.cluster.local ... 1 more                   registry-console   <all>     passthrough   None       <none>
+kube-service-catalog               apiserver          apiserver-kube-service-catalog.router.default.svc.cluster.local ... 1 more             apiserver          secure    passthrough   None       <none>
+openshift-ansible-service-broker   asb-1338           asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local             asb                1338      reencrypt     None       app=openshift-ansible-service-broker,service=asb
+sergey1                            nginx-example      nginx-example-sergey1.router.default.svc.cluster.local ... 1 more                      nginx-example      <all>                   None       template=nginx-example
+sergey1                            nginx-example2     nginx-example2-sergey1.router.default.svc.cluster.local ... 1 more                     nginx-example2     <all>                   None       template=nginx-example

@@ -10,10 +10,10 @@ CreationTimestamp:  Wed, 14 Nov 2018 21:39:04 -0500
 Conditions:
   Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
   ----             ------  -----------------                 ------------------                ------                       -------
-  OutOfDisk        False   Wed, 21 Nov 2018 22:03:53 -0500   Wed, 14 Nov 2018 21:39:04 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
-  MemoryPressure   False   Wed, 21 Nov 2018 22:03:53 -0500   Wed, 14 Nov 2018 21:39:04 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Wed, 21 Nov 2018 22:03:53 -0500   Wed, 14 Nov 2018 21:39:04 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  Ready            True    Wed, 21 Nov 2018 22:03:53 -0500   Thu, 15 Nov 2018 17:17:40 -0500   KubeletReady                 kubelet is posting ready status
+  OutOfDisk        False   Thu, 22 Nov 2018 11:05:54 -0500   Wed, 14 Nov 2018 21:39:04 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure   False   Thu, 22 Nov 2018 11:05:54 -0500   Wed, 14 Nov 2018 21:39:04 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 22 Nov 2018 11:05:54 -0500   Thu, 22 Nov 2018 08:06:33 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  Ready            True    Thu, 22 Nov 2018 11:05:54 -0500   Thu, 15 Nov 2018 17:17:40 -0500   KubeletReady                 kubelet is posting ready status
 Addresses:
   InternalIP:  10.57.0.41
   Hostname:    ocp-server1.ps.lab
@@ -42,7 +42,7 @@ Non-terminated Pods:         (4 in total)
   ---------                  ----                           ------------  ----------  ---------------  -------------
   default                    registry-console-1-kfpdp       0 (0%)        0 (0%)      0 (0%)           0 (0%)
   kube-service-catalog       apiserver-ch4f6                0 (0%)        0 (0%)      0 (0%)           0 (0%)
-  kube-service-catalog       controller-manager-h8294       0 (0%)        0 (0%)      0 (0%)           0 (0%)
+  kube-service-catalog       controller-manager-xr662       0 (0%)        0 (0%)      0 (0%)           0 (0%)
   openshift-web-console      webconsole-7db65c944b-drh6v    100m (2%)     0 (0%)      100Mi (0%)       0 (0%)
 Allocated resources:
   (Total limits may be over 100 percent, i.e., overcommitted.)
@@ -66,10 +66,10 @@ CreationTimestamp:  Wed, 14 Nov 2018 21:39:04 -0500
 Conditions:
   Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
   ----             ------  -----------------                 ------------------                ------                       -------
-  OutOfDisk        False   Wed, 21 Nov 2018 22:03:55 -0500   Thu, 15 Nov 2018 17:22:19 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
-  MemoryPressure   False   Wed, 21 Nov 2018 22:03:55 -0500   Thu, 15 Nov 2018 17:22:19 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Wed, 21 Nov 2018 22:03:55 -0500   Thu, 15 Nov 2018 17:22:19 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  Ready            True    Wed, 21 Nov 2018 22:03:55 -0500   Thu, 15 Nov 2018 17:22:29 -0500   KubeletReady                 kubelet is posting ready status
+  OutOfDisk        False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:19 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure   False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:19 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:19 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  Ready            True    Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:29 -0500   KubeletReady                 kubelet is posting ready status
 Addresses:
   InternalIP:  10.57.0.42
   Hostname:    ocp-server2.ps.lab
@@ -125,10 +125,10 @@ CreationTimestamp:  Wed, 14 Nov 2018 21:39:04 -0500
 Conditions:
   Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
   ----             ------  -----------------                 ------------------                ------                       -------
-  OutOfDisk        False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:21 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
-  MemoryPressure   False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:21 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:21 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  Ready            True    Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:31 -0500   KubeletReady                 kubelet is posting ready status
+  OutOfDisk        False   Thu, 22 Nov 2018 11:05:59 -0500   Thu, 15 Nov 2018 17:22:21 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure   False   Thu, 22 Nov 2018 11:05:59 -0500   Thu, 15 Nov 2018 17:22:21 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 22 Nov 2018 11:05:59 -0500   Thu, 15 Nov 2018 17:22:21 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  Ready            True    Thu, 22 Nov 2018 11:05:59 -0500   Thu, 15 Nov 2018 17:22:31 -0500   KubeletReady                 kubelet is posting ready status
 Addresses:
   InternalIP:  10.57.0.43
   Hostname:    ocp-server3.ps.lab
@@ -182,10 +182,10 @@ CreationTimestamp:  Wed, 14 Nov 2018 21:39:04 -0500
 Conditions:
   Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
   ----             ------  -----------------                 ------------------                ------                       -------
-  OutOfDisk        False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:27 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
-  MemoryPressure   False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:27 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:27 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  Ready            True    Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:22:37 -0500   KubeletReady                 kubelet is posting ready status
+  OutOfDisk        False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:27 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure   False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:27 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:27 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  Ready            True    Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:22:37 -0500   KubeletReady                 kubelet is posting ready status
 Addresses:
   InternalIP:  10.57.0.44
   Hostname:    ocp-server4.ps.lab
@@ -234,10 +234,10 @@ CreationTimestamp:  Wed, 14 Nov 2018 21:39:04 -0500
 Conditions:
   Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
   ----             ------  -----------------                 ------------------                ------                       -------
-  OutOfDisk        False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:23:00 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
-  MemoryPressure   False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:23:00 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
-  DiskPressure     False   Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:23:00 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
-  Ready            True    Wed, 21 Nov 2018 22:03:47 -0500   Thu, 15 Nov 2018 17:23:10 -0500   KubeletReady                 kubelet is posting ready status
+  OutOfDisk        False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:23:00 -0500   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+  MemoryPressure   False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:23:00 -0500   KubeletHasSufficientMemory   kubelet has sufficient memory available
+  DiskPressure     False   Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:23:00 -0500   KubeletHasNoDiskPressure     kubelet has no disk pressure
+  Ready            True    Thu, 22 Nov 2018 11:05:58 -0500   Thu, 15 Nov 2018 17:23:10 -0500   KubeletReady                 kubelet is posting ready status
 Addresses:
   InternalIP:  10.57.0.45
   Hostname:    ocp-server5.ps.lab

@@ -3472,76 +3472,6 @@
                     "resolve_server_by_dns": false, 
                     "static": false, 
                     "rewrite_host_header": false, 
-                    "port": 1936
-                }, 
-                {
-                    "external_orchestration_id": "2a167a2d-e885-11e8-999a-0050568fd4c6--171153", 
-                    "ratio": 1, 
-                    "ip": {
-                        "type": "V4", 
-                        "addr": "10.57.0.43"
-                    }, 
-                    "hostname": "10.57.0.43", 
-                    "enabled": true, 
-                    "verify_network": false, 
-                    "server_node": "10.57.0.43", 
-                    "external_uuid": "6366f3f9ea2d1a5ec8a3a7bf562835057891d9460a1f32580481f19e467b1d1c", 
-                    "resolve_server_by_dns": false, 
-                    "static": false, 
-                    "rewrite_host_header": false, 
-                    "port": 1936
-                }
-            ], 
-            "fewest_tasks_feedback_delay": 10, 
-            "rewrite_host_header_to_server_name": false, 
-            "created_by": "oshift-k8s-cloud-connector", 
-            "lookup_server_by_name": false, 
-            "sni_enabled": true, 
-            "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
-            "lb_algorithm_core_nonaffinity": 2, 
-            "east_west": true, 
-            "vrf_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
-            "inline_health_monitor": true, 
-            "default_server_port": 80, 
-            "request_queue_depth": 128, 
-            "graceful_disable_timeout": 1, 
-            "server_count": 2, 
-            "uuid": "pool-e695a57d-ec1d-4c1d-916a-9b2ec4da5851", 
-            "request_queue_enabled": false, 
-            "name": "router-pool-1936-tcp", 
-            "max_concurrent_connections_per_server": 0, 
-            "url": "/api/pool/pool-e695a57d-ec1d-4c1d-916a-9b2ec4da5851#router-pool-1936-tcp", 
-            "enabled": true, 
-            "health_monitor_refs": [
-                "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
-            ], 
-            "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "4f624c9cdd1547a376de619d14b3156b"
-        }, 
-        {
-            "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
-            "use_service_port": false, 
-            "server_auto_scale": false, 
-            "host_check_enabled": false, 
-            "tenant_ref": "/api/tenant/tenant-9dae9037-e6eb-4e13-82ac-ab81294247c5#default", 
-            "rewrite_host_header_to_sni": false, 
-            "capacity_estimation": false, 
-            "servers": [
-                {
-                    "external_orchestration_id": "2a17d305-e885-11e8-999a-0050568fd4c6--171133", 
-                    "ratio": 1, 
-                    "ip": {
-                        "type": "V4", 
-                        "addr": "10.57.0.42"
-                    }, 
-                    "hostname": "10.57.0.42", 
-                    "enabled": true, 
-                    "verify_network": false, 
-                    "server_node": "10.57.0.42", 
-                    "external_uuid": "71d36d087afe771044676d493ccfe701a026fae8415c9a0ed6b7b4af26edd867", 
-                    "resolve_server_by_dns": false, 
-                    "static": false, 
-                    "rewrite_host_header": false, 
                     "port": 80
                 }, 
                 {
@@ -3647,76 +3577,6 @@
             "use_service_port": false, 
             "server_auto_scale": false, 
             "host_check_enabled": false, 
-            "tenant_ref": "/api/tenant/tenant-9dae9037-e6eb-4e13-82ac-ab81294247c5#default", 
-            "rewrite_host_header_to_sni": false, 
-            "capacity_estimation": false, 
-            "servers": [
-                {
-                    "external_orchestration_id": "2a167a2d-e885-11e8-999a-0050568fd4c6--171153", 
-                    "ratio": 1, 
-                    "ip": {
-                        "type": "V4", 
-                        "addr": "10.57.0.43"
-                    }, 
-                    "hostname": "10.57.0.43", 
-                    "enabled": true, 
-                    "verify_network": false, 
-                    "server_node": "10.57.0.43", 
-                    "external_uuid": "6366f3f9ea2d1a5ec8a3a7bf562835057891d9460a1f32580481f19e467b1d1c", 
-                    "resolve_server_by_dns": false, 
-                    "static": false, 
-                    "rewrite_host_header": false, 
-                    "port": 443
-                }, 
-                {
-                    "external_orchestration_id": "2a17d305-e885-11e8-999a-0050568fd4c6--171133", 
-                    "ratio": 1, 
-                    "ip": {
-                        "type": "V4", 
-                        "addr": "10.57.0.42"
-                    }, 
-                    "hostname": "10.57.0.42", 
-                    "enabled": true, 
-                    "verify_network": false, 
-                    "server_node": "10.57.0.42", 
-                    "external_uuid": "71d36d087afe771044676d493ccfe701a026fae8415c9a0ed6b7b4af26edd867", 
-                    "resolve_server_by_dns": false, 
-                    "static": false, 
-                    "rewrite_host_header": false, 
-                    "port": 443
-                }
-            ], 
-            "fewest_tasks_feedback_delay": 10, 
-            "rewrite_host_header_to_server_name": false, 
-            "created_by": "oshift-k8s-cloud-connector", 
-            "lookup_server_by_name": false, 
-            "sni_enabled": true, 
-            "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
-            "lb_algorithm_core_nonaffinity": 2, 
-            "east_west": true, 
-            "vrf_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
-            "inline_health_monitor": true, 
-            "default_server_port": 80, 
-            "request_queue_depth": 128, 
-            "graceful_disable_timeout": 1, 
-            "server_count": 2, 
-            "uuid": "pool-b0ff4ca4-859b-40fb-97af-61915d6e9b75", 
-            "request_queue_enabled": false, 
-            "name": "router-pool-443-tcp", 
-            "max_concurrent_connections_per_server": 0, 
-            "url": "/api/pool/pool-b0ff4ca4-859b-40fb-97af-61915d6e9b75#router-pool-443-tcp", 
-            "enabled": true, 
-            "health_monitor_refs": [
-                "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
-            ], 
-            "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "21c80283bd877e9f7ffabf4d053cf75c"
-        }, 
-        {
-            "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
-            "use_service_port": false, 
-            "server_auto_scale": false, 
-            "host_check_enabled": false, 
             "tenant_ref": "/api/tenant/tenant-7de91f9f-4aff-4b45-92d2-9eedf8e44ca7#sergey1", 
             "rewrite_host_header_to_sni": false, 
             "capacity_estimation": false, 
@@ -3781,6 +3641,59 @@
             ], 
             "connection_ramp_duration": 10, 
             "cloud_config_cksum": "41c0cd8f9c697114dbcefd5d0e7f0278"
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
+            "use_service_port": false, 
+            "server_auto_scale": false, 
+            "host_check_enabled": false, 
+            "tenant_ref": "/api/tenant/tenant-9dae9037-e6eb-4e13-82ac-ab81294247c5#default", 
+            "rewrite_host_header_to_sni": false, 
+            "capacity_estimation": false, 
+            "servers": [
+                {
+                    "external_orchestration_id": "540a0ae2-e885-11e8-999a-0050568fd4c6--170284", 
+                    "ratio": 1, 
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "10.129.0.7"
+                    }, 
+                    "hostname": "10.129.0.7", 
+                    "enabled": true, 
+                    "verify_network": false, 
+                    "server_node": "10.57.0.41", 
+                    "external_uuid": "48f13f92b77e083fa8ab05266c7d732b25be72e43648105a34728ad14634bc4b", 
+                    "resolve_server_by_dns": false, 
+                    "static": false, 
+                    "rewrite_host_header": false, 
+                    "port": 9090
+                }
+            ], 
+            "fewest_tasks_feedback_delay": 10, 
+            "rewrite_host_header_to_server_name": false, 
+            "created_by": "oshift-k8s-cloud-connector", 
+            "lookup_server_by_name": false, 
+            "sni_enabled": true, 
+            "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
+            "lb_algorithm_core_nonaffinity": 2, 
+            "east_west": true, 
+            "vrf_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
+            "inline_health_monitor": true, 
+            "default_server_port": 80, 
+            "request_queue_depth": 128, 
+            "graceful_disable_timeout": 1, 
+            "server_count": 1, 
+            "uuid": "pool-2688d423-325e-421a-91d6-a5a57a0fb17e", 
+            "request_queue_enabled": false, 
+            "name": "registry-console-pool-9090-tcp", 
+            "max_concurrent_connections_per_server": 0, 
+            "url": "/api/pool/pool-2688d423-325e-421a-91d6-a5a57a0fb17e#registry-console-pool-9090-tcp", 
+            "enabled": true, 
+            "health_monitor_refs": [
+                "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
+            ], 
+            "connection_ramp_duration": 10, 
+            "cloud_config_cksum": "c346c7035224b94a36d68433ed98d90e"
         }, 
         {
             "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
@@ -3960,35 +3873,71 @@
             "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
             "use_service_port": false, 
             "server_auto_scale": false, 
-            "lb_algorithm_core_nonaffinity": 2, 
-            "tenant_ref": "/api/tenant/tenant-cf1e1eec-3598-4a42-a0a3-286a13a4e08c#openshift-ansible-service-broker", 
+            "host_check_enabled": false, 
+            "tenant_ref": "/api/tenant/tenant-9dae9037-e6eb-4e13-82ac-ab81294247c5#default", 
             "rewrite_host_header_to_sni": false, 
             "capacity_estimation": false, 
+            "servers": [
+                {
+                    "external_orchestration_id": "2a17d305-e885-11e8-999a-0050568fd4c6--171133", 
+                    "ratio": 1, 
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "10.57.0.42"
+                    }, 
+                    "hostname": "10.57.0.42", 
+                    "enabled": true, 
+                    "verify_network": false, 
+                    "server_node": "10.57.0.42", 
+                    "external_uuid": "71d36d087afe771044676d493ccfe701a026fae8415c9a0ed6b7b4af26edd867", 
+                    "resolve_server_by_dns": false, 
+                    "static": false, 
+                    "rewrite_host_header": false, 
+                    "port": 1936
+                }, 
+                {
+                    "external_orchestration_id": "2a167a2d-e885-11e8-999a-0050568fd4c6--171153", 
+                    "ratio": 1, 
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "10.57.0.43"
+                    }, 
+                    "hostname": "10.57.0.43", 
+                    "enabled": true, 
+                    "verify_network": false, 
+                    "server_node": "10.57.0.43", 
+                    "external_uuid": "6366f3f9ea2d1a5ec8a3a7bf562835057891d9460a1f32580481f19e467b1d1c", 
+                    "resolve_server_by_dns": false, 
+                    "static": false, 
+                    "rewrite_host_header": false, 
+                    "port": 1936
+                }
+            ], 
             "fewest_tasks_feedback_delay": 10, 
             "rewrite_host_header_to_server_name": false, 
             "created_by": "oshift-k8s-cloud-connector", 
             "lookup_server_by_name": false, 
             "sni_enabled": true, 
             "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
-            "host_check_enabled": false, 
+            "lb_algorithm_core_nonaffinity": 2, 
             "east_west": true, 
             "vrf_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
             "inline_health_monitor": true, 
             "default_server_port": 80, 
             "request_queue_depth": 128, 
             "graceful_disable_timeout": 1, 
-            "server_count": 0, 
-            "uuid": "pool-22aafc40-9087-4709-a86e-f5b4c4c11656", 
+            "server_count": 2, 
+            "uuid": "pool-e695a57d-ec1d-4c1d-916a-9b2ec4da5851", 
             "request_queue_enabled": false, 
-            "name": "asb-pool-1338-tcp", 
+            "name": "router-pool-1936-tcp", 
             "max_concurrent_connections_per_server": 0, 
-            "url": "/api/pool/pool-22aafc40-9087-4709-a86e-f5b4c4c11656#asb-pool-1338-tcp", 
+            "url": "/api/pool/pool-e695a57d-ec1d-4c1d-916a-9b2ec4da5851#router-pool-1936-tcp", 
             "enabled": true, 
             "health_monitor_refs": [
                 "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
             ], 
             "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "b62637462208fd7e30ad4a3835d40d43"
+            "cloud_config_cksum": "4f624c9cdd1547a376de619d14b3156b"
         }, 
         {
             "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
@@ -4327,54 +4276,35 @@
             "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
             "use_service_port": false, 
             "server_auto_scale": false, 
-            "host_check_enabled": false, 
-            "tenant_ref": "/api/tenant/tenant-9dae9037-e6eb-4e13-82ac-ab81294247c5#default", 
+            "lb_algorithm_core_nonaffinity": 2, 
+            "tenant_ref": "/api/tenant/tenant-cf1e1eec-3598-4a42-a0a3-286a13a4e08c#openshift-ansible-service-broker", 
             "rewrite_host_header_to_sni": false, 
             "capacity_estimation": false, 
-            "servers": [
-                {
-                    "external_orchestration_id": "540a0ae2-e885-11e8-999a-0050568fd4c6--170284", 
-                    "ratio": 1, 
-                    "ip": {
-                        "type": "V4", 
-                        "addr": "10.129.0.7"
-                    }, 
-                    "hostname": "10.129.0.7", 
-                    "enabled": true, 
-                    "verify_network": false, 
-                    "server_node": "10.57.0.41", 
-                    "external_uuid": "48f13f92b77e083fa8ab05266c7d732b25be72e43648105a34728ad14634bc4b", 
-                    "resolve_server_by_dns": false, 
-                    "static": false, 
-                    "rewrite_host_header": false, 
-                    "port": 9090
-                }
-            ], 
             "fewest_tasks_feedback_delay": 10, 
             "rewrite_host_header_to_server_name": false, 
             "created_by": "oshift-k8s-cloud-connector", 
             "lookup_server_by_name": false, 
             "sni_enabled": true, 
             "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
-            "lb_algorithm_core_nonaffinity": 2, 
-            "east_west": false, 
+            "host_check_enabled": false, 
+            "east_west": true, 
             "vrf_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
             "inline_health_monitor": true, 
             "default_server_port": 80, 
             "request_queue_depth": 128, 
             "graceful_disable_timeout": 1, 
-            "server_count": 1, 
-            "uuid": "pool-42f742e8-50b1-4642-932e-4a628e8878de", 
+            "server_count": 0, 
+            "uuid": "pool-22aafc40-9087-4709-a86e-f5b4c4c11656", 
             "request_queue_enabled": false, 
-            "name": "registry-console-aviroute-pool-9090-tcp", 
+            "name": "asb-pool-1338-tcp", 
             "max_concurrent_connections_per_server": 0, 
-            "url": "/api/pool/pool-42f742e8-50b1-4642-932e-4a628e8878de#registry-console-aviroute-pool-9090-tcp", 
+            "url": "/api/pool/pool-22aafc40-9087-4709-a86e-f5b4c4c11656#asb-pool-1338-tcp", 
             "enabled": true, 
             "health_monitor_refs": [
                 "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
             ], 
             "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "165822e1638bfef42cf26a2eb7dddd17"
+            "cloud_config_cksum": "b62637462208fd7e30ad4a3835d40d43"
         }, 
         {
             "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
@@ -4550,7 +4480,7 @@
             "cloud_config_cksum": "c64da52c2cee2c0bfd2af08df72d31b1"
         }, 
         {
-            "lb_algorithm": "LB_ALGORITHM_CONSISTENT_HASH", 
+            "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
             "use_service_port": false, 
             "server_auto_scale": false, 
             "host_check_enabled": false, 
@@ -4559,26 +4489,44 @@
             "capacity_estimation": false, 
             "servers": [
                 {
-                    "external_orchestration_id": "NAP--", 
+                    "external_orchestration_id": "2a167a2d-e885-11e8-999a-0050568fd4c6--171153", 
                     "ratio": 1, 
                     "ip": {
                         "type": "V4", 
-                        "addr": "10.57.0.41"
+                        "addr": "10.57.0.43"
                     }, 
-                    "hostname": "10.57.0.41", 
+                    "hostname": "10.57.0.43", 
                     "enabled": true, 
                     "verify_network": false, 
-                    "static": false, 
+                    "server_node": "10.57.0.43", 
+                    "external_uuid": "6366f3f9ea2d1a5ec8a3a7bf562835057891d9460a1f32580481f19e467b1d1c", 
                     "resolve_server_by_dns": false, 
+                    "static": false, 
                     "rewrite_host_header": false, 
-                    "port": 8443
+                    "port": 443
+                }, 
+                {
+                    "external_orchestration_id": "2a17d305-e885-11e8-999a-0050568fd4c6--171133", 
+                    "ratio": 1, 
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "10.57.0.42"
+                    }, 
+                    "hostname": "10.57.0.42", 
+                    "enabled": true, 
+                    "verify_network": false, 
+                    "server_node": "10.57.0.42", 
+                    "external_uuid": "71d36d087afe771044676d493ccfe701a026fae8415c9a0ed6b7b4af26edd867", 
+                    "resolve_server_by_dns": false, 
+                    "static": false, 
+                    "rewrite_host_header": false, 
+                    "port": 443
                 }
             ], 
             "fewest_tasks_feedback_delay": 10, 
             "rewrite_host_header_to_server_name": false, 
             "created_by": "oshift-k8s-cloud-connector", 
             "lookup_server_by_name": false, 
-            "lb_algorithm_hash": "LB_ALGORITHM_CONSISTENT_HASH_SOURCE_IP_ADDRESS", 
             "sni_enabled": true, 
             "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
             "lb_algorithm_core_nonaffinity": 2, 
@@ -4588,18 +4536,71 @@
             "default_server_port": 80, 
             "request_queue_depth": 128, 
             "graceful_disable_timeout": 1, 
-            "server_count": 1, 
-            "uuid": "pool-4bf4097c-063e-4b1a-82d6-29fdbca577a7", 
+            "server_count": 2, 
+            "uuid": "pool-b0ff4ca4-859b-40fb-97af-61915d6e9b75", 
             "request_queue_enabled": false, 
-            "name": "kubernetes-pool-8443-tcp", 
+            "name": "router-pool-443-tcp", 
             "max_concurrent_connections_per_server": 0, 
-            "url": "/api/pool/pool-4bf4097c-063e-4b1a-82d6-29fdbca577a7#kubernetes-pool-8443-tcp", 
+            "url": "/api/pool/pool-b0ff4ca4-859b-40fb-97af-61915d6e9b75#router-pool-443-tcp", 
             "enabled": true, 
             "health_monitor_refs": [
                 "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
             ], 
             "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "c2bf78527cce94bd04192b055b2d4d23"
+            "cloud_config_cksum": "21c80283bd877e9f7ffabf4d053cf75c"
+        }, 
+        {
+            "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
+            "use_service_port": false, 
+            "server_auto_scale": false, 
+            "host_check_enabled": false, 
+            "tenant_ref": "/api/tenant/tenant-9dae9037-e6eb-4e13-82ac-ab81294247c5#default", 
+            "rewrite_host_header_to_sni": false, 
+            "capacity_estimation": false, 
+            "servers": [
+                {
+                    "external_orchestration_id": "540a0ae2-e885-11e8-999a-0050568fd4c6--170284", 
+                    "ratio": 1, 
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "10.129.0.7"
+                    }, 
+                    "hostname": "10.129.0.7", 
+                    "enabled": true, 
+                    "verify_network": false, 
+                    "server_node": "10.57.0.41", 
+                    "external_uuid": "48f13f92b77e083fa8ab05266c7d732b25be72e43648105a34728ad14634bc4b", 
+                    "resolve_server_by_dns": false, 
+                    "static": false, 
+                    "rewrite_host_header": false, 
+                    "port": 9090
+                }
+            ], 
+            "fewest_tasks_feedback_delay": 10, 
+            "rewrite_host_header_to_server_name": false, 
+            "created_by": "oshift-k8s-cloud-connector", 
+            "lookup_server_by_name": false, 
+            "sni_enabled": true, 
+            "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
+            "lb_algorithm_core_nonaffinity": 2, 
+            "east_west": false, 
+            "vrf_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
+            "inline_health_monitor": true, 
+            "default_server_port": 80, 
+            "request_queue_depth": 128, 
+            "graceful_disable_timeout": 1, 
+            "server_count": 1, 
+            "uuid": "pool-42f742e8-50b1-4642-932e-4a628e8878de", 
+            "request_queue_enabled": false, 
+            "name": "registry-console-aviroute-pool-9090-tcp", 
+            "max_concurrent_connections_per_server": 0, 
+            "url": "/api/pool/pool-42f742e8-50b1-4642-932e-4a628e8878de#registry-console-aviroute-pool-9090-tcp", 
+            "enabled": true, 
+            "health_monitor_refs": [
+                "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
+            ], 
+            "connection_ramp_duration": 10, 
+            "cloud_config_cksum": "165822e1638bfef42cf26a2eb7dddd17"
         }, 
         {
             "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
@@ -4655,7 +4656,7 @@
             "cloud_config_cksum": "a5f08802cf65e02adff1c1d74bbcbbb4"
         }, 
         {
-            "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
+            "lb_algorithm": "LB_ALGORITHM_CONSISTENT_HASH", 
             "use_service_port": false, 
             "server_auto_scale": false, 
             "host_check_enabled": false, 
@@ -4664,27 +4665,26 @@
             "capacity_estimation": false, 
             "servers": [
                 {
-                    "external_orchestration_id": "540a0ae2-e885-11e8-999a-0050568fd4c6--170284", 
+                    "external_orchestration_id": "NAP--", 
                     "ratio": 1, 
                     "ip": {
                         "type": "V4", 
-                        "addr": "10.129.0.7"
+                        "addr": "10.57.0.41"
                     }, 
-                    "hostname": "10.129.0.7", 
+                    "hostname": "10.57.0.41", 
                     "enabled": true, 
                     "verify_network": false, 
-                    "server_node": "10.57.0.41", 
-                    "external_uuid": "48f13f92b77e083fa8ab05266c7d732b25be72e43648105a34728ad14634bc4b", 
-                    "resolve_server_by_dns": false, 
                     "static": false, 
+                    "resolve_server_by_dns": false, 
                     "rewrite_host_header": false, 
-                    "port": 9090
+                    "port": 8443
                 }
             ], 
             "fewest_tasks_feedback_delay": 10, 
             "rewrite_host_header_to_server_name": false, 
             "created_by": "oshift-k8s-cloud-connector", 
             "lookup_server_by_name": false, 
+            "lb_algorithm_hash": "LB_ALGORITHM_CONSISTENT_HASH_SOURCE_IP_ADDRESS", 
             "sni_enabled": true, 
             "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
             "lb_algorithm_core_nonaffinity": 2, 
@@ -4695,17 +4695,17 @@
             "request_queue_depth": 128, 
             "graceful_disable_timeout": 1, 
             "server_count": 1, 
-            "uuid": "pool-2688d423-325e-421a-91d6-a5a57a0fb17e", 
+            "uuid": "pool-4bf4097c-063e-4b1a-82d6-29fdbca577a7", 
             "request_queue_enabled": false, 
-            "name": "registry-console-pool-9090-tcp", 
+            "name": "kubernetes-pool-8443-tcp", 
             "max_concurrent_connections_per_server": 0, 
-            "url": "/api/pool/pool-2688d423-325e-421a-91d6-a5a57a0fb17e#registry-console-pool-9090-tcp", 
+            "url": "/api/pool/pool-4bf4097c-063e-4b1a-82d6-29fdbca577a7#kubernetes-pool-8443-tcp", 
             "enabled": true, 
             "health_monitor_refs": [
                 "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
             ], 
             "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "c346c7035224b94a36d68433ed98d90e"
+            "cloud_config_cksum": "c2bf78527cce94bd04192b055b2d4d23"
         }
     ], 
     "SeProperties": [
@@ -7907,6 +7907,30 @@
     "DnsPolicy": [], 
     "User": [
         {
+            "username": "avisystemuser", 
+            "user_profile_ref": "/api/useraccountprofile/useraccountprofile-10015b10-8777-4bf9-9b87-2e9edd536f52#No-Lockout-User-Account-Profile", 
+            "name": "avisystemuser", 
+            "url": "/api/user/user-system#avisystemuser", 
+            "is_active": true, 
+            "uuid": "user-system", 
+            "access": [
+                {
+                    "tenant_ref": "/api/tenant/admin#admin", 
+                    "all_tenants": false, 
+                    "role_ref": "/api/tenant/admin/role/role-422b1adf-e75d-437c-8186-4045dc22fef2#System-Admin"
+                }
+            ], 
+            "is_superuser": true, 
+            "full_name": "Avi System User", 
+            "ui_property": "", 
+            "unix_crypt_password": "$6$QslmKAMx$iNhW4tzkoYdl9Pa2qhdHoydkeOmYaGSWSE/5j9WJC0r6g0lyhEQegbPMUer4RqoNtI24Ykj2QV3f1/vqHY.xn0", 
+            "password": "pbkdf2_sha256$100000$wuKo21kuUJ0E$dyLoY4UBH7X6IRC2s0hB8Br/bJzt/22s0vGDvQyt+ow=", 
+            "local": true, 
+            "email": "", 
+            "default_tenant_ref": "/api/tenant/admin#admin", 
+            "uid": 2001
+        }, 
+        {
             "username": "admin", 
             "user_profile_ref": "/api/useraccountprofile/useraccountprofile-7a484847-b648-43f6-a275-080c0791f40e#Default-User-Account-Profile", 
             "name": "admin", 
@@ -7994,30 +8018,6 @@
             "email": "", 
             "default_tenant_ref": "/api/tenant/admin#admin", 
             "uid": 2000
-        }, 
-        {
-            "username": "avisystemuser", 
-            "user_profile_ref": "/api/useraccountprofile/useraccountprofile-10015b10-8777-4bf9-9b87-2e9edd536f52#No-Lockout-User-Account-Profile", 
-            "name": "avisystemuser", 
-            "url": "/api/user/user-system#avisystemuser", 
-            "is_active": true, 
-            "uuid": "user-system", 
-            "access": [
-                {
-                    "tenant_ref": "/api/tenant/admin#admin", 
-                    "all_tenants": false, 
-                    "role_ref": "/api/tenant/admin/role/role-422b1adf-e75d-437c-8186-4045dc22fef2#System-Admin"
-                }
-            ], 
-            "is_superuser": true, 
-            "full_name": "Avi System User", 
-            "ui_property": "", 
-            "unix_crypt_password": "$6$QslmKAMx$iNhW4tzkoYdl9Pa2qhdHoydkeOmYaGSWSE/5j9WJC0r6g0lyhEQegbPMUer4RqoNtI24Ykj2QV3f1/vqHY.xn0", 
-            "password": "pbkdf2_sha256$100000$wuKo21kuUJ0E$dyLoY4UBH7X6IRC2s0hB8Br/bJzt/22s0vGDvQyt+ow=", 
-            "local": true, 
-            "email": "", 
-            "default_tenant_ref": "/api/tenant/admin#admin", 
-            "uid": 2001
         }
     ], 
     "CustomIpamDnsProfile": [], 

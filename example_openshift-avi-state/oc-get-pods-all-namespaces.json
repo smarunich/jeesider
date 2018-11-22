@@ -1278,14 +1278,14 @@
                 "annotations": {
                     "openshift.io/scc": "restricted"
                 },
-                "creationTimestamp": "2018-11-15T03:20:50Z",
+                "creationTimestamp": "2018-11-22T13:06:25Z",
                 "generateName": "controller-manager-",
                 "labels": {
                     "app": "controller-manager",
                     "controller-revision-hash": "2402447286",
                     "pod-template-generation": "1"
                 },
-                "name": "controller-manager-h8294",
+                "name": "controller-manager-xr662",
                 "namespace": "kube-service-catalog",
                 "ownerReferences": [
                     {
@@ -1297,9 +1297,9 @@
                         "uid": "73852a77-e885-11e8-999a-0050568fd4c6"
                     }
                 ],
-                "resourceVersion": "170878",
-                "selfLink": "/api/v1/namespaces/kube-service-catalog/pods/controller-manager-h8294",
-                "uid": "73862f3a-e885-11e8-999a-0050568fd4c6"
+                "resourceVersion": "3225368",
+                "selfLink": "/api/v1/namespaces/kube-service-catalog/pods/controller-manager-xr662",
+                "uid": "6a8cbd08-ee57-11e8-9abe-0050568fd4c6"
             },
             "spec": {
                 "containers": [
@@ -1440,52 +1440,44 @@
                 "conditions": [
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-15T03:20:50Z",
+                        "lastTransitionTime": "2018-11-22T13:06:25Z",
                         "status": "True",
                         "type": "Initialized"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-15T22:21:34Z",
+                        "lastTransitionTime": "2018-11-22T13:06:28Z",
                         "status": "True",
                         "type": "Ready"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-15T03:20:56Z",
+                        "lastTransitionTime": "2018-11-22T13:06:28Z",
                         "status": "True",
                         "type": "PodScheduled"
                     }
                 ],
                 "containerStatuses": [
                     {
-                        "containerID": "docker://928076cc612ddd6807dc83dd2342960993ad3600fb0b351d22c292258d590c5f",
+                        "containerID": "docker://1b0c9ad2c997db1838e4609b422c287e095157a7e47c8a4f2c7f06311cd5ed7b",
                         "image": "registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43",
                         "imageID": "docker-pullable://registry.access.redhat.com/openshift3/ose-service-catalog@sha256:3cce466f36d31530316f40d8f95a53a4f1017391313127143826b821d8aaf204",
-                        "lastState": {
-                            "terminated": {
-                                "containerID": "docker://06d987d3d6ef6c47592eff04f4a0931bff7d1e36c5590a323f854755d1dd5174",
-                                "exitCode": 255,
-                                "finishedAt": "2018-11-15T22:21:17Z",
-                                "reason": "Error",
-                                "startedAt": "2018-11-15T22:17:51Z"
-                            }
-                        },
+                        "lastState": {},
                         "name": "controller-manager",
                         "ready": true,
-                        "restartCount": 4,
+                        "restartCount": 0,
                         "state": {
                             "running": {
-                                "startedAt": "2018-11-15T22:21:33Z"
+                                "startedAt": "2018-11-22T13:06:28Z"
                             }
                         }
                     }
                 ],
                 "hostIP": "10.57.0.41",
                 "phase": "Running",
-                "podIP": "10.129.0.10",
+                "podIP": "10.129.0.15",
                 "qosClass": "BestEffort",
-                "startTime": "2018-11-15T03:20:50Z"
+                "startTime": "2018-11-22T13:06:25Z"
             }
         },
         {

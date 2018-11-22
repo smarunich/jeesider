@@ -1,10 +1,100 @@
 {
     "apiVersion": "v1",
-    "items": [],
+    "items": [
+        {
+            "apiVersion": "network.openshift.io/v1",
+            "host": "ocp-server1.ps.lab",
+            "hostIP": "10.57.0.41",
+            "kind": "HostSubnet",
+            "metadata": {
+                "annotations": {
+                    "pod.network.openshift.io/node-uid": "9dfbf0bb-e87f-11e8-8dcd-0050568fd4c6"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "name": "ocp-server1.ps.lab",
+                "namespace": "",
+                "resourceVersion": "1981",
+                "selfLink": "/apis/network.openshift.io/v1/hostsubnets/ocp-server1.ps.lab",
+                "uid": "9dfcfea7-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "subnet": "10.129.0.0/23"
+        },
+        {
+            "apiVersion": "network.openshift.io/v1",
+            "host": "ocp-server2.ps.lab",
+            "hostIP": "10.57.0.42",
+            "kind": "HostSubnet",
+            "metadata": {
+                "annotations": {
+                    "pod.network.openshift.io/node-uid": "9e104d50-e87f-11e8-8dcd-0050568fd4c6"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "name": "ocp-server2.ps.lab",
+                "namespace": "",
+                "resourceVersion": "1993",
+                "selfLink": "/apis/network.openshift.io/v1/hostsubnets/ocp-server2.ps.lab",
+                "uid": "9e10c7f3-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "subnet": "10.131.0.0/23"
+        },
+        {
+            "apiVersion": "network.openshift.io/v1",
+            "host": "ocp-server3.ps.lab",
+            "hostIP": "10.57.0.43",
+            "kind": "HostSubnet",
+            "metadata": {
+                "annotations": {
+                    "pod.network.openshift.io/node-uid": "9e161504-e87f-11e8-8dcd-0050568fd4c6"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "name": "ocp-server3.ps.lab",
+                "namespace": "",
+                "resourceVersion": "1998",
+                "selfLink": "/apis/network.openshift.io/v1/hostsubnets/ocp-server3.ps.lab",
+                "uid": "9e169eaf-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "subnet": "10.128.2.0/23"
+        },
+        {
+            "apiVersion": "network.openshift.io/v1",
+            "host": "ocp-server4.ps.lab",
+            "hostIP": "10.57.0.44",
+            "kind": "HostSubnet",
+            "metadata": {
+                "annotations": {
+                    "pod.network.openshift.io/node-uid": "9dcdc6c6-e87f-11e8-8dcd-0050568fd4c6"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "name": "ocp-server4.ps.lab",
+                "namespace": "",
+                "resourceVersion": "1959",
+                "selfLink": "/apis/network.openshift.io/v1/hostsubnets/ocp-server4.ps.lab",
+                "uid": "9dd0292e-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "subnet": "10.128.0.0/23"
+        },
+        {
+            "apiVersion": "network.openshift.io/v1",
+            "host": "ocp-server5.ps.lab",
+            "hostIP": "10.57.0.45",
+            "kind": "HostSubnet",
+            "metadata": {
+                "annotations": {
+                    "pod.network.openshift.io/node-uid": "9e077244-e87f-11e8-8dcd-0050568fd4c6"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "name": "ocp-server5.ps.lab",
+                "namespace": "",
+                "resourceVersion": "1988",
+                "selfLink": "/apis/network.openshift.io/v1/hostsubnets/ocp-server5.ps.lab",
+                "uid": "9e0824c1-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "subnet": "10.130.0.0/23"
+        }
+    ],
     "kind": "List",
     "metadata": {
         "resourceVersion": "",
         "selfLink": ""
     }
 }
-Error from server (Forbidden): hostsubnets.network.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list hostsubnets.network.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all hostsubnets.network.openshift.io in the cluster

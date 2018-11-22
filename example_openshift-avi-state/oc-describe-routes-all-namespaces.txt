@@ -1,1 +1,108 @@
-Error from server (Forbidden): routes.route.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list routes.route.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all routes.route.openshift.io in the cluster
+Name:			docker-registry
+Namespace:		default
+Created:		7 days ago
+Labels:			<none>
+Annotations:		openshift.io/host.generated=true
+Requested Host:		docker-registry-default.router.default.svc.cluster.local
+			  exposed on router AviVantage 6 days ago
+			  exposed on router router 6 days ago
+Path:			<none>
+TLS Termination:	passthrough
+Insecure Policy:	<none>
+Endpoint Port:		<all endpoint ports>
+
+Service:	docker-registry
+Weight:		100 (100%)
+Endpoints:	10.131.0.8:5000
+
+
+Name:			registry-console
+Namespace:		default
+Created:		7 days ago
+Labels:			<none>
+Annotations:		openshift.io/host.generated=true
+Requested Host:		registry-console-default.router.default.svc.cluster.local
+			  exposed on router AviVantage 6 days ago
+			  exposed on router router 6 days ago
+Path:			<none>
+TLS Termination:	passthrough
+Insecure Policy:	<none>
+Endpoint Port:		<all endpoint ports>
+
+Service:	registry-console
+Weight:		100 (100%)
+Endpoints:	10.129.0.7:9090
+
+
+Name:			apiserver
+Namespace:		kube-service-catalog
+Created:		7 days ago
+Labels:			<none>
+Annotations:		openshift.io/host.generated=true
+Requested Host:		apiserver-kube-service-catalog.router.default.svc.cluster.local
+			  exposed on router AviVantage 6 days ago
+			  exposed on router router 6 days ago
+Path:			<none>
+TLS Termination:	passthrough
+Insecure Policy:	<none>
+Endpoint Port:		secure
+
+Service:	apiserver
+Weight:		100 (100%)
+Endpoints:	10.129.0.9:6443
+
+
+Name:			asb-1338
+Namespace:		openshift-ansible-service-broker
+Created:		7 days ago
+Labels:			app=openshift-ansible-service-broker
+			service=asb
+Annotations:		openshift.io/host.generated=true
+Requested Host:		asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local
+			  exposed on router router 6 days ago
+Path:			<none>
+TLS Termination:	reencrypt
+Insecure Policy:	<none>
+Endpoint Port:		1338
+
+Service:	asb
+Weight:		100 (100%)
+Endpoints:	<none>
+
+
+Name:			nginx-example
+Namespace:		sergey1
+Created:		7 days ago
+Labels:			template=nginx-example
+Annotations:		openshift.io/host.generated=true
+			template.openshift.io/expose-uri=http://{.spec.host}{.spec.path}
+Requested Host:		nginx-example-sergey1.router.default.svc.cluster.local
+			  exposed on router AviVantage 6 days ago
+			  exposed on router router 6 days ago
+Path:			<none>
+TLS Termination:	<none>
+Insecure Policy:	<none>
+Endpoint Port:		<all endpoint ports>
+
+Service:	nginx-example
+Weight:		100 (100%)
+Endpoints:	10.128.2.18:8080, 10.128.2.19:8080, 10.131.0.11:8080 + 2 more...
+
+
+Name:			nginx-example2
+Namespace:		sergey1
+Created:		6 days ago
+Labels:			template=nginx-example
+Annotations:		openshift.io/host.generated=true
+			template.openshift.io/expose-uri=http://{.spec.host}{.spec.path}
+Requested Host:		nginx-example2-sergey1.router.default.svc.cluster.local
+			  exposed on router AviVantage 6 days ago
+			  exposed on router router 6 days ago
+Path:			<none>
+TLS Termination:	<none>
+Insecure Policy:	<none>
+Endpoint Port:		<all endpoint ports>
+
+Service:	nginx-example2
+Weight:		100 (100%)
+Endpoints:	10.128.2.17:8080, 10.131.0.17:8080

@@ -1,1 +1,12 @@
-Error from server (Forbidden): roles.authorization.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list roles.authorization.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all roles.authorization.openshift.io in the cluster
+NAMESPACE                           NAME
+kube-public                         system:controller:bootstrap-signer
+kube-service-catalog                configmap-accessor
+kube-system                         extension-apiserver-authentication-reader
+kube-system                         system::leader-locking-kube-controller-manager
+kube-system                         system::leader-locking-kube-scheduler
+kube-system                         system:controller:bootstrap-signer
+kube-system                         system:controller:cloud-provider
+kube-system                         system:controller:token-cleaner
+openshift-node                      system:node-config-reader
+openshift-template-service-broker   templateservicebroker-auth-reader
+openshift                           shared-resource-viewer

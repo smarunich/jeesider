@@ -1,1 +1,2 @@
-Error from server (Forbidden): clusternetworks.network.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list clusternetworks.network.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all clusternetworks.network.openshift.io in the cluster
+NAME      CLUSTER NETWORKS   SERVICE NETWORK   PLUGIN NAME
+default   10.128.0.0/14:9    172.30.0.0/16     redhat/openshift-ovs-subnet

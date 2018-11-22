@@ -1,8 +1,8 @@
 ocp-server1.ps.lab
-Containers: 15
+Containers: 14
  Running: 9
  Paused: 0
- Stopped: 6
+ Stopped: 5
 Images: 5
 Server Version: 1.13.1
 Storage Driver: overlay2
@@ -30,9 +30,9 @@ Kernel Version: 3.10.0-957.el7.x86_64
 Operating System: Red Hat Enterprise Linux
 OSType: linux
 Architecture: x86_64
+  WARNING: You're not using the default seccomp profile
 Number of Docker Hooks: 3
 CPUs: 4
-  WARNING: You're not using the default seccomp profile
 Total Memory: 15.51 GiB
 Name: ocp-server1.ps.lab
 ID: EXZZ:SQS6:PJ4W:TBIM:QPVB:Z6JY:BHQY:OZ67:AIAS:FOHQ:HKVY:RFBP
@@ -50,23 +50,23 @@ WARNING: bridge-nf-call-iptables is disabled
 WARNING: bridge-nf-call-ip6tables is disabled
 Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
- 308M  125G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
- 308M  125G OPENSHIFT-FIREWALL-ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
- 247M  112G ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+ 334M  136G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 334M  136G OPENSHIFT-FIREWALL-ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
+ 268M  121G ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
     0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
-  13M 1456M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
-   14   864 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:22
- 106K 6677K OS_FIREWALL_ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
-21961 1631K REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
+  14M 1562M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+   15   928 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:22
+ 115K 7256K OS_FIREWALL_ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+23845 1769K REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
 
 Chain FORWARD (policy DROP 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
-1113K  358M ACCEPT     all  --  *      *       0.0.0.0/0            10.57.0.0/22         /* AVI_Networks_Index:1 */
- 931K  102M ACCEPT     all  --  *      *       10.57.0.0/22         0.0.0.0/0            /* AVI_Networks_Index:0 */
-  24M   26G ACCEPT     all  --  *      *       0.0.0.0/0            172.18.0.0/16       
-  41M   13G ACCEPT     all  --  *      *       172.18.0.0/16        0.0.0.0/0           
-  58M   16G OPENSHIFT-ADMIN-OUTPUT-RULES  all  --  tun0   !tun0   0.0.0.0/0            0.0.0.0/0            /* administrator overrides */
- 138M   55G OPENSHIFT-FIREWALL-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
+1217K  390M ACCEPT     all  --  *      *       0.0.0.0/0            10.57.0.0/22         /* AVI_Networks_Index:1 */
+1014K  111M ACCEPT     all  --  *      *       10.57.0.0/22         0.0.0.0/0            /* AVI_Networks_Index:0 */
+  26M   28G ACCEPT     all  --  *      *       0.0.0.0/0            172.18.0.0/16       
+  45M   15G ACCEPT     all  --  *      *       172.18.0.0/16        0.0.0.0/0           
+  62M   18G OPENSHIFT-ADMIN-OUTPUT-RULES  all  --  tun0   !tun0   0.0.0.0/0            0.0.0.0/0            /* administrator overrides */
+ 149M   59G OPENSHIFT-FIREWALL-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
     0     0 DOCKER-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
     0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
     0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
@@ -74,9 +74,9 @@ Chain FORWARD (policy DROP 0 packets, 0 bytes)
     0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
     0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
 
-Chain OUTPUT (policy ACCEPT 277M packets, 171G bytes)
+Chain OUTPUT (policy ACCEPT 300M packets, 185G bytes)
  pkts bytes target     prot opt in     out     source               destination         
- 277M  171G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 300M  185G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
 
 Chain DOCKER (1 references)
  pkts bytes target     prot opt in     out     source               destination         
@@ -94,21 +94,21 @@ Chain OPENSHIFT-ADMIN-OUTPUT-RULES (1 references)
 
 Chain OPENSHIFT-FIREWALL-ALLOW (1 references)
  pkts bytes target     prot opt in     out     source               destination         
-2026K  850M ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:4789 /* VXLAN incoming */
-  46M   11G ACCEPT     all  --  tun0   *       0.0.0.0/0            0.0.0.0/0            /* from SDN to localhost */
+2254K  928M ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:4789 /* VXLAN incoming */
+  50M   12G ACCEPT     all  --  tun0   *       0.0.0.0/0            0.0.0.0/0            /* from SDN to localhost */
     0     0 ACCEPT     all  --  docker0 *       0.0.0.0/0            0.0.0.0/0            /* from docker to localhost */
 
 Chain OPENSHIFT-FIREWALL-FORWARD (1 references)
  pkts bytes target     prot opt in     out     source               destination         
     0     0 DROP       all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* attempted resend after connection close */ ctstate INVALID
-  81M   39G ACCEPT     all  --  *      *       0.0.0.0/0            10.128.0.0/14        /* forward traffic from SDN */
-  58M   16G ACCEPT     all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* forward traffic to SDN */
+  87M   42G ACCEPT     all  --  *      *       0.0.0.0/0            10.128.0.0/14        /* forward traffic from SDN */
+  62M   18G ACCEPT     all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* forward traffic to SDN */
 
 Chain OS_FIREWALL_ALLOW (1 references)
  pkts bytes target     prot opt in     out     source               destination         
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:2379
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:2380
-84085 5046K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:8443
+91454 5488K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:8443
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:8444
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:8053
     0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW udp dpt:8053
@@ -119,31 +119,31 @@ Chain OS_FIREWALL_ALLOW (1 references)
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:443
     0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW udp dpt:4789
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpts:9000:10000
-Chain PREROUTING (policy ACCEPT 19M packets, 1934M bytes)
+Chain PREROUTING (policy ACCEPT 21M packets, 2083M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-  16M 1746M avi        udp  --  *      *       0.0.0.0/0            0.0.0.0/0           
-3132K  188M avi        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           
-  16M 1751M DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
-  16M 1751M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+  17M 1880M avi        udp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+3375K  203M avi        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  17M 1886M DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+  17M 1886M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            172.18.0.1           udp dpt:1550 to:172.18.0.2:1550
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            172.17.0.1           udp dpt:1550 to:172.18.0.2:1550
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.57.0.41           udp dpt:1550 to:172.18.0.2:1550
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.129.0.1           udp dpt:1550 to:172.18.0.2:1550
 
-Chain INPUT (policy ACCEPT 16M packets, 1750M bytes)
+Chain INPUT (policy ACCEPT 17M packets, 1884M bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
-Chain OUTPUT (policy ACCEPT 15M packets, 1586M bytes)
+Chain OUTPUT (policy ACCEPT 16M packets, 1708M bytes)
  pkts bytes target     prot opt in     out     source               destination         
- 144K 9876K DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
-  13M 1452M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+ 156K   11M DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+  14M 1558M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
 
-Chain POSTROUTING (policy ACCEPT 14M packets, 1576M bytes)
+Chain POSTROUTING (policy ACCEPT 15M packets, 1697M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-2542K  153M ACCEPT     all  --  *      bravi   0.0.0.0/0            0.0.0.0/0            /* bravi-rule:1 */
- 526K   32M MASQUERADE  all  --  *      !bravi  172.18.0.0/16        0.0.0.0/0           
-  15M 1585M KUBE-POSTROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes postrouting rules */
-  15M 1585M OPENSHIFT-MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* rules for masquerading OpenShift traffic */
+2726K  164M ACCEPT     all  --  *      bravi   0.0.0.0/0            0.0.0.0/0            /* bravi-rule:1 */
+ 579K   35M MASQUERADE  all  --  *      !bravi  172.18.0.0/16        0.0.0.0/0           
+  16M 1707M KUBE-POSTROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes postrouting rules */
+  16M 1707M OPENSHIFT-MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* rules for masquerading OpenShift traffic */
     0     0 MASQUERADE  all  --  *      !docker0  172.17.0.0/16        0.0.0.0/0           
     0     0 MASQUERADE  all  --  *      tun0    127.0.0.0/8          0.0.0.0/0            /* SNAT for localhost access to hostports */
 
@@ -168,7 +168,7 @@ Chain KUBE-POSTROUTING (1 references)
 
 Chain OPENSHIFT-MASQUERADE (1 references)
  pkts bytes target     prot opt in     out     source               destination         
- 161K 9641K MASQUERADE  all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* masquerade pod-to-service and pod-to-external traffic */
+ 175K   10M MASQUERADE  all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* masquerade pod-to-service and pod-to-external traffic */
 
 Chain avi (2 references)
  pkts bytes target     prot opt in     out     source               destination         
@@ -219,12 +219,12 @@ fe80::/64 dev bravi proto kernel metric 256 pref medium
 fe80::/64 dev vethe28ba022 proto kernel metric 256 pref medium
 fe80::/64 dev veth770f7bc9 proto kernel metric 256 pref medium
 fe80::/64 dev vethdd2cc130 proto kernel metric 256 pref medium
-fe80::/64 dev vethf4b3552d proto kernel metric 256 pref medium
+fe80::/64 dev vetha1a4172b proto kernel metric 256 pref medium
 unreachable default dev lo proto kernel metric 4294967295 error -101 pref medium
 local ::1 dev lo table local proto unspec metric 0 pref medium
 local fe80::200:ff:fe00:1 dev lo table local proto unspec metric 0 pref medium
 local fe80::1ced:ebff:fed6:b46f dev lo table local proto unspec metric 0 pref medium
-local fe80::48ff:27ff:feb4:55f7 dev lo table local proto unspec metric 0 pref medium
+local fe80::2072:ffff:fed6:7177 dev lo table local proto unspec metric 0 pref medium
 local fe80::584f:82ff:fe7f:2ce0 dev lo table local proto unspec metric 0 pref medium
 local fe80::8003:19ff:fe74:30c4 dev lo table local proto unspec metric 0 pref medium
 local fe80::9019:92ff:fe33:85c8 dev lo table local proto unspec metric 0 pref medium
@@ -239,7 +239,7 @@ ff00::/8 dev bravi table local metric 256 pref medium
 ff00::/8 dev vethe28ba022 table local metric 256 pref medium
 ff00::/8 dev veth770f7bc9 table local metric 256 pref medium
 ff00::/8 dev vethdd2cc130 table local metric 256 pref medium
-ff00::/8 dev vethf4b3552d table local metric 256 pref medium
+ff00::/8 dev vetha1a4172b table local metric 256 pref medium
 unreachable default dev lo proto kernel metric 4294967295 error -101 pref medium
 bash: ifconfig: command not found
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
@@ -268,8 +268,8 @@ bash: ifconfig: command not found
     link/ether 92:19:92:33:85:c8 brd ff:ff:ff:ff:ff:ff link-netnsid 2
 17: vethdd2cc130@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP mode DEFAULT group default 
     link/ether 1e:ed:eb:d6:b4:6f brd ff:ff:ff:ff:ff:ff link-netnsid 3
-18: vethf4b3552d@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP mode DEFAULT group default 
-    link/ether 4a:ff:27:b4:55:f7 brd ff:ff:ff:ff:ff:ff link-netnsid 4
+23: vetha1a4172b@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP mode DEFAULT group default 
+    link/ether 22:72:ff:d6:71:77 brd ff:ff:ff:ff:ff:ff link-netnsid 4
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -326,9 +326,9 @@ bash: ifconfig: command not found
     link/ether 1e:ed:eb:d6:b4:6f brd ff:ff:ff:ff:ff:ff link-netnsid 3
     inet6 fe80::1ced:ebff:fed6:b46f/64 scope link 
        valid_lft forever preferred_lft forever
-18: vethf4b3552d@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default 
-    link/ether 4a:ff:27:b4:55:f7 brd ff:ff:ff:ff:ff:ff link-netnsid 4
-    inet6 fe80::48ff:27ff:feb4:55f7/64 scope link 
+23: vetha1a4172b@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default 
+    link/ether 22:72:ff:d6:71:77 brd ff:ff:ff:ff:ff:ff link-netnsid 4
+    inet6 fe80::2072:ffff:fed6:7177/64 scope link 
        valid_lft forever preferred_lft forever
 abi.vsyscall32 = 1
 crypto.fips_enabled = 0
@@ -376,13 +376,13 @@ dev.scsi.logging_level = 0
 fs.aio-max-nr = 65536
 fs.aio-nr = 0
 fs.binfmt_misc.status = enabled
-fs.dentry-state = 52442145	52410542	45	0	0	0
+fs.dentry-state = 58709075	58678177	45	0	0	0
 fs.dir-notify-enable = 1
 fs.epoll.max_user_watches = 3326545
 fs.file-max = 1609940
-fs.file-nr = 4160	0	1609940
-fs.inode-nr = 41978	0
-fs.inode-state = 41978	0	0	0	0	0	0
+fs.file-nr = 3520	0	1609940
+fs.inode-nr = 45040	0
+fs.inode-state = 45040	0	0	0	0	0	0
 fs.inotify.max_queued_events = 16384
 fs.inotify.max_user_instances = 128
 fs.inotify.max_user_watches = 65536
@@ -471,7 +471,7 @@ kernel.msgmnb = 16384
 kernel.msgmni = 5295
 kernel.ngroups_max = 65536
 kernel.nmi_watchdog = 1
-kernel.ns_last_pid = 123119
+kernel.ns_last_pid = 54790
 kernel.numa_balancing = 0
 kernel.numa_balancing_scan_delay_ms = 1000
 kernel.numa_balancing_scan_period_max_ms = 60000
@@ -500,14 +500,14 @@ kernel.printk_delay = 0
 kernel.printk_ratelimit = 5
 kernel.printk_ratelimit_burst = 10
 kernel.pty.max = 4096
-kernel.pty.nr = 18
+kernel.pty.nr = 16
 kernel.pty.reserve = 1024
 kernel.random.boot_id = 884ce4c0-f78a-4d29-8486-3ff0188946e5
-kernel.random.entropy_avail = 3425
+kernel.random.entropy_avail = 3075
 kernel.random.poolsize = 4096
 kernel.random.read_wakeup_threshold = 64
 kernel.random.urandom_min_reseed_secs = 60
-kernel.random.uuid = 507e3ce7-374f-4ecc-aeba-9d55c0dd5abb
+kernel.random.uuid = 1b77aa2b-2de5-4ea3-982b-b3a411135228
 kernel.random.write_wakeup_threshold = 896
 kernel.randomize_va_space = 2
 kernel.real-root-dev = 0
@@ -522,7 +522,7 @@ kernel.sched_domain.cpu0.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu0.domain0.idle_idx = 1
 kernel.sched_domain.cpu0.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu0.domain0.max_interval = 8
-kernel.sched_domain.cpu0.domain0.max_newidle_lb_cost = 11275
+kernel.sched_domain.cpu0.domain0.max_newidle_lb_cost = 13213
 kernel.sched_domain.cpu0.domain0.min_interval = 4
 kernel.sched_domain.cpu0.domain0.name = DIE
 kernel.sched_domain.cpu0.domain0.newidle_idx = 0
@@ -535,7 +535,7 @@ kernel.sched_domain.cpu1.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu1.domain0.idle_idx = 1
 kernel.sched_domain.cpu1.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu1.domain0.max_interval = 8
-kernel.sched_domain.cpu1.domain0.max_newidle_lb_cost = 12601
+kernel.sched_domain.cpu1.domain0.max_newidle_lb_cost = 3511
 kernel.sched_domain.cpu1.domain0.min_interval = 4
 kernel.sched_domain.cpu1.domain0.name = DIE
 kernel.sched_domain.cpu1.domain0.newidle_idx = 0
@@ -548,7 +548,7 @@ kernel.sched_domain.cpu2.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu2.domain0.idle_idx = 1
 kernel.sched_domain.cpu2.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu2.domain0.max_interval = 8
-kernel.sched_domain.cpu2.domain0.max_newidle_lb_cost = 7629
+kernel.sched_domain.cpu2.domain0.max_newidle_lb_cost = 10470
 kernel.sched_domain.cpu2.domain0.min_interval = 4
 kernel.sched_domain.cpu2.domain0.name = DIE
 kernel.sched_domain.cpu2.domain0.newidle_idx = 0
@@ -561,7 +561,7 @@ kernel.sched_domain.cpu3.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu3.domain0.idle_idx = 1
 kernel.sched_domain.cpu3.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu3.domain0.max_interval = 8
-kernel.sched_domain.cpu3.domain0.max_newidle_lb_cost = 16261
+kernel.sched_domain.cpu3.domain0.max_newidle_lb_cost = 7788
 kernel.sched_domain.cpu3.domain0.min_interval = 4
 kernel.sched_domain.cpu3.domain0.name = DIE
 kernel.sched_domain.cpu3.domain0.newidle_idx = 0
@@ -952,6 +952,32 @@ net.ipv4.conf.veth770f7bc9.send_redirects = 1
 net.ipv4.conf.veth770f7bc9.shared_media = 1
 net.ipv4.conf.veth770f7bc9.src_valid_mark = 0
 net.ipv4.conf.veth770f7bc9.tag = 0
+net.ipv4.conf.vetha1a4172b.accept_local = 0
+net.ipv4.conf.vetha1a4172b.accept_redirects = 1
+net.ipv4.conf.vetha1a4172b.accept_source_route = 0
+net.ipv4.conf.vetha1a4172b.arp_accept = 0
+net.ipv4.conf.vetha1a4172b.arp_announce = 0
+net.ipv4.conf.vetha1a4172b.arp_filter = 0
+net.ipv4.conf.vetha1a4172b.arp_ignore = 0
+net.ipv4.conf.vetha1a4172b.arp_notify = 0
+net.ipv4.conf.vetha1a4172b.bootp_relay = 0
+net.ipv4.conf.vetha1a4172b.disable_policy = 0
+net.ipv4.conf.vetha1a4172b.disable_xfrm = 0
+net.ipv4.conf.vetha1a4172b.force_igmp_version = 0
+net.ipv4.conf.vetha1a4172b.forwarding = 1
+net.ipv4.conf.vetha1a4172b.log_martians = 0
+net.ipv4.conf.vetha1a4172b.mc_forwarding = 0
+net.ipv4.conf.vetha1a4172b.medium_id = 0
+net.ipv4.conf.vetha1a4172b.promote_secondaries = 1
+net.ipv4.conf.vetha1a4172b.proxy_arp = 0
+net.ipv4.conf.vetha1a4172b.proxy_arp_pvlan = 0
+net.ipv4.conf.vetha1a4172b.route_localnet = 0
+net.ipv4.conf.vetha1a4172b.rp_filter = 0
+net.ipv4.conf.vetha1a4172b.secure_redirects = 1
+net.ipv4.conf.vetha1a4172b.send_redirects = 1
+net.ipv4.conf.vetha1a4172b.shared_media = 1
+net.ipv4.conf.vetha1a4172b.src_valid_mark = 0
+net.ipv4.conf.vetha1a4172b.tag = 0
 net.ipv4.conf.vethdd2cc130.accept_local = 0
 net.ipv4.conf.vethdd2cc130.accept_redirects = 1
 net.ipv4.conf.vethdd2cc130.accept_source_route = 0
@@ -1004,32 +1030,6 @@ net.ipv4.conf.vethe28ba022.send_redirects = 1
 net.ipv4.conf.vethe28ba022.shared_media = 1
 net.ipv4.conf.vethe28ba022.src_valid_mark = 0
 net.ipv4.conf.vethe28ba022.tag = 0
-net.ipv4.conf.vethf4b3552d.accept_local = 0
-net.ipv4.conf.vethf4b3552d.accept_redirects = 1
-net.ipv4.conf.vethf4b3552d.accept_source_route = 0
-net.ipv4.conf.vethf4b3552d.arp_accept = 0
-net.ipv4.conf.vethf4b3552d.arp_announce = 0
-net.ipv4.conf.vethf4b3552d.arp_filter = 0
-net.ipv4.conf.vethf4b3552d.arp_ignore = 0
-net.ipv4.conf.vethf4b3552d.arp_notify = 0
-net.ipv4.conf.vethf4b3552d.bootp_relay = 0
-net.ipv4.conf.vethf4b3552d.disable_policy = 0
-net.ipv4.conf.vethf4b3552d.disable_xfrm = 0
-net.ipv4.conf.vethf4b3552d.force_igmp_version = 0
-net.ipv4.conf.vethf4b3552d.forwarding = 1
-net.ipv4.conf.vethf4b3552d.log_martians = 0
-net.ipv4.conf.vethf4b3552d.mc_forwarding = 0
-net.ipv4.conf.vethf4b3552d.medium_id = 0
-net.ipv4.conf.vethf4b3552d.promote_secondaries = 1
-net.ipv4.conf.vethf4b3552d.proxy_arp = 0
-net.ipv4.conf.vethf4b3552d.proxy_arp_pvlan = 0
-net.ipv4.conf.vethf4b3552d.route_localnet = 0
-net.ipv4.conf.vethf4b3552d.rp_filter = 0
-net.ipv4.conf.vethf4b3552d.secure_redirects = 1
-net.ipv4.conf.vethf4b3552d.send_redirects = 1
-net.ipv4.conf.vethf4b3552d.shared_media = 1
-net.ipv4.conf.vethf4b3552d.src_valid_mark = 0
-net.ipv4.conf.vethf4b3552d.tag = 0
 net.ipv4.conf.vxlan_sys_4789.accept_local = 0
 net.ipv4.conf.vxlan_sys_4789.accept_redirects = 1
 net.ipv4.conf.vxlan_sys_4789.accept_source_route = 0
@@ -1233,6 +1233,19 @@ net.ipv4.neigh.veth770f7bc9.retrans_time_ms = 1000
 net.ipv4.neigh.veth770f7bc9.ucast_solicit = 3
 net.ipv4.neigh.veth770f7bc9.unres_qlen = 31
 net.ipv4.neigh.veth770f7bc9.unres_qlen_bytes = 65536
+net.ipv4.neigh.vetha1a4172b.anycast_delay = 100
+net.ipv4.neigh.vetha1a4172b.app_solicit = 0
+net.ipv4.neigh.vetha1a4172b.base_reachable_time_ms = 30000
+net.ipv4.neigh.vetha1a4172b.delay_first_probe_time = 5
+net.ipv4.neigh.vetha1a4172b.gc_stale_time = 60
+net.ipv4.neigh.vetha1a4172b.locktime = 100
+net.ipv4.neigh.vetha1a4172b.mcast_solicit = 3
+net.ipv4.neigh.vetha1a4172b.proxy_delay = 80
+net.ipv4.neigh.vetha1a4172b.proxy_qlen = 64
+net.ipv4.neigh.vetha1a4172b.retrans_time_ms = 1000
+net.ipv4.neigh.vetha1a4172b.ucast_solicit = 3
+net.ipv4.neigh.vetha1a4172b.unres_qlen = 31
+net.ipv4.neigh.vetha1a4172b.unres_qlen_bytes = 65536
 net.ipv4.neigh.vethdd2cc130.anycast_delay = 100
 net.ipv4.neigh.vethdd2cc130.app_solicit = 0
 net.ipv4.neigh.vethdd2cc130.base_reachable_time_ms = 30000
@@ -1259,19 +1272,6 @@ net.ipv4.neigh.vethe28ba022.retrans_time_ms = 1000
 net.ipv4.neigh.vethe28ba022.ucast_solicit = 3
 net.ipv4.neigh.vethe28ba022.unres_qlen = 31
 net.ipv4.neigh.vethe28ba022.unres_qlen_bytes = 65536
-net.ipv4.neigh.vethf4b3552d.anycast_delay = 100
-net.ipv4.neigh.vethf4b3552d.app_solicit = 0
-net.ipv4.neigh.vethf4b3552d.base_reachable_time_ms = 30000
-net.ipv4.neigh.vethf4b3552d.delay_first_probe_time = 5
-net.ipv4.neigh.vethf4b3552d.gc_stale_time = 60
-net.ipv4.neigh.vethf4b3552d.locktime = 100
-net.ipv4.neigh.vethf4b3552d.mcast_solicit = 3
-net.ipv4.neigh.vethf4b3552d.proxy_delay = 80
-net.ipv4.neigh.vethf4b3552d.proxy_qlen = 64
-net.ipv4.neigh.vethf4b3552d.retrans_time_ms = 1000
-net.ipv4.neigh.vethf4b3552d.ucast_solicit = 3
-net.ipv4.neigh.vethf4b3552d.unres_qlen = 31
-net.ipv4.neigh.vethf4b3552d.unres_qlen_bytes = 65536
 net.ipv4.neigh.vxlan_sys_4789.anycast_delay = 100
 net.ipv4.neigh.vxlan_sys_4789.app_solicit = 0
 net.ipv4.neigh.vxlan_sys_4789.base_reachable_time_ms = 30000
@@ -1794,6 +1794,42 @@ net.ipv6.conf.veth770f7bc9.temp_prefered_lft = 86400
 net.ipv6.conf.veth770f7bc9.temp_valid_lft = 604800
 net.ipv6.conf.veth770f7bc9.use_optimistic = 0
 net.ipv6.conf.veth770f7bc9.use_tempaddr = 0
+net.ipv6.conf.vetha1a4172b.accept_dad = 1
+net.ipv6.conf.vetha1a4172b.accept_ra = 1
+net.ipv6.conf.vetha1a4172b.accept_ra_defrtr = 1
+net.ipv6.conf.vetha1a4172b.accept_ra_pinfo = 1
+net.ipv6.conf.vetha1a4172b.accept_ra_rt_info_max_plen = 0
+net.ipv6.conf.vetha1a4172b.accept_ra_rtr_pref = 1
+net.ipv6.conf.vetha1a4172b.accept_redirects = 1
+net.ipv6.conf.vetha1a4172b.accept_source_route = 0
+net.ipv6.conf.vetha1a4172b.autoconf = 1
+net.ipv6.conf.vetha1a4172b.dad_transmits = 1
+net.ipv6.conf.vetha1a4172b.disable_ipv6 = 0
+net.ipv6.conf.vetha1a4172b.enhanced_dad = 1
+net.ipv6.conf.vetha1a4172b.force_mld_version = 0
+net.ipv6.conf.vetha1a4172b.force_tllao = 0
+net.ipv6.conf.vetha1a4172b.forwarding = 0
+net.ipv6.conf.vetha1a4172b.hop_limit = 64
+net.ipv6.conf.vetha1a4172b.keep_addr_on_down = 0
+net.ipv6.conf.vetha1a4172b.max_addresses = 16
+net.ipv6.conf.vetha1a4172b.max_desync_factor = 600
+net.ipv6.conf.vetha1a4172b.mc_forwarding = 0
+net.ipv6.conf.vetha1a4172b.mldv1_unsolicited_report_interval = 10000
+net.ipv6.conf.vetha1a4172b.mldv2_unsolicited_report_interval = 1000
+net.ipv6.conf.vetha1a4172b.mtu = 1450
+net.ipv6.conf.vetha1a4172b.ndisc_notify = 0
+net.ipv6.conf.vetha1a4172b.optimistic_dad = 0
+net.ipv6.conf.vetha1a4172b.proxy_ndp = 0
+net.ipv6.conf.vetha1a4172b.regen_max_retry = 3
+net.ipv6.conf.vetha1a4172b.router_probe_interval = 60
+net.ipv6.conf.vetha1a4172b.router_solicitation_delay = 1
+net.ipv6.conf.vetha1a4172b.router_solicitation_interval = 4
+net.ipv6.conf.vetha1a4172b.router_solicitations = 3
+sysctl: reading key "net.ipv6.conf.vetha1a4172b.stable_secret"
+net.ipv6.conf.vetha1a4172b.temp_prefered_lft = 86400
+net.ipv6.conf.vetha1a4172b.temp_valid_lft = 604800
+net.ipv6.conf.vetha1a4172b.use_optimistic = 0
+net.ipv6.conf.vetha1a4172b.use_tempaddr = 0
 net.ipv6.conf.vethdd2cc130.accept_dad = 1
 net.ipv6.conf.vethdd2cc130.accept_ra = 1
 net.ipv6.conf.vethdd2cc130.accept_ra_defrtr = 1
@@ -1866,42 +1902,6 @@ net.ipv6.conf.vethe28ba022.temp_prefered_lft = 86400
 net.ipv6.conf.vethe28ba022.temp_valid_lft = 604800
 net.ipv6.conf.vethe28ba022.use_optimistic = 0
 net.ipv6.conf.vethe28ba022.use_tempaddr = 0
-net.ipv6.conf.vethf4b3552d.accept_dad = 1
-net.ipv6.conf.vethf4b3552d.accept_ra = 1
-net.ipv6.conf.vethf4b3552d.accept_ra_defrtr = 1
-net.ipv6.conf.vethf4b3552d.accept_ra_pinfo = 1
-net.ipv6.conf.vethf4b3552d.accept_ra_rt_info_max_plen = 0
-net.ipv6.conf.vethf4b3552d.accept_ra_rtr_pref = 1
-net.ipv6.conf.vethf4b3552d.accept_redirects = 1
-net.ipv6.conf.vethf4b3552d.accept_source_route = 0
-net.ipv6.conf.vethf4b3552d.autoconf = 1
-net.ipv6.conf.vethf4b3552d.dad_transmits = 1
-net.ipv6.conf.vethf4b3552d.disable_ipv6 = 0
-net.ipv6.conf.vethf4b3552d.enhanced_dad = 1
-net.ipv6.conf.vethf4b3552d.force_mld_version = 0
-net.ipv6.conf.vethf4b3552d.force_tllao = 0
-net.ipv6.conf.vethf4b3552d.forwarding = 0
-net.ipv6.conf.vethf4b3552d.hop_limit = 64
-net.ipv6.conf.vethf4b3552d.keep_addr_on_down = 0
-net.ipv6.conf.vethf4b3552d.max_addresses = 16
-net.ipv6.conf.vethf4b3552d.max_desync_factor = 600
-net.ipv6.conf.vethf4b3552d.mc_forwarding = 0
-net.ipv6.conf.vethf4b3552d.mldv1_unsolicited_report_interval = 10000
-net.ipv6.conf.vethf4b3552d.mldv2_unsolicited_report_interval = 1000
-net.ipv6.conf.vethf4b3552d.mtu = 1450
-net.ipv6.conf.vethf4b3552d.ndisc_notify = 0
-net.ipv6.conf.vethf4b3552d.optimistic_dad = 0
-net.ipv6.conf.vethf4b3552d.proxy_ndp = 0
-net.ipv6.conf.vethf4b3552d.regen_max_retry = 3
-net.ipv6.conf.vethf4b3552d.router_probe_interval = 60
-net.ipv6.conf.vethf4b3552d.router_solicitation_delay = 1
-net.ipv6.conf.vethf4b3552d.router_solicitation_interval = 4
-net.ipv6.conf.vethf4b3552d.router_solicitations = 3
-sysctl: reading key "net.ipv6.conf.vethf4b3552d.stable_secret"
-net.ipv6.conf.vethf4b3552d.temp_prefered_lft = 86400
-net.ipv6.conf.vethf4b3552d.temp_valid_lft = 604800
-net.ipv6.conf.vethf4b3552d.use_optimistic = 0
-net.ipv6.conf.vethf4b3552d.use_tempaddr = 0
 net.ipv6.conf.vxlan_sys_4789.accept_dad = 1
 net.ipv6.conf.vxlan_sys_4789.accept_ra = 1
 net.ipv6.conf.vxlan_sys_4789.accept_ra_defrtr = 1
@@ -2096,6 +2096,19 @@ net.ipv6.neigh.veth770f7bc9.retrans_time_ms = 1000
 net.ipv6.neigh.veth770f7bc9.ucast_solicit = 3
 net.ipv6.neigh.veth770f7bc9.unres_qlen = 31
 net.ipv6.neigh.veth770f7bc9.unres_qlen_bytes = 65536
+net.ipv6.neigh.vetha1a4172b.anycast_delay = 100
+net.ipv6.neigh.vetha1a4172b.app_solicit = 0
+net.ipv6.neigh.vetha1a4172b.base_reachable_time_ms = 30000
+net.ipv6.neigh.vetha1a4172b.delay_first_probe_time = 5
+net.ipv6.neigh.vetha1a4172b.gc_stale_time = 60
+net.ipv6.neigh.vetha1a4172b.locktime = 0
+net.ipv6.neigh.vetha1a4172b.mcast_solicit = 3
+net.ipv6.neigh.vetha1a4172b.proxy_delay = 80
+net.ipv6.neigh.vetha1a4172b.proxy_qlen = 64
+net.ipv6.neigh.vetha1a4172b.retrans_time_ms = 1000
+net.ipv6.neigh.vetha1a4172b.ucast_solicit = 3
+net.ipv6.neigh.vetha1a4172b.unres_qlen = 31
+net.ipv6.neigh.vetha1a4172b.unres_qlen_bytes = 65536
 net.ipv6.neigh.vethdd2cc130.anycast_delay = 100
 net.ipv6.neigh.vethdd2cc130.app_solicit = 0
 net.ipv6.neigh.vethdd2cc130.base_reachable_time_ms = 30000
@@ -2122,19 +2135,6 @@ net.ipv6.neigh.vethe28ba022.retrans_time_ms = 1000
 net.ipv6.neigh.vethe28ba022.ucast_solicit = 3
 net.ipv6.neigh.vethe28ba022.unres_qlen = 31
 net.ipv6.neigh.vethe28ba022.unres_qlen_bytes = 65536
-net.ipv6.neigh.vethf4b3552d.anycast_delay = 100
-net.ipv6.neigh.vethf4b3552d.app_solicit = 0
-net.ipv6.neigh.vethf4b3552d.base_reachable_time_ms = 30000
-net.ipv6.neigh.vethf4b3552d.delay_first_probe_time = 5
-net.ipv6.neigh.vethf4b3552d.gc_stale_time = 60
-net.ipv6.neigh.vethf4b3552d.locktime = 0
-net.ipv6.neigh.vethf4b3552d.mcast_solicit = 3
-net.ipv6.neigh.vethf4b3552d.proxy_delay = 80
-net.ipv6.neigh.vethf4b3552d.proxy_qlen = 64
-net.ipv6.neigh.vethf4b3552d.retrans_time_ms = 1000
-net.ipv6.neigh.vethf4b3552d.ucast_solicit = 3
-net.ipv6.neigh.vethf4b3552d.unres_qlen = 31
-net.ipv6.neigh.vethf4b3552d.unres_qlen_bytes = 65536
 net.ipv6.neigh.vxlan_sys_4789.anycast_delay = 100
 net.ipv6.neigh.vxlan_sys_4789.app_solicit = 0
 net.ipv6.neigh.vxlan_sys_4789.base_reachable_time_ms = 30000
@@ -2161,7 +2161,7 @@ net.ipv6.xfrm6_gc_thresh = 32768
 net.netfilter.nf_conntrack_acct = 0
 net.netfilter.nf_conntrack_buckets = 131072
 net.netfilter.nf_conntrack_checksum = 1
-net.netfilter.nf_conntrack_count = 2727
+net.netfilter.nf_conntrack_count = 2567
 net.netfilter.nf_conntrack_dccp_loose = 1
 net.netfilter.nf_conntrack_dccp_timeout_closereq = 64
 net.netfilter.nf_conntrack_dccp_timeout_closing = 64
@@ -2285,43 +2285,43 @@ vm.user_reserve_kbytes = 131072
 vm.vfs_cache_pressure = 100
 vm.zone_reclaim_mode = 0
 Filesystem             Size  Used Avail Use% Mounted on
-/dev/mapper/rhel-root   17G   14G  3.4G  81% /
+/dev/mapper/rhel-root   17G   11G  6.4G  63% /
 devtmpfs               7.8G     0  7.8G   0% /dev
 tmpfs                  7.8G     0  7.8G   0% /dev/shm
-tmpfs                  7.8G  2.3M  7.8G   1% /run
+tmpfs                  7.8G  2.2M  7.8G   1% /run
 tmpfs                  7.8G     0  7.8G   0% /sys/fs/cgroup
 /dev/sda1             1014M  186M  829M  19% /boot
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/9403fda889faf1fdd10846bc5e01c2a41972454a4770c9b82adf4f929d6f7960/merged
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/9403fda889faf1fdd10846bc5e01c2a41972454a4770c9b82adf4f929d6f7960/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/007cf193402cce29ef4dee83d26c7b236ebe2652feb4cd620e3b0d6c3bc45856/shm
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/540a0ae2-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/default-token-n65w4
 tmpfs                  7.8G  8.0K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/492657b9-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/serving-cert
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/492657b9-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/webconsole-token-ctsnc
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/7095e182-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/service-catalog-apiserver-token-smdlt
 tmpfs                  7.8G  8.0K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/7095e182-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/apiserver-ssl
-tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/73862f3a-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/service-catalog-controller-token-zkmmq
-tmpfs                  7.8G  4.0K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/73862f3a-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/service-catalog-ssl
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/e25fd2b55786c81046ab1d729f2187180076264917724e38729160442c37b349/merged
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/e25fd2b55786c81046ab1d729f2187180076264917724e38729160442c37b349/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/6e8657999baaf673414f956be89b7a44cfd23ea40772030927bd77f56a47ed46/shm
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/f15d959c5014830241085de607758f82348ad34a6898061ee5a76bb66e965193/merged
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/9e457010c791e05d75b6b304929364584b7a010d63090b1e45d4939384c6958c/merged
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/f15d959c5014830241085de607758f82348ad34a6898061ee5a76bb66e965193/merged
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/9e457010c791e05d75b6b304929364584b7a010d63090b1e45d4939384c6958c/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/6e360950c4b18a3ed78aca44617cd93a6a15525bb5df9c0d802e9521feb0a144/shm
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/afbe80a32f48c783f6d7a13417e1c582e0e50b82a5541a7b574636d1d9974f6c/merged
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/c8d19c3a075ef5f2601be00257adba94ad6c220eeeaf2a96c88509e41b17b87d/merged
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/afbe80a32f48c783f6d7a13417e1c582e0e50b82a5541a7b574636d1d9974f6c/merged
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/c8d19c3a075ef5f2601be00257adba94ad6c220eeeaf2a96c88509e41b17b87d/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/9e92c93eae33ad5d41f8f10381c2f126d7707dbf14be9e57f25ae4a19e0c452a/shm
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/b6269abda85c8eefc3361353237388371f7301a8a85a567ddc15f3b9c887891c/merged
-shm                     64M     0   64M   0% /var/lib/docker/containers/3e0d5a6cfb5b655750d0671857e164743d14f3398fd4df0898b5d83b8a14580c/shm
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/4cf6e6da5a7d38305e200e10ff3f052e07a912664bae93250172e4b3d57db92b/merged
-overlay                 17G   14G  3.4G  81% /var/lib/docker/overlay2/a1db466ca64d46d535a53ad9d53202938f1c3405ff13a239921e0945ff4611de/merged
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/4cf6e6da5a7d38305e200e10ff3f052e07a912664bae93250172e4b3d57db92b/merged
 tmpfs                  1.6G     0  1.6G   0% /run/user/0
-Wed Nov 21 22:04:21 EST 2018
+tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/6a8cbd08-ee57-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/service-catalog-controller-token-zkmmq
+tmpfs                  7.8G  4.0K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/6a8cbd08-ee57-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/service-catalog-ssl
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/12d78cac819856124f99056d242f529e3275e043da333897b9ea98ecdf84efdb/merged
+shm                     64M     0   64M   0% /var/lib/docker/containers/94ca0f404dd5d06844d4dd53229e2345d4c7753eba46f87e4183775008ac3109/shm
+overlay                 17G   11G  6.4G  63% /var/lib/docker/overlay2/ca148de04e7928f3fa01d065cd858d601fab365a303dec1763974bc4b5c715a5/merged
+Thu Nov 22 11:06:30 EST 2018
 bash: ntpq: command not found
 PING 10.57.0.46 (10.57.0.46) 56(84) bytes of data.
-64 bytes from 10.57.0.46: icmp_seq=1 ttl=64 time=0.235 ms
-64 bytes from 10.57.0.46: icmp_seq=2 ttl=64 time=0.248 ms
-64 bytes from 10.57.0.46: icmp_seq=3 ttl=64 time=0.176 ms
-64 bytes from 10.57.0.46: icmp_seq=4 ttl=64 time=0.282 ms
-64 bytes from 10.57.0.46: icmp_seq=5 ttl=64 time=0.260 ms
+64 bytes from 10.57.0.46: icmp_seq=1 ttl=64 time=0.208 ms
+64 bytes from 10.57.0.46: icmp_seq=2 ttl=64 time=0.149 ms
+64 bytes from 10.57.0.46: icmp_seq=3 ttl=64 time=0.229 ms
+64 bytes from 10.57.0.46: icmp_seq=4 ttl=64 time=0.319 ms
+64 bytes from 10.57.0.46: icmp_seq=5 ttl=64 time=0.302 ms
 
 --- 10.57.0.46 ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 4000ms
-rtt min/avg/max/mdev = 0.176/0.240/0.282/0.036 ms
+rtt min/avg/max/mdev = 0.149/0.241/0.319/0.063 ms

@@ -1,0 +1,10 @@
+{
+    "apiVersion": "v1",
+    "items": [],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
+Error from server (Forbidden): roles.authorization.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list roles.authorization.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all roles.authorization.openshift.io in the cluster

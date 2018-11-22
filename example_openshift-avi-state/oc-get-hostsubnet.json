@@ -1,0 +1,10 @@
+{
+    "apiVersion": "v1",
+    "items": [],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}
+Error from server (Forbidden): hostsubnets.network.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list hostsubnets.network.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all hostsubnets.network.openshift.io in the cluster

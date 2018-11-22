@@ -1,0 +1,180 @@
+Name:              docker-registry
+Namespace:         default
+Labels:            docker-registry=default
+Annotations:       <none>
+Selector:          docker-registry=default
+Type:              ClusterIP
+IP:                172.30.84.57
+Port:              5000-tcp  5000/TCP
+TargetPort:        5000/TCP
+Endpoints:         10.131.0.8:5000
+Session Affinity:  ClientIP
+Events:            <none>
+
+
+Name:              kubernetes
+Namespace:         default
+Labels:            component=apiserver
+                   provider=kubernetes
+Annotations:       <none>
+Selector:          <none>
+Type:              ClusterIP
+IP:                172.30.0.1
+Port:              https  443/TCP
+TargetPort:        8443/TCP
+Endpoints:         10.57.0.41:8443
+Port:              dns  53/UDP
+TargetPort:        8053/UDP
+Endpoints:         10.57.0.41:8053
+Port:              dns-tcp  53/TCP
+TargetPort:        8053/TCP
+Endpoints:         10.57.0.41:8053
+Session Affinity:  ClientIP
+Events:            <none>
+
+
+Name:              registry-console
+Namespace:         default
+Labels:            app=registry-console
+                   createdBy=registry-console-template
+                   name=registry-console
+Annotations:       openshift.io/generated-by=OpenShiftNewApp
+Selector:          name=registry-console
+Type:              ClusterIP
+IP:                172.30.125.209
+Port:              registry-console  9000/TCP
+TargetPort:        9090/TCP
+Endpoints:         10.129.0.7:9090
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              router
+Namespace:         default
+Labels:            router=router
+Annotations:       prometheus.io/port=1936
+                   prometheus.io/scrape=true
+                   prometheus.openshift.io/password=mYkPRZXjer
+                   prometheus.openshift.io/username=admin
+Selector:          router=router
+Type:              ClusterIP
+IP:                172.30.27.215
+Port:              80-tcp  80/TCP
+TargetPort:        80/TCP
+Endpoints:         10.57.0.42:80,10.57.0.43:80
+Port:              443-tcp  443/TCP
+TargetPort:        443/TCP
+Endpoints:         10.57.0.42:443,10.57.0.43:443
+Port:              1936-tcp  1936/TCP
+TargetPort:        1936/TCP
+Endpoints:         10.57.0.42:1936,10.57.0.43:1936
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              apiserver
+Namespace:         kube-service-catalog
+Labels:            <none>
+Annotations:       <none>
+Selector:          app=apiserver
+Type:              ClusterIP
+IP:                172.30.6.108
+Port:              secure  443/TCP
+TargetPort:        6443/TCP
+Endpoints:         10.129.0.9:6443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              asb
+Namespace:         openshift-ansible-service-broker
+Labels:            app=openshift-ansible-service-broker
+                   service=asb
+Annotations:       service.alpha.openshift.io/serving-cert-secret-name=asb-tls
+                   service.alpha.openshift.io/serving-cert-signed-by=openshift-service-serving-signer@1542248026
+Selector:          app=openshift-ansible-service-broker,service=asb
+Type:              ClusterIP
+IP:                172.30.125.187
+Port:              port-1338  1338/TCP
+TargetPort:        1338/TCP
+Endpoints:         <none>
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              asb-etcd
+Namespace:         openshift-ansible-service-broker
+Labels:            app=etcd
+                   service=asb-etcd
+Annotations:       service.alpha.openshift.io/serving-cert-secret-name=etcd-tls
+                   service.alpha.openshift.io/serving-cert-signed-by=openshift-service-serving-signer@1542248026
+Selector:          app=etcd,service=asb-etcd
+Type:              ClusterIP
+IP:                172.30.125.63
+Port:              port-2379  2379/TCP
+TargetPort:        2379/TCP
+Endpoints:         <none>
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              apiserver
+Namespace:         openshift-template-service-broker
+Labels:            <none>
+Annotations:       kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"service.alpha.openshift.io/serving-cert-secret-name":"apiserver-serving-cert"},"name":"...
+                   service.alpha.openshift.io/serving-cert-secret-name=apiserver-serving-cert
+                   service.alpha.openshift.io/serving-cert-signed-by=openshift-service-serving-signer@1542248026
+Selector:          apiserver=true
+Type:              ClusterIP
+IP:                172.30.255.133
+Port:              <unset>  443/TCP
+TargetPort:        8443/TCP
+Endpoints:         10.128.2.16:8443,10.131.0.10:8443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              webconsole
+Namespace:         openshift-web-console
+Labels:            app=openshift-web-console
+Annotations:       kubectl.kubernetes.io/last-applied-configuration={"apiVersion":"v1","kind":"Service","metadata":{"annotations":{"prometheus.io/scheme":"https","prometheus.io/scrape":"true","service.alpha.openshift.io...
+                   prometheus.io/scheme=https
+                   prometheus.io/scrape=true
+                   service.alpha.openshift.io/serving-cert-secret-name=webconsole-serving-cert
+                   service.alpha.openshift.io/serving-cert-signed-by=openshift-service-serving-signer@1542248026
+Selector:          webconsole=true
+Type:              ClusterIP
+IP:                172.30.127.103
+Port:              https  443/TCP
+TargetPort:        8443/TCP
+Endpoints:         10.129.0.8:8443
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              nginx-example
+Namespace:         sergey1
+Labels:            template=nginx-example
+Annotations:       description=Exposes and load balances the application pods
+Selector:          name=nginx-example
+Type:              ClusterIP
+IP:                172.30.62.125
+Port:              web  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         10.128.2.18:8080,10.128.2.19:8080,10.131.0.11:8080 + 2 more...
+Session Affinity:  None
+Events:            <none>
+
+
+Name:              nginx-example2
+Namespace:         sergey1
+Labels:            template=nginx-example
+Annotations:       description=Exposes and load balances the application pods
+Selector:          name=nginx-example2
+Type:              ClusterIP
+IP:                172.30.158.171
+Port:              web  8080/TCP
+TargetPort:        8080/TCP
+Endpoints:         10.128.2.17:8080,10.131.0.17:8080
+Session Affinity:  None
+Events:            <none>

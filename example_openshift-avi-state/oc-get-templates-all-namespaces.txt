@@ -1,0 +1,1 @@
+Error from server (Forbidden): templates.template.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list templates.template.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all templates.template.openshift.io in the cluster

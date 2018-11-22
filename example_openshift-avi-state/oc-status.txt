@@ -1,0 +1,51 @@
+Showing all projects on server https://ocp-server1.ps.lab:8443
+
+svc/docker-registry[default] - 172.30.84.57:5000
+  rc/docker-registry-1 runs openshift3/ose-docker-registry:v3.9.43
+    rc/docker-registry-1 created 7 days ago - 1 pod
+
+svc/kubernetes[default] - 172.30.0.1 ports 443->8443, 53->8053, 53->8053
+
+svc/registry-console[default] - 172.30.125.209:9000 -> 9090
+  rc/registry-console-1 runs registry.access.redhat.com/openshift3/registry-console:v3.9
+    rc/registry-console-1 created 7 days ago - 1 pod
+
+svc/router[default] - 172.30.27.215 ports 80, 443, 1936
+  rc/router-1 runs openshift3/ose-haproxy-router:v3.9.43
+    rc/router-1 created 7 days ago
+  rc/router-2 runs openshift3/ose-haproxy-router:v3.9.43
+    rc/router-2 created 7 days ago - 2 pods
+
+svc/apiserver[kube-service-catalog] - 172.30.6.108:443 -> 6443
+  pod/apiserver-ch4f6 runs registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
+
+svc/asb[openshift-ansible-service-broker] - 172.30.125.187:1338
+  rc/asb-1 runs registry.access.redhat.com/openshift3/ose-ansible-service-broker:v3.9.43
+    rc/asb-1 created 7 days ago
+
+svc/asb-etcd[openshift-ansible-service-broker] - 172.30.125.63:2379
+  rc/asb-etcd-1 runs registry.access.redhat.com/rhel7/etcd:latest
+    rc/asb-etcd-1 created 7 days ago
+
+svc/apiserver[openshift-template-service-broker] - 172.30.255.133:443 -> 8443
+  pod/apiserver-qgrkb runs registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
+  pod/apiserver-vsz4s runs registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
+
+svc/webconsole[openshift-web-console] - 172.30.127.103:443 -> 8443
+  pod/webconsole-7db65c944b-drh6v runs registry.access.redhat.com/openshift3/ose-web-console:v3.9.43
+
+svc/nginx-example[sergey1] - 172.30.62.125:8080
+  rc/nginx-example-1 runs docker-registry.default.svc:5000/sergey1/nginx-example@sha256:0ee340f37bc8d5314f722dcdc2653b293b6b7025facf4da9332bf6a489d0ccd6
+    rc/nginx-example-1 created 6 days ago - 5 pods
+
+svc/nginx-example2[sergey1] - 172.30.158.171:8080
+  rc/nginx-example2-1 runs docker-registry.default.svc:5000/sergey1/nginx-example2@sha256:da7edb7971a4ca8417d438d38f5a8efd4aa3c43d4c4424b75df974c5eb3218c7
+    rc/nginx-example2-1 created 6 days ago - 2 pods
+
+rc/httpd-ex-1[default] runs docker-registry.default.svc:5000/default/httpd-ex@sha256:1e2be56784847fb0b9000c9fe803d8fa43f825fdd6c608f8b06bba9532b264fd
+  rc/httpd-ex-1 created 6 days ago
+
+pod/controller-manager-h8294[kube-service-catalog] runs registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
+
+
+10 warnings, 4 infos identified, use 'oc status -v' to see details.

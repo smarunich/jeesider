@@ -1,0 +1,780 @@
+{
+    "apiVersion": "v1",
+    "items": [
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/hostname": "ocp-server1.ps.lab",
+                    "node-role.kubernetes.io/master": "true"
+                },
+                "name": "ocp-server1.ps.lab",
+                "namespace": "",
+                "resourceVersion": "3042289",
+                "selfLink": "/api/v1/nodes/ocp-server1.ps.lab",
+                "uid": "9dfbf0bb-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "spec": {
+                "externalID": "ocp-server1.ps.lab"
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "10.57.0.41",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "ocp-server1.ps.lab",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "4",
+                    "memory": "16164388Ki",
+                    "pods": "40"
+                },
+                "capacity": {
+                    "cpu": "4",
+                    "memory": "16266788Ki",
+                    "pods": "40"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:53Z",
+                        "lastTransitionTime": "2018-11-15T02:39:04Z",
+                        "message": "kubelet has sufficient disk space available",
+                        "reason": "KubeletHasSufficientDisk",
+                        "status": "False",
+                        "type": "OutOfDisk"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:53Z",
+                        "lastTransitionTime": "2018-11-15T02:39:04Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:53Z",
+                        "lastTransitionTime": "2018-11-15T02:39:04Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:53Z",
+                        "lastTransitionTime": "2018-11-15T22:17:40Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "avinetworks/se:17.2.13-9168-20180928.104531"
+                        ],
+                        "sizeBytes": 1737266349
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-web-console@sha256:ba6b413eda34f20dbad49a445f6f0107e2b6af75c07ee6094e06d93f47b83a3c",
+                            "registry.access.redhat.com/openshift3/ose-web-console:v3.9.43"
+                        ],
+                        "sizeBytes": 465789473
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-service-catalog@sha256:3cce466f36d31530316f40d8f95a53a4f1017391313127143826b821d8aaf204",
+                            "registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43"
+                        ],
+                        "sizeBytes": 287583759
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/registry-console@sha256:08d0526a67bb3a6cd6961d6c695b876f000b5084513be4a4f478e54ae55e3803",
+                            "registry.access.redhat.com/openshift3/registry-console:v3.9"
+                        ],
+                        "sizeBytes": 231270270
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-pod@sha256:62dddd7206b9e428030fcbcf4d962b4932606ace59307fe8f6ad3a8126b16641",
+                            "registry.access.redhat.com/openshift3/ose-pod:v3.9.43"
+                        ],
+                        "sizeBytes": 214177041
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "884ce4c0-f78a-4d29-8486-3ff0188946e5",
+                    "containerRuntimeVersion": "docker://1.13.1",
+                    "kernelVersion": "3.10.0-957.el7.x86_64",
+                    "kubeProxyVersion": "v1.9.1+a0ce1bc657",
+                    "kubeletVersion": "v1.9.1+a0ce1bc657",
+                    "machineID": "5090a91cde334b72947bb0fb8803d4b3",
+                    "operatingSystem": "linux",
+                    "osImage": "Red Hat Enterprise Linux",
+                    "systemUUID": "3A8C0F42-26E7-B076-D872-CE3DF15AAEFE"
+                }
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/hostname": "ocp-server2.ps.lab",
+                    "node-role.kubernetes.io/compute": "true",
+                    "region": "infra",
+                    "zone": "default"
+                },
+                "name": "ocp-server2.ps.lab",
+                "namespace": "",
+                "resourceVersion": "3042262",
+                "selfLink": "/api/v1/nodes/ocp-server2.ps.lab",
+                "uid": "9e104d50-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "spec": {
+                "externalID": "ocp-server2.ps.lab"
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "10.57.0.42",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "ocp-server2.ps.lab",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "4",
+                    "memory": "16164388Ki",
+                    "pods": "40"
+                },
+                "capacity": {
+                    "cpu": "4",
+                    "memory": "16266788Ki",
+                    "pods": "40"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:45Z",
+                        "lastTransitionTime": "2018-11-15T22:22:19Z",
+                        "message": "kubelet has sufficient disk space available",
+                        "reason": "KubeletHasSufficientDisk",
+                        "status": "False",
+                        "type": "OutOfDisk"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:45Z",
+                        "lastTransitionTime": "2018-11-15T22:22:19Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:45Z",
+                        "lastTransitionTime": "2018-11-15T22:22:19Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:45Z",
+                        "lastTransitionTime": "2018-11-15T22:22:29Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "avinetworks/se:17.2.13-9168-20180928.104531"
+                        ],
+                        "sizeBytes": 1737266349
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-haproxy-router@sha256:0fdaa6023ea9f557804c3064c2c17d1a4b78ada2ab19e074211c90f322a16087",
+                            "registry.access.redhat.com/openshift3/ose-haproxy-router:v3.9.43"
+                        ],
+                        "sizeBytes": 1253435580
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-deployer@sha256:be54cdaee10d4b9f825b41dbcb30436d94fbf49fdb411b7949285d5986c77f3e",
+                            "registry.access.redhat.com/openshift3/ose-deployer:v3.9.43"
+                        ],
+                        "sizeBytes": 1232780180
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose@sha256:a6813c0734a210039522933b904c0a5752ba48df0203da14172cebad4f3d3b17",
+                            "registry.access.redhat.com/openshift3/ose:v3.9.43"
+                        ],
+                        "sizeBytes": 1232777708
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-ansible-service-broker@sha256:bc188201e2246cae1c8d69e95386de6d1423e69db8586ba2e59abe1dd93c0f23",
+                            "registry.access.redhat.com/openshift3/ose-ansible-service-broker:v3.9.43"
+                        ],
+                        "sizeBytes": 548916592
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-docker-registry@sha256:94b7ec1d3323595bdd8592307912f57476068db3662bc8acf8b21301ca86e9ab",
+                            "registry.access.redhat.com/openshift3/ose-docker-registry:v3.9.43"
+                        ],
+                        "sizeBytes": 435569611
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-template-service-broker@sha256:2efefe54f9362ab95f575d48ccf790383f9b020bdcca93c907cb725a49d3c738",
+                            "registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43"
+                        ],
+                        "sizeBytes": 299477207
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/sergey1/nginx-example2@sha256:da7edb7971a4ca8417d438d38f5a8efd4aa3c43d4c4424b75df974c5eb3218c7"
+                        ],
+                        "sizeBytes": 298020428
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/sergey1/nginx-example@sha256:0ee340f37bc8d5314f722dcdc2653b293b6b7025facf4da9332bf6a489d0ccd6"
+                        ],
+                        "sizeBytes": 298020422
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-pod@sha256:62dddd7206b9e428030fcbcf4d962b4932606ace59307fe8f6ad3a8126b16641",
+                            "registry.access.redhat.com/openshift3/ose-pod:v3.9.43"
+                        ],
+                        "sizeBytes": 214177041
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "08e98b34-89a3-48b4-8244-d29b427fe7c4",
+                    "containerRuntimeVersion": "docker://1.13.1",
+                    "kernelVersion": "3.10.0-957.el7.x86_64",
+                    "kubeProxyVersion": "v1.9.1+a0ce1bc657",
+                    "kubeletVersion": "v1.9.1+a0ce1bc657",
+                    "machineID": "5090a91cde334b72947bb0fb8803d4b3",
+                    "operatingSystem": "linux",
+                    "osImage": "Red Hat Enterprise Linux",
+                    "systemUUID": "18F90F42-6FC5-64DE-7C1B-F571EE46C78C"
+                }
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/hostname": "ocp-server3.ps.lab",
+                    "node-role.kubernetes.io/compute": "true",
+                    "region": "infra",
+                    "zone": "default"
+                },
+                "name": "ocp-server3.ps.lab",
+                "namespace": "",
+                "resourceVersion": "3042265",
+                "selfLink": "/api/v1/nodes/ocp-server3.ps.lab",
+                "uid": "9e161504-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "spec": {
+                "externalID": "ocp-server3.ps.lab"
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "10.57.0.43",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "ocp-server3.ps.lab",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "4",
+                    "memory": "16164396Ki",
+                    "pods": "40"
+                },
+                "capacity": {
+                    "cpu": "4",
+                    "memory": "16266796Ki",
+                    "pods": "40"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:21Z",
+                        "message": "kubelet has sufficient disk space available",
+                        "reason": "KubeletHasSufficientDisk",
+                        "status": "False",
+                        "type": "OutOfDisk"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:21Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:21Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:31Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "avinetworks/se:17.2.13-9168-20180928.104531"
+                        ],
+                        "sizeBytes": 1737266349
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-haproxy-router@sha256:0fdaa6023ea9f557804c3064c2c17d1a4b78ada2ab19e074211c90f322a16087",
+                            "registry.access.redhat.com/openshift3/ose-haproxy-router:v3.9.43"
+                        ],
+                        "sizeBytes": 1253435580
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-deployer@sha256:be54cdaee10d4b9f825b41dbcb30436d94fbf49fdb411b7949285d5986c77f3e",
+                            "registry.access.redhat.com/openshift3/ose-deployer:v3.9.43"
+                        ],
+                        "sizeBytes": 1232780180
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose@sha256:a6813c0734a210039522933b904c0a5752ba48df0203da14172cebad4f3d3b17",
+                            "registry.access.redhat.com/openshift3/ose:v3.9.43"
+                        ],
+                        "sizeBytes": 1232777708
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/default/httpd-ex@sha256:1e2be56784847fb0b9000c9fe803d8fa43f825fdd6c608f8b06bba9532b264fd"
+                        ],
+                        "sizeBytes": 355730388
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-template-service-broker@sha256:2efefe54f9362ab95f575d48ccf790383f9b020bdcca93c907cb725a49d3c738",
+                            "registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43"
+                        ],
+                        "sizeBytes": 299477207
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/sergey1/nginx-example2@sha256:da7edb7971a4ca8417d438d38f5a8efd4aa3c43d4c4424b75df974c5eb3218c7"
+                        ],
+                        "sizeBytes": 298020428
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/sergey1/nginx-example@sha256:0ee340f37bc8d5314f722dcdc2653b293b6b7025facf4da9332bf6a489d0ccd6"
+                        ],
+                        "sizeBytes": 298020422
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-pod@sha256:62dddd7206b9e428030fcbcf4d962b4932606ace59307fe8f6ad3a8126b16641",
+                            "registry.access.redhat.com/openshift3/ose-pod:v3.9.43"
+                        ],
+                        "sizeBytes": 214177041
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "96307e30-e4f1-4e01-a781-8c9c773ac9cc",
+                    "containerRuntimeVersion": "docker://1.13.1",
+                    "kernelVersion": "3.10.0-957.el7.x86_64",
+                    "kubeProxyVersion": "v1.9.1+a0ce1bc657",
+                    "kubeletVersion": "v1.9.1+a0ce1bc657",
+                    "machineID": "5090a91cde334b72947bb0fb8803d4b3",
+                    "operatingSystem": "linux",
+                    "osImage": "Red Hat Enterprise Linux",
+                    "systemUUID": "52260F42-8CB2-4CD3-08FC-186A41723185"
+                }
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/hostname": "ocp-server4.ps.lab",
+                    "node-role.kubernetes.io/compute": "true",
+                    "region": "primary",
+                    "zone": "default"
+                },
+                "name": "ocp-server4.ps.lab",
+                "namespace": "",
+                "resourceVersion": "3042264",
+                "selfLink": "/api/v1/nodes/ocp-server4.ps.lab",
+                "uid": "9dcdc6c6-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "spec": {
+                "externalID": "ocp-server4.ps.lab"
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "10.57.0.44",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "ocp-server4.ps.lab",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "4",
+                    "memory": "16164388Ki",
+                    "pods": "40"
+                },
+                "capacity": {
+                    "cpu": "4",
+                    "memory": "16266788Ki",
+                    "pods": "40"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:27Z",
+                        "message": "kubelet has sufficient disk space available",
+                        "reason": "KubeletHasSufficientDisk",
+                        "status": "False",
+                        "type": "OutOfDisk"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:27Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:27Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:22:37Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "avinetworks/se:17.2.13-9168-20180928.104531"
+                        ],
+                        "sizeBytes": 1737266349
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-deployer@sha256:be54cdaee10d4b9f825b41dbcb30436d94fbf49fdb411b7949285d5986c77f3e",
+                            "registry.access.redhat.com/openshift3/ose-deployer:v3.9.43"
+                        ],
+                        "sizeBytes": 1232780180
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-sti-builder@sha256:469caa4185902df1515b1f93270e18e689135f1753ef2a49f42297905125b9fb",
+                            "registry.access.redhat.com/openshift3/ose-sti-builder:v3.9.43"
+                        ],
+                        "sizeBytes": 1232779868
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose@sha256:a6813c0734a210039522933b904c0a5752ba48df0203da14172cebad4f3d3b17",
+                            "registry.access.redhat.com/openshift3/ose:v3.9.43"
+                        ],
+                        "sizeBytes": 1232777708
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/sergey1/nginx-example@sha256:0ee340f37bc8d5314f722dcdc2653b293b6b7025facf4da9332bf6a489d0ccd6",
+                            "docker-registry.default.svc:5000/sergey1/nginx-example:latest"
+                        ],
+                        "sizeBytes": 298020422
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/rhscl/nginx-112-rhel7@sha256:07563c5ff0a46fc6e87dfe835eae1e3bd958f4e52e0cea45b304e33b3a3b722b"
+                        ],
+                        "sizeBytes": 297852634
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-pod@sha256:62dddd7206b9e428030fcbcf4d962b4932606ace59307fe8f6ad3a8126b16641",
+                            "registry.access.redhat.com/openshift3/ose-pod:v3.9.43"
+                        ],
+                        "sizeBytes": 214177041
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "2900c29e-4e68-4d58-bb63-9b96aa9f52fe",
+                    "containerRuntimeVersion": "docker://1.13.1",
+                    "kernelVersion": "3.10.0-957.el7.x86_64",
+                    "kubeProxyVersion": "v1.9.1+a0ce1bc657",
+                    "kubeletVersion": "v1.9.1+a0ce1bc657",
+                    "machineID": "5090a91cde334b72947bb0fb8803d4b3",
+                    "operatingSystem": "linux",
+                    "osImage": "Red Hat Enterprise Linux",
+                    "systemUUID": "78690F42-EDB8-AB82-3A3A-E42DBEB2508E"
+                }
+            }
+        },
+        {
+            "apiVersion": "v1",
+            "kind": "Node",
+            "metadata": {
+                "annotations": {
+                    "volumes.kubernetes.io/controller-managed-attach-detach": "true"
+                },
+                "creationTimestamp": "2018-11-15T02:39:04Z",
+                "labels": {
+                    "beta.kubernetes.io/arch": "amd64",
+                    "beta.kubernetes.io/os": "linux",
+                    "kubernetes.io/hostname": "ocp-server5.ps.lab",
+                    "node-role.kubernetes.io/compute": "true",
+                    "region": "primary",
+                    "zone": "default"
+                },
+                "name": "ocp-server5.ps.lab",
+                "namespace": "",
+                "resourceVersion": "3042270",
+                "selfLink": "/api/v1/nodes/ocp-server5.ps.lab",
+                "uid": "9e077244-e87f-11e8-8dcd-0050568fd4c6"
+            },
+            "spec": {
+                "externalID": "ocp-server5.ps.lab"
+            },
+            "status": {
+                "addresses": [
+                    {
+                        "address": "10.57.0.45",
+                        "type": "InternalIP"
+                    },
+                    {
+                        "address": "ocp-server5.ps.lab",
+                        "type": "Hostname"
+                    }
+                ],
+                "allocatable": {
+                    "cpu": "4",
+                    "memory": "16164388Ki",
+                    "pods": "40"
+                },
+                "capacity": {
+                    "cpu": "4",
+                    "memory": "16266788Ki",
+                    "pods": "40"
+                },
+                "conditions": [
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:23:00Z",
+                        "message": "kubelet has sufficient disk space available",
+                        "reason": "KubeletHasSufficientDisk",
+                        "status": "False",
+                        "type": "OutOfDisk"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:23:00Z",
+                        "message": "kubelet has sufficient memory available",
+                        "reason": "KubeletHasSufficientMemory",
+                        "status": "False",
+                        "type": "MemoryPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:23:00Z",
+                        "message": "kubelet has no disk pressure",
+                        "reason": "KubeletHasNoDiskPressure",
+                        "status": "False",
+                        "type": "DiskPressure"
+                    },
+                    {
+                        "lastHeartbeatTime": "2018-11-22T03:03:47Z",
+                        "lastTransitionTime": "2018-11-15T22:23:10Z",
+                        "message": "kubelet is posting ready status",
+                        "reason": "KubeletReady",
+                        "status": "True",
+                        "type": "Ready"
+                    }
+                ],
+                "daemonEndpoints": {
+                    "kubeletEndpoint": {
+                        "Port": 10250
+                    }
+                },
+                "images": [
+                    {
+                        "names": [
+                            "avinetworks/se:17.2.13-9168-20180928.104531"
+                        ],
+                        "sizeBytes": 1737266349
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-deployer@sha256:be54cdaee10d4b9f825b41dbcb30436d94fbf49fdb411b7949285d5986c77f3e",
+                            "registry.access.redhat.com/openshift3/ose-deployer:v3.9.43"
+                        ],
+                        "sizeBytes": 1232780180
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-sti-builder@sha256:469caa4185902df1515b1f93270e18e689135f1753ef2a49f42297905125b9fb",
+                            "registry.access.redhat.com/openshift3/ose-sti-builder:v3.9.43"
+                        ],
+                        "sizeBytes": 1232779868
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose@sha256:a6813c0734a210039522933b904c0a5752ba48df0203da14172cebad4f3d3b17",
+                            "registry.access.redhat.com/openshift3/ose:v3.9.43"
+                        ],
+                        "sizeBytes": 1232777708
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/default/httpd-ex@sha256:1e2be56784847fb0b9000c9fe803d8fa43f825fdd6c608f8b06bba9532b264fd",
+                            "docker-registry.default.svc:5000/default/httpd-ex:latest"
+                        ],
+                        "sizeBytes": 355730388
+                    },
+                    {
+                        "names": [
+                            "docker.io/centos/httpd-24-centos7@sha256:a67bb9760f6eb06b3a7f19a6908cc594830bc1a12360ddd0f14168ace689e1d6"
+                        ],
+                        "sizeBytes": 355550941
+                    },
+                    {
+                        "names": [
+                            "docker-registry.default.svc:5000/sergey1/nginx-example2@sha256:da7edb7971a4ca8417d438d38f5a8efd4aa3c43d4c4424b75df974c5eb3218c7",
+                            "docker-registry.default.svc:5000/sergey1/nginx-example2:latest"
+                        ],
+                        "sizeBytes": 298020428
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/rhscl/nginx-112-rhel7@sha256:07563c5ff0a46fc6e87dfe835eae1e3bd958f4e52e0cea45b304e33b3a3b722b"
+                        ],
+                        "sizeBytes": 297852634
+                    },
+                    {
+                        "names": [
+                            "registry.access.redhat.com/openshift3/ose-pod@sha256:62dddd7206b9e428030fcbcf4d962b4932606ace59307fe8f6ad3a8126b16641",
+                            "registry.access.redhat.com/openshift3/ose-pod:v3.9.43"
+                        ],
+                        "sizeBytes": 214177041
+                    }
+                ],
+                "nodeInfo": {
+                    "architecture": "amd64",
+                    "bootID": "0b6f20c6-e822-4ce6-a7d2-569098a0d283",
+                    "containerRuntimeVersion": "docker://1.13.1",
+                    "kernelVersion": "3.10.0-957.el7.x86_64",
+                    "kubeProxyVersion": "v1.9.1+a0ce1bc657",
+                    "kubeletVersion": "v1.9.1+a0ce1bc657",
+                    "machineID": "5090a91cde334b72947bb0fb8803d4b3",
+                    "operatingSystem": "linux",
+                    "osImage": "Red Hat Enterprise Linux",
+                    "systemUUID": "8C930F42-5FD9-96BA-7A42-3B1AE98BB687"
+                }
+            }
+        }
+    ],
+    "kind": "List",
+    "metadata": {
+        "resourceVersion": "",
+        "selfLink": ""
+    }
+}

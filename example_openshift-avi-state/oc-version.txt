@@ -1,0 +1,7 @@
+oc v3.9.43
+kubernetes v1.9.1+a0ce1bc657
+features: Basic-Auth GSSAPI Kerberos SPNEGO
+
+Server https://ocp-server1.ps.lab:8443
+openshift v3.9.43
+kubernetes v1.9.1+a0ce1bc657

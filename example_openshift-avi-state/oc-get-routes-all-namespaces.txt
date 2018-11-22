@@ -1,0 +1,1 @@
+Error from server (Forbidden): routes.route.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list routes.route.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all routes.route.openshift.io in the cluster

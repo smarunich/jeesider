@@ -1,1 +1,6 @@
-Error from server (Forbidden): hostsubnets.network.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list hostsubnets.network.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all hostsubnets.network.openshift.io in the cluster
+NAME                 HOST                 HOST IP      SUBNET          EGRESS IPS   LABELS
+ocp-server1.ps.lab   ocp-server1.ps.lab   10.57.0.41   10.129.0.0/23   []
+ocp-server2.ps.lab   ocp-server2.ps.lab   10.57.0.42   10.131.0.0/23   []
+ocp-server3.ps.lab   ocp-server3.ps.lab   10.57.0.43   10.128.2.0/23   []
+ocp-server4.ps.lab   ocp-server4.ps.lab   10.57.0.44   10.128.0.0/23   []
+ocp-server5.ps.lab   ocp-server5.ps.lab   10.57.0.45   10.130.0.0/23   []

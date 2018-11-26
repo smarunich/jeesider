@@ -1,10 +1,376 @@
 {
     "apiVersion": "v1",
-    "items": [],
+    "items": [
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/host.generated": "true"
+                },
+                "creationTimestamp": "2018-11-15T03:18:35Z",
+                "name": "docker-registry",
+                "namespace": "default",
+                "resourceVersion": "156178",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/default/routes/docker-registry",
+                "uid": "22fbbe47-e885-11e8-999a-0050568fd4c6"
+            },
+            "spec": {
+                "host": "docker-registry-default.router.default.svc.cluster.local",
+                "tls": {
+                    "termination": "passthrough"
+                },
+                "to": {
+                    "kind": "Service",
+                    "name": "docker-registry",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:19Z",
+                                "message": "10.57.0.51",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "docker-registry-default.router.default.svc.cluster.local",
+                        "routerName": "AviVantage",
+                        "wildcardPolicy": "None"
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:09Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "docker-registry-default.router.default.svc.cluster.local",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/host.generated": "true"
+                },
+                "creationTimestamp": "2018-11-15T03:19:25Z",
+                "name": "registry-console",
+                "namespace": "default",
+                "resourceVersion": "156173",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/default/routes/registry-console",
+                "uid": "4149349a-e885-11e8-999a-0050568fd4c6"
+            },
+            "spec": {
+                "host": "registry-console-default.router.default.svc.cluster.local",
+                "tls": {
+                    "termination": "passthrough"
+                },
+                "to": {
+                    "kind": "Service",
+                    "name": "registry-console",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:18Z",
+                                "message": "10.57.0.53",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "registry-console-default.router.default.svc.cluster.local",
+                        "routerName": "AviVantage",
+                        "wildcardPolicy": "None"
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:14Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "registry-console-default.router.default.svc.cluster.local",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/host.generated": "true"
+                },
+                "creationTimestamp": "2018-11-15T03:20:48Z",
+                "name": "apiserver",
+                "namespace": "kube-service-catalog",
+                "resourceVersion": "156179",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/kube-service-catalog/routes/apiserver",
+                "uid": "726f4db6-e885-11e8-999a-0050568fd4c6"
+            },
+            "spec": {
+                "host": "apiserver-kube-service-catalog.router.default.svc.cluster.local",
+                "port": {
+                    "targetPort": "secure"
+                },
+                "tls": {
+                    "termination": "passthrough"
+                },
+                "to": {
+                    "kind": "Service",
+                    "name": "apiserver",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:19Z",
+                                "message": "10.57.0.52",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "apiserver-kube-service-catalog.router.default.svc.cluster.local",
+                        "routerName": "AviVantage",
+                        "wildcardPolicy": "None"
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:11Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "apiserver-kube-service-catalog.router.default.svc.cluster.local",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/host.generated": "true"
+                },
+                "creationTimestamp": "2018-11-15T03:21:24Z",
+                "labels": {
+                    "app": "openshift-ansible-service-broker",
+                    "service": "asb"
+                },
+                "name": "asb-1338",
+                "namespace": "openshift-ansible-service-broker",
+                "resourceVersion": "3284174",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/openshift-ansible-service-broker/routes/asb-1338",
+                "uid": "880f3ae7-e885-11e8-999a-0050568fd4c6"
+            },
+            "spec": {
+                "host": "asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local",
+                "port": {
+                    "targetPort": 1338
+                },
+                "tls": {
+                    "termination": "reencrypt"
+                },
+                "to": {
+                    "kind": "Service",
+                    "name": "asb",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-22T16:06:06Z",
+                                "message": "{\"error\": \"Error in creating VirtualService asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local: poolgroup-a7460c9c-de8e-421f-9573-a79a6b878091 in pool select is being referred by other object\"}",
+                                "status": "False",
+                                "type": "NotReady"
+                            }
+                        ],
+                        "host": "asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local",
+                        "routerName": "AviVantage",
+                        "wildcardPolicy": "None"
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:13Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/host.generated": "true",
+                    "template.openshift.io/expose-uri": "http://{.spec.host}{.spec.path}"
+                },
+                "creationTimestamp": "2018-11-15T04:16:29Z",
+                "labels": {
+                    "template": "nginx-example"
+                },
+                "name": "nginx-example",
+                "namespace": "sergey1",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "template.openshift.io/v1",
+                        "blockOwnerDeletion": true,
+                        "kind": "TemplateInstance",
+                        "name": "27621866-f9b6-4215-bdf1-7ec247ef92ce",
+                        "uid": "3a06783d-e88d-11e8-999a-0050568fd4c6"
+                    }
+                ],
+                "resourceVersion": "156148",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/sergey1/routes/nginx-example",
+                "uid": "3a0aaf72-e88d-11e8-999a-0050568fd4c6"
+            },
+            "spec": {
+                "host": "nginx-example-sergey1.router.default.svc.cluster.local",
+                "to": {
+                    "kind": "Service",
+                    "name": "nginx-example",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:22:10Z",
+                                "message": "10.57.0.50",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "nginx-example-sergey1.router.default.svc.cluster.local",
+                        "routerName": "AviVantage",
+                        "wildcardPolicy": "None"
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T21:21:58Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "nginx-example-sergey1.router.default.svc.cluster.local",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        },
+        {
+            "apiVersion": "route.openshift.io/v1",
+            "kind": "Route",
+            "metadata": {
+                "annotations": {
+                    "openshift.io/host.generated": "true",
+                    "template.openshift.io/expose-uri": "http://{.spec.host}{.spec.path}"
+                },
+                "creationTimestamp": "2018-11-15T22:26:22Z",
+                "labels": {
+                    "template": "nginx-example"
+                },
+                "name": "nginx-example2",
+                "namespace": "sergey1",
+                "ownerReferences": [
+                    {
+                        "apiVersion": "template.openshift.io/v1",
+                        "blockOwnerDeletion": true,
+                        "kind": "TemplateInstance",
+                        "name": "f9b8b45e-7b63-4b02-9c7c-8a09903eb73a",
+                        "uid": "7b5a3433-e925-11e8-9abe-0050568fd4c6"
+                    }
+                ],
+                "resourceVersion": "172317",
+                "selfLink": "/apis/route.openshift.io/v1/namespaces/sergey1/routes/nginx-example2",
+                "uid": "7b5d8760-e925-11e8-9abe-0050568fd4c6"
+            },
+            "spec": {
+                "host": "nginx-example2-sergey1.router.default.svc.cluster.local",
+                "to": {
+                    "kind": "Service",
+                    "name": "nginx-example2",
+                    "weight": 100
+                },
+                "wildcardPolicy": "None"
+            },
+            "status": {
+                "ingress": [
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T22:26:34Z",
+                                "message": "10.57.0.55",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "nginx-example2-sergey1.router.default.svc.cluster.local",
+                        "routerName": "AviVantage",
+                        "wildcardPolicy": "None"
+                    },
+                    {
+                        "conditions": [
+                            {
+                                "lastTransitionTime": "2018-11-15T22:26:28Z",
+                                "status": "True",
+                                "type": "Admitted"
+                            }
+                        ],
+                        "host": "nginx-example2-sergey1.router.default.svc.cluster.local",
+                        "routerName": "router",
+                        "wildcardPolicy": "None"
+                    }
+                ]
+            }
+        }
+    ],
     "kind": "List",
     "metadata": {
         "resourceVersion": "",
         "selfLink": ""
     }
 }
-Error from server (Forbidden): routes.route.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list routes.route.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all routes.route.openshift.io in the cluster

@@ -1,1 +1,162 @@
-Error from server (Forbidden): templates.template.openshift.io is forbidden: User "system:serviceaccount:default:avi" cannot list templates.template.openshift.io at the cluster scope: User "system:serviceaccount:default:avi" cannot list all templates.template.openshift.io in the cluster
+NAMESPACE              NAME                                            DESCRIPTION                                                                        PARAMETERS        OBJECTS
+kube-service-catalog   service-catalog-role-bindings                                                                                                      0 (all set)       14
+kube-system            kube-system-service-catalog-role-bindings                                                                                          1 (all set)       2
+openshift              3scale-gateway                                  3scale API Gateway                                                                 15 (6 blank)      2
+openshift              amp-apicast-wildcard-router                                                                                                        3 (1 blank)       4
+openshift              amp-pvc                                                                                                                            0 (all set)       4
+openshift              amq62-basic                                     Application template for JBoss A-MQ brokers. These can be deployed as standal...   11 (4 blank)      6
+openshift              amq62-persistent                                Application template for JBoss A-MQ brokers. These can be deployed as standal...   13 (4 blank)      8
+openshift              amq62-persistent-ssl                            An example JBoss A-MQ application. For more information about using this temp...   18 (6 blank)      12
+openshift              amq62-ssl                                       Application template for JBoss A-MQ brokers. These can be deployed as standal...   16 (6 blank)      10
+openshift              amq63-basic                                     Application template for JBoss A-MQ brokers. These can be deployed as standal...   11 (4 blank)      6
+openshift              amq63-persistent                                An example JBoss A-MQ application. For more information about using this temp...   13 (4 blank)      8
+openshift              amq63-persistent-ssl                            An example JBoss A-MQ application. For more information about using this temp...   18 (6 blank)      12
+openshift              amq63-ssl                                       An example JBoss A-MQ application. For more information about using this temp...   16 (6 blank)      10
+openshift              cakephp-mysql-example                           An example CakePHP application with a MySQL database. For more information ab...   19 (4 blank)      8
+openshift              cakephp-mysql-persistent                        An example CakePHP application with a MySQL database. For more information ab...   20 (4 blank)      9
+openshift              dancer-mysql-example                            An example Dancer application with a MySQL database. For more information abo...   16 (5 blank)      8
+openshift              dancer-mysql-persistent                         An example Dancer application with a MySQL database. For more information abo...   17 (5 blank)      9
+openshift              datagrid65-basic                                Application template for JDG 6.5 applications.                                     14 (8 blank)      6
+openshift              datagrid65-https                                Application template for JDG 6.5 applications.                                     23 (13 blank)     8
+openshift              datagrid65-mysql                                Application template for JDG 6.5 and MySQL applications.                           36 (21 blank)     10
+openshift              datagrid65-mysql-persistent                     An example JBoss Data Grid application with a MySQL database. For more inform...   37 (21 blank)     11
+openshift              datagrid65-postgresql                           Application template for JDG 6.5 and PostgreSQL applications built using.          33 (18 blank)     10
+openshift              datagrid65-postgresql-persistent                An example JBoss Data Grid application with a PostgreSQL database. For more i...   34 (18 blank)     11
+openshift              datagrid71-basic                                An example JBoss Data Grid application. For more information about using this...   18 (12 blank)     6
+openshift              datagrid71-https                                An example JBoss Data Grid application. For more information about using this...   27 (17 blank)     8
+openshift              datagrid71-mysql                                An example JBoss Data Grid application with a MySQL database. For more inform...   40 (25 blank)     10
+openshift              datagrid71-mysql-persistent                     An example JBoss Data Grid application with a MySQL database. For more inform...   41 (25 blank)     11
+openshift              datagrid71-partition                            An example JBoss Data Grid application. For more information about using this...   20 (12 blank)     8
+openshift              datagrid71-postgresql                           An example JBoss Data Grid application with a PostgreSQL database. For more i...   37 (22 blank)     10
+openshift              datagrid71-postgresql-persistent                An example JBoss Data Grid application with a PostgreSQL database. For more i...   38 (22 blank)     11
+openshift              datavirt63-basic-s2i                            Application template for JBoss Data Virtualization 6.3 services built using S2I.   19 (4 blank)      6
+openshift              datavirt63-extensions-support-s2i               An example JBoss Data Virtualization application. For more information about...    34 (7 blank)      10
+openshift              datavirt63-secure-s2i                           An example JBoss Data Virtualization application. For more information about...    50 (20 blank)     8
+openshift              decisionserver64-amq-s2i                        An example BRMS decision server A-MQ application. For more information about...    30 (5 blank)      10
+openshift              decisionserver64-basic-s2i                      Application template for Red Hat JBoss BRMS 6.4 decision server applications...    17 (5 blank)      5
+openshift              decisionserver64-https-s2i                      An example BRMS decision server application. For more information about using...   24 (6 blank)      7
+openshift              django-psql-example                             An example Django application with a PostgreSQL database. For more informatio...   17 (5 blank)      8
+openshift              django-psql-persistent                          An example Django application with a PostgreSQL database. For more informatio...   18 (5 blank)      9
+openshift              dotnet-example                                  An example .NET Core application.                                                  16 (5 blank)      5
+openshift              dotnet-pgsql-persistent                         An example .NET Core application with a PostgreSQL database. For more informa...   23 (6 blank)      9
+openshift              dotnet-runtime-example                          An example .NET Core Runtime example application.                                  17 (5 blank)      7
+openshift              eap-cd-amq-persistent-s2i                       An example JBoss Enterprise Application Platform continuous delivery applicat...   35 (9 blank)      12
+openshift              eap-cd-amq-s2i                                  An example JBoss Enterprise Application Platform continuous delivery applicat...   32 (9 blank)      11
+openshift              eap-cd-basic-s2i                                An example JBoss Enterprise Application Platform continuous delivery applicat...   16 (4 blank)      6
+openshift              eap-cd-https-s2i                                An example JBoss Enterprise Application Platform continuous delivery applicat...   26 (10 blank)     8
+openshift              eap-cd-mongodb-persistent-s2i                   An example JBoss Enterprise Application Platform continuous delivery applicat...   39 (18 blank)     11
+openshift              eap-cd-mongodb-s2i                              An example JBoss Enterprise Application Platform continuous delivery applicat...   38 (18 blank)     10
+openshift              eap-cd-mysql-persistent-s2i                     An example JBoss Enterprise Application Platform continuous delivery applicat...   40 (19 blank)     11
+openshift              eap-cd-mysql-s2i                                An example JBoss Enterprise Application Platform continuous delivery applicat...   39 (19 blank)     10
+openshift              eap-cd-postgresql-persistent-s2i                An example JBoss Enterprise Application Platform continuous delivery applicat...   37 (16 blank)     11
+openshift              eap-cd-postgresql-s2i                           An example JBoss Enterprise Application Platform continuous delivery applicat...   36 (16 blank)     10
+openshift              eap-cd-sso-s2i                                  An example JBoss Enterprise Application Platform continuous delivery applicat...   44 (19 blank)     8
+openshift              eap-cd-third-party-db-s2i                       An example JBoss Enterprise Application Platform continuous delivery applicat...   30 (7 blank)      8
+openshift              eap-cd-tx-recovery-s2i                          An example JBoss Enterprise Application Platform continuous delivery applicat...   29 (4 blank)      12
+openshift              eap64-amq-persistent-s2i                        An example EAP 6 A-MQ application. For more information about using this temp...   34 (10 blank)     12
+openshift              eap64-amq-s2i                                   An example EAP 6 A-MQ application. For more information about using this temp...   32 (10 blank)     11
+openshift              eap64-basic-s2i                                 An example EAP 6 application. For more information about using this template,...   16 (5 blank)      6
+openshift              eap64-https-s2i                                 An example EAP 6 application. For more information about using this template,...   26 (11 blank)     8
+openshift              eap64-mongodb-persistent-s2i                    An example EAP 6 application with a MongoDB database. For more information ab...   39 (18 blank)     11
+openshift              eap64-mongodb-s2i                               An example EAP 6 application with a MongoDB database. For more information ab...   38 (18 blank)     10
+openshift              eap64-mysql-persistent-s2i                      An example EAP 6 application with a MySQL database. For more information abou...   40 (19 blank)     11
+openshift              eap64-mysql-s2i                                 An example EAP 6 application with a MySQL database. For more information abou...   39 (19 blank)     10
+openshift              eap64-postgresql-persistent-s2i                 An example EAP 6 application with a PostgreSQL database. For more information...   37 (16 blank)     11
+openshift              eap64-postgresql-s2i                            An example EAP 6 application with a PostgreSQL database. For more information...   36 (16 blank)     10
+openshift              eap64-sso-s2i                                   An example EAP 6 Single Sign-On application. For more information about using...   44 (19 blank)     8
+openshift              eap64-third-party-db-s2i                        An example EAP 6 DB application. For more information about using this templa...   30 (7 blank)      8
+openshift              eap64-tx-recovery-s2i                           An example EAP 6 application. For more information about using this template,...   18 (5 blank)      8
+openshift              eap70-amq-persistent-s2i                        An example EAP 7 A-MQ application. For more information about using this temp...   34 (10 blank)     12
+openshift              eap70-amq-s2i                                   An example EAP 7 A-MQ application. For more information about using this temp...   32 (10 blank)     11
+openshift              eap70-basic-s2i                                 An example EAP 7 application. For more information about using this template,...   16 (5 blank)      6
+openshift              eap70-https-s2i                                 An example EAP 7 application. For more information about using this template,...   26 (11 blank)     8
+openshift              eap70-mongodb-persistent-s2i                    An example EAP 7 application with a MongoDB database. For more information ab...   39 (18 blank)     11
+openshift              eap70-mongodb-s2i                               An example EAP 7 application with a MongoDB database. For more information ab...   38 (18 blank)     10
+openshift              eap70-mysql-persistent-s2i                      An example EAP 7 application with a MySQL database. For more information abou...   40 (19 blank)     11
+openshift              eap70-mysql-s2i                                 An example EAP 7 application with a MySQL database. For more information abou...   39 (19 blank)     10
+openshift              eap70-postgresql-persistent-s2i                 An example EAP 7 application with a PostgreSQL database. For more information...   37 (16 blank)     11
+openshift              eap70-postgresql-s2i                            An example EAP 7 application with a PostgreSQL database. For more information...   36 (16 blank)     10
+openshift              eap70-sso-s2i                                   An example EAP 7 Single Sign-On application. For more information about using...   44 (19 blank)     8
+openshift              eap70-third-party-db-s2i                        An example EAP 7 DB application. For more information about using this templa...   30 (7 blank)      8
+openshift              eap70-tx-recovery-s2i                           An example EAP 7 application. For more information about using this template,...   18 (5 blank)      8
+openshift              eap71-amq-persistent-s2i                        An example EAP 7 A-MQ application. For more information about using this temp...   35 (11 blank)     12
+openshift              eap71-amq-s2i                                   An example EAP 7 A-MQ application. For more information about using this temp...   33 (11 blank)     11
+openshift              eap71-basic-s2i                                 An example EAP 7 application. For more information about using this template,...   17 (5 blank)      6
+openshift              eap71-https-s2i                                 An example EAP 7 application. For more information about using this template,...   27 (11 blank)     8
+openshift              eap71-mongodb-persistent-s2i                    An example EAP 7 application with a MongoDB database. For more information ab...   40 (19 blank)     11
+openshift              eap71-mongodb-s2i                               An example EAP 7 application with a MongoDB database. For more information ab...   39 (19 blank)     10
+openshift              eap71-mysql-persistent-s2i                      An example EAP 7 application with a MySQL database. For more information abou...   41 (20 blank)     11
+openshift              eap71-mysql-s2i                                 An example EAP 7 application with a MySQL database. For more information abou...   40 (20 blank)     10
+openshift              eap71-postgresql-persistent-s2i                 An example EAP 7 application with a PostgreSQL database. For more information...   38 (17 blank)     11
+openshift              eap71-postgresql-s2i                            An example EAP 7 application with a PostgreSQL database. For more information...   37 (17 blank)     10
+openshift              eap71-sso-s2i                                   An example EAP 7 Single Sign-On application. For more information about using...   45 (20 blank)     8
+openshift              eap71-third-party-db-s2i                        An example EAP 7 DB application. For more information about using this templa...   31 (8 blank)      8
+openshift              eap71-tx-recovery-s2i                           An example EAP 7 application. For more information about using this template,...   19 (5 blank)      8
+openshift              httpd-example                                   An example Apache HTTP Server (httpd) application that serves static content....   9 (3 blank)       5
+openshift              jenkins-ephemeral                               Jenkins service, without persistent storage....                                    6 (all set)       6
+openshift              jenkins-persistent                              Jenkins service, with persistent storage....                                       7 (all set)       7
+openshift              jws31-tomcat7-basic-s2i                         Application template for JWS applications built using S2I.                         12 (3 blank)      5
+openshift              jws31-tomcat7-https-s2i                         An example JBoss Web Server application configured for use with https. For mo...   17 (5 blank)      7
+openshift              jws31-tomcat7-mongodb-persistent-s2i            An example JBoss Web Server application with a MongoDB database. For more inf...   30 (12 blank)     10
+openshift              jws31-tomcat7-mongodb-s2i                       Application template for JWS MongoDB applications built using S2I.                 29 (12 blank)     9
+openshift              jws31-tomcat7-mysql-persistent-s2i              An example JBoss Web Server application with a MySQL database. For more infor...   31 (13 blank)     10
+openshift              jws31-tomcat7-mysql-s2i                         Application template for JWS MySQL applications built using S2I.                   30 (13 blank)     9
+openshift              jws31-tomcat7-postgresql-persistent-s2i         An example JBoss Web Server application with a PostgreSQL database. For more...    28 (10 blank)     10
+openshift              jws31-tomcat7-postgresql-s2i                    Application template for JWS PostgreSQL applications built using S2I.              27 (10 blank)     9
+openshift              jws31-tomcat8-basic-s2i                         An example JBoss Web Server application. For more information about using thi...   12 (3 blank)      5
+openshift              jws31-tomcat8-https-s2i                         An example JBoss Web Server application. For more information about using thi...   17 (5 blank)      7
+openshift              jws31-tomcat8-mongodb-persistent-s2i            An example JBoss Web Server application with a MongoDB database. For more inf...   30 (12 blank)     10
+openshift              jws31-tomcat8-mongodb-s2i                       Application template for JWS MongoDB applications built using S2I.                 29 (12 blank)     9
+openshift              jws31-tomcat8-mysql-persistent-s2i              An example JBoss Web Server application with a MySQL database. For more infor...   31 (13 blank)     10
+openshift              jws31-tomcat8-mysql-s2i                         Application template for JWS MySQL applications built using S2I.                   30 (13 blank)     9
+openshift              jws31-tomcat8-postgresql-persistent-s2i         Application template for JWS PostgreSQL applications with persistent storage...    28 (10 blank)     10
+openshift              jws31-tomcat8-postgresql-s2i                    Application template for JWS PostgreSQL applications built using S2I.              27 (10 blank)     9
+openshift              mariadb-ephemeral                               MariaDB database service, without persistent storage. For more information ab...   8 (3 generated)   3
+openshift              mariadb-persistent                              MariaDB database service, with persistent storage. For more information about...   9 (3 generated)   4
+openshift              mongodb-ephemeral                               MongoDB database service, without persistent storage. For more information ab...   8 (3 generated)   3
+openshift              mongodb-persistent                              MongoDB database service, with persistent storage. For more information about...   9 (3 generated)   4
+openshift              mysql-ephemeral                                 MySQL database service, without persistent storage. For more information abou...   8 (3 generated)   3
+openshift              mysql-persistent                                MySQL database service, with persistent storage. For more information about u...   9 (3 generated)   4
+openshift              nginx-example                                   An example Nginx HTTP server and a reverse proxy (nginx) application that ser...   10 (3 blank)      5
+openshift              nodejs-mongo-persistent                         An example Node.js application with a MongoDB database. For more information...    17 (4 blank)      9
+openshift              nodejs-mongodb-example                          An example Node.js application with a MongoDB database. For more information...    16 (4 blank)      8
+openshift              openjdk18-web-basic-s2i                         An example Java application using OpenJDK 8. For more information about using...   8 (1 blank)       5
+openshift              postgresql-ephemeral                            PostgreSQL database service, without persistent storage. For more information...   7 (2 generated)   3
+openshift              postgresql-persistent                           PostgreSQL database service, with persistent storage. For more information ab...   8 (2 generated)   4
+openshift              processserver64-amq-mysql-persistent-s2i        An example BPM Suite application with A-MQ and a MySQL database. For more inf...   49 (13 blank)     14
+openshift              processserver64-amq-mysql-s2i                   An example BPM Suite application with A-MQ and a MySQL database. For more inf...   47 (13 blank)     12
+openshift              processserver64-amq-postgresql-persistent-s2i   An example BPM Suite application with A-MQ and a PostgreSQL database. For mor...   46 (10 blank)     14
+openshift              processserver64-amq-postgresql-s2i              An example BPM Suite application with A-MQ and a PostgreSQL database. For mor...   44 (10 blank)     12
+openshift              processserver64-basic-s2i                       An example BPM Suite application. For more information about using this templ...   18 (5 blank)      5
+openshift              processserver64-mysql-persistent-s2i            An example BPM Suite application with a MySQL database. For more information...    40 (14 blank)     10
+openshift              processserver64-mysql-s2i                       An example BPM Suite application with a MySQL database. For more information...    39 (14 blank)     9
+openshift              processserver64-postgresql-persistent-s2i       An example BPM Suite application with a PostgreSQL database. For more informa...   37 (11 blank)     10
+openshift              processserver64-postgresql-s2i                  An example BPM Suite application with a PostgreSQL database. For more informa...   36 (11 blank)     9
+openshift              rails-pgsql-persistent                          An example Rails application with a PostgreSQL database. For more information...   21 (4 blank)      9
+openshift              rails-postgresql-example                        An example Rails application with a PostgreSQL database. For more information...   20 (4 blank)      8
+openshift              redis-ephemeral                                 Redis in-memory data structure store, without persistent storage. For more in...   5 (1 generated)   3
+openshift              redis-persistent                                Redis in-memory data structure store, with persistent storage. For more infor...   6 (1 generated)   4
+openshift              registry-console                                Template for deploying registry web console. Requires cluster-admin.               8 (3 blank)       3
+openshift              s2i-karaf2-camel-amq                            Camel route using ActiveMQ in Karaf container. This quickstart shows how to u...   18 (4 blank)      3
+openshift              s2i-karaf2-camel-log                            A simple Camel route in Karaf container. This quickstart shows a simple Apach...   15 (2 blank)      3
+openshift              s2i-karaf2-camel-rest-sql                       Camel example using Rest DSL with SQL Database in Karaf container.  This exam...   18 (4 blank)      5
+openshift              s2i-karaf2-cxf-rest                             REST example using CXF in Karaf container. This quickstart demonstrates how t...   14 (2 blank)      5
+openshift              s2i-spring-boot-camel                           Spring-Boot and Camel QuickStart. This example demonstrates how you can use A...   12 (2 blank)      3
+openshift              s2i-spring-boot-camel-amq                       Spring Boot, Camel and ActiveMQ QuickStart. This quickstart demonstrates how...    15 (4 blank)      3
+openshift              s2i-spring-boot-camel-config                    Spring Boot and Camel using ConfigMaps and Secrets. This quickstart demonstra...   13 (2 blank)      3
+openshift              s2i-spring-boot-camel-drools                    Spring-Boot, Camel and JBoss BRMS QuickStart. This example demonstrates how y...   15 (3 blank)      3
+openshift              s2i-spring-boot-camel-infinispan                Spring Boot, Camel and JBoss Data Grid QuickStart. This quickstart demonstrat...   13 (2 blank)      3
+openshift              s2i-spring-boot-camel-rest-sql                  Spring Boot, Camel REST DSL and MySQL QuickStart. This quickstart demonstrate...   17 (4 blank)      5
+openshift              s2i-spring-boot-camel-teiid                     Spring-Boot, Camel and JBoss Data Virtualization QuickStart. This example dem...   16 (4 blank)      3
+openshift              s2i-spring-boot-camel-xml                       Spring-Boot and Camel Xml QuickStart. This example demonstrates how you can u...   12 (2 blank)      3
+openshift              s2i-spring-boot-cxf-jaxrs                       Spring-Boot and CXF JAXRS QuickStart. This example demonstrates how you can u...   13 (2 blank)      5
+openshift              s2i-spring-boot-cxf-jaxws                       Spring-Boot and CXF JAXWS QuickStart. This example demonstrates how you can u...   13 (2 blank)      5
+openshift              sso72-https                                     An example RH-SSO 7 application. For more information about using this templa...   26 (15 blank)     6
+openshift              sso72-mysql                                     An example RH-SSO 7 application with a MySQL database. For more information a...   36 (20 blank)     8
+openshift              sso72-mysql-persistent                          An example RH-SSO 7 application with a MySQL database. For more information a...   37 (20 blank)     9
+openshift              sso72-postgresql                                An example RH-SSO 7 application with a PostgreSQL database. For more informat...   33 (17 blank)     8
+openshift              sso72-postgresql-persistent                     An example RH-SSO 7 application with a PostgreSQL database. For more informat...   34 (17 blank)     9
+openshift              sso72-x509-https                                An example RH-SSO 7 application. For more information about using this templa...   12 (6 blank)      4
+openshift              sso72-x509-mysql-persistent                     An example RH-SSO 7 application with a MySQL database. For more information a...   23 (11 blank)     7
+openshift              sso72-x509-postgresql-persistent                An example RH-SSO 7 application with a PostgreSQL database. For more informat...   20 (8 blank)      7
+openshift              system                                                                                                                             20 (1 blank)      34

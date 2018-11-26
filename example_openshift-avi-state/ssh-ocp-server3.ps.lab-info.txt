@@ -25,7 +25,6 @@ init version: fec3683b971d9c3ef73f284f176672c44b448662 (expected: 949e6facb77383
 Security Options:
  seccomp
   Profile: /etc/docker/seccomp.json
-  WARNING: You're not using the default seccomp profile
  selinux
 Kernel Version: 3.10.0-957.el7.x86_64
 Operating System: Red Hat Enterprise Linux
@@ -41,32 +40,33 @@ Debug Mode (client): false
 Debug Mode (server): false
 Username: sergey.avinetworks
 Registry: https://registry.access.redhat.com/v1/
-WARNING: bridge-nf-call-iptables is disabled
 Experimental: false
 Insecure Registries:
  127.0.0.0/8
 Live Restore Enabled: false
 Registries: registry.access.redhat.com (secure), registry.access.redhat.com (secure), docker.io (secure)
+  WARNING: You're not using the default seccomp profile
+WARNING: bridge-nf-call-iptables is disabled
 WARNING: bridge-nf-call-ip6tables is disabled
 Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
-9851K   14G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
-9851K   14G OPENSHIFT-FIREWALL-ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
-2086K 1031M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+  11M   15G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  11M   15G OPENSHIFT-FIREWALL-ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
+2262K 1111M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
     0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
- 216K   13M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
-  321 19260 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:22
- 244K   15M OS_FIREWALL_ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
- 136K 8504K REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
+ 235K   15M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+  355 21300 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:22
+ 265K   16M OS_FIREWALL_ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 148K 9246K REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
 
 Chain FORWARD (policy DROP 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
-1713K  260M ACCEPT     all  --  *      *       0.0.0.0/0            10.57.0.0/22         /* AVI_Networks_Index:1 */
-1185K 1609M ACCEPT     all  --  *      *       10.57.0.0/22         0.0.0.0/0            /* AVI_Networks_Index:0 */
- 474K  134M ACCEPT     all  --  *      *       0.0.0.0/0            172.18.0.0/16       
- 882K   48M ACCEPT     all  --  *      *       172.18.0.0/16        0.0.0.0/0           
- 835K   58M OPENSHIFT-ADMIN-OUTPUT-RULES  all  --  tun0   !tun0   0.0.0.0/0            0.0.0.0/0            /* administrator overrides */
-2350K 1614M OPENSHIFT-FIREWALL-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
+1863K  283M ACCEPT     all  --  *      *       0.0.0.0/0            10.57.0.0/22         /* AVI_Networks_Index:1 */
+1289K 1746M ACCEPT     all  --  *      *       10.57.0.0/22         0.0.0.0/0            /* AVI_Networks_Index:0 */
+ 514K  136M ACCEPT     all  --  *      *       0.0.0.0/0            172.18.0.0/16       
+ 957K   52M ACCEPT     all  --  *      *       172.18.0.0/16        0.0.0.0/0           
+ 907K   63M OPENSHIFT-ADMIN-OUTPUT-RULES  all  --  tun0   !tun0   0.0.0.0/0            0.0.0.0/0            /* administrator overrides */
+2552K 1752M OPENSHIFT-FIREWALL-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
     0     0 DOCKER-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
     0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
     0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
@@ -74,9 +74,9 @@ Chain FORWARD (policy DROP 0 packets, 0 bytes)
     0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
     0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
 
-Chain OUTPUT (policy ACCEPT 9759K packets, 1100M bytes)
+Chain OUTPUT (policy ACCEPT 11M packets, 1207M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-9759K 1101M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  11M 1207M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
 
 Chain DOCKER (1 references)
  pkts bytes target     prot opt in     out     source               destination         
@@ -94,49 +94,49 @@ Chain OPENSHIFT-ADMIN-OUTPUT-RULES (1 references)
 
 Chain OPENSHIFT-FIREWALL-ALLOW (1 references)
  pkts bytes target     prot opt in     out     source               destination         
-2549K  369M ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:4789 /* VXLAN incoming */
-4757K   12G ACCEPT     all  --  tun0   *       0.0.0.0/0            0.0.0.0/0            /* from SDN to localhost */
+2836K  398M ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:4789 /* VXLAN incoming */
+5218K   14G ACCEPT     all  --  tun0   *       0.0.0.0/0            0.0.0.0/0            /* from SDN to localhost */
     0     0 ACCEPT     all  --  docker0 *       0.0.0.0/0            0.0.0.0/0            /* from docker to localhost */
 
 Chain OPENSHIFT-FIREWALL-FORWARD (1 references)
  pkts bytes target     prot opt in     out     source               destination         
     0     0 DROP       all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* attempted resend after connection close */ ctstate INVALID
-1515K 1556M ACCEPT     all  --  *      *       0.0.0.0/0            10.128.0.0/14        /* forward traffic from SDN */
- 835K   58M ACCEPT     all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* forward traffic to SDN */
+1645K 1689M ACCEPT     all  --  *      *       0.0.0.0/0            10.128.0.0/14        /* forward traffic from SDN */
+ 907K   63M ACCEPT     all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* forward traffic to SDN */
 
 Chain OS_FIREWALL_ALLOW (1 references)
  pkts bytes target     prot opt in     out     source               destination         
     5   300 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:10250
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:10256
-53547 3213K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:80
-53531 3212K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:443
+58240 3494K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:80
+58224 3493K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:443
     0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW udp dpt:4789
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpts:9000:10000
-Chain PREROUTING (policy ACCEPT 1698K packets, 157M bytes)
+Chain PREROUTING (policy ACCEPT 1892K packets, 175M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-1262K  131M avi        udp  --  *      *       0.0.0.0/0            0.0.0.0/0           
- 436K   26M avi        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           
-1484K  144M DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
-1484K  144M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+1418K  147M avi        udp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 474K   28M avi        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+1660K  161M DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+1660K  161M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            172.18.0.1           udp dpt:1550 to:172.18.0.2:1550
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            172.17.0.1           udp dpt:1550 to:172.18.0.2:1550
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.128.2.1           udp dpt:1550 to:172.18.0.2:1550
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.57.0.43           udp dpt:1550 to:172.18.0.2:1550
 
-Chain INPUT (policy ACCEPT 1348K packets, 135M bytes)
+Chain INPUT (policy ACCEPT 1512K packets, 152M bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
-Chain OUTPUT (policy ACCEPT 2572K packets, 217M bytes)
+Chain OUTPUT (policy ACCEPT 2872K packets, 243M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-54641 3505K DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
- 162K 9967K KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+59437 3812K DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+ 176K   11M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
 
-Chain POSTROUTING (policy ACCEPT 1698K packets, 165M bytes)
+Chain POSTROUTING (policy ACCEPT 1900K packets, 184M bytes)
  pkts bytes target     prot opt in     out     source               destination         
    18  1080 ACCEPT     all  --  *      bravi   0.0.0.0/0            0.0.0.0/0            /* bravi-rule:1 */
- 214K   13M MASQUERADE  all  --  *      !bravi  172.18.0.0/16        0.0.0.0/0           
-2572K  217M KUBE-POSTROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes postrouting rules */
-2572K  217M OPENSHIFT-MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* rules for masquerading OpenShift traffic */
+ 232K   14M MASQUERADE  all  --  *      !bravi  172.18.0.0/16        0.0.0.0/0           
+2872K  243M KUBE-POSTROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes postrouting rules */
+2872K  243M OPENSHIFT-MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* rules for masquerading OpenShift traffic */
     0     0 MASQUERADE  all  --  *      !docker0  172.17.0.0/16        0.0.0.0/0           
     0     0 MASQUERADE  all  --  *      tun0    127.0.0.0/8          0.0.0.0/0            /* SNAT for localhost access to hostports */
 
@@ -161,7 +161,7 @@ Chain KUBE-POSTROUTING (1 references)
 
 Chain OPENSHIFT-MASQUERADE (1 references)
  pkts bytes target     prot opt in     out     source               destination         
- 874K   52M MASQUERADE  all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* masquerade pod-to-service and pod-to-external traffic */
+ 973K   58M MASQUERADE  all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* masquerade pod-to-service and pod-to-external traffic */
 
 Chain avi (2 references)
  pkts bytes target     prot opt in     out     source               destination         
@@ -363,13 +363,13 @@ dev.scsi.logging_level = 0
 fs.aio-max-nr = 65536
 fs.aio-nr = 384
 fs.binfmt_misc.status = enabled
-fs.dentry-state = 167231	132597	45	0	0	0
+fs.dentry-state = 168765	134352	45	0	0	0
 fs.dir-notify-enable = 1
 fs.epoll.max_user_watches = 3326545
 fs.file-max = 1609950
-fs.file-nr = 3008	0	1609950
-fs.inode-nr = 95239	502
-fs.inode-state = 95239	502	0	0	0	0	0
+fs.file-nr = 2784	0	1609950
+fs.inode-nr = 95020	502
+fs.inode-state = 95020	502	0	0	0	0	0
 fs.inotify.max_queued_events = 16384
 fs.inotify.max_user_instances = 128
 fs.inotify.max_user_watches = 65536
@@ -458,7 +458,7 @@ kernel.msgmnb = 16384
 kernel.msgmni = 4538
 kernel.ngroups_max = 65536
 kernel.nmi_watchdog = 1
-kernel.ns_last_pid = 13327
+kernel.ns_last_pid = 94205
 kernel.numa_balancing = 0
 kernel.numa_balancing_scan_delay_ms = 1000
 kernel.numa_balancing_scan_period_max_ms = 60000
@@ -490,11 +490,11 @@ kernel.pty.max = 4096
 kernel.pty.nr = 11
 kernel.pty.reserve = 1024
 kernel.random.boot_id = 96307e30-e4f1-4e01-a781-8c9c773ac9cc
-kernel.random.entropy_avail = 3198
+kernel.random.entropy_avail = 3046
 kernel.random.poolsize = 4096
 kernel.random.read_wakeup_threshold = 64
 kernel.random.urandom_min_reseed_secs = 60
-kernel.random.uuid = 82eeba02-17cf-4099-8cbb-fd41f9b4885c
+kernel.random.uuid = 15ed7cc0-2721-4d31-b586-d96730d02049
 kernel.random.write_wakeup_threshold = 896
 kernel.randomize_va_space = 2
 kernel.real-root-dev = 0
@@ -509,7 +509,7 @@ kernel.sched_domain.cpu0.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu0.domain0.idle_idx = 1
 kernel.sched_domain.cpu0.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu0.domain0.max_interval = 8
-kernel.sched_domain.cpu0.domain0.max_newidle_lb_cost = 8824
+kernel.sched_domain.cpu0.domain0.max_newidle_lb_cost = 12225
 kernel.sched_domain.cpu0.domain0.min_interval = 4
 kernel.sched_domain.cpu0.domain0.name = DIE
 kernel.sched_domain.cpu0.domain0.newidle_idx = 0
@@ -522,7 +522,7 @@ kernel.sched_domain.cpu1.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu1.domain0.idle_idx = 1
 kernel.sched_domain.cpu1.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu1.domain0.max_interval = 8
-kernel.sched_domain.cpu1.domain0.max_newidle_lb_cost = 17616
+kernel.sched_domain.cpu1.domain0.max_newidle_lb_cost = 17064
 kernel.sched_domain.cpu1.domain0.min_interval = 4
 kernel.sched_domain.cpu1.domain0.name = DIE
 kernel.sched_domain.cpu1.domain0.newidle_idx = 0
@@ -535,7 +535,7 @@ kernel.sched_domain.cpu2.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu2.domain0.idle_idx = 1
 kernel.sched_domain.cpu2.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu2.domain0.max_interval = 8
-kernel.sched_domain.cpu2.domain0.max_newidle_lb_cost = 17038
+kernel.sched_domain.cpu2.domain0.max_newidle_lb_cost = 17693
 kernel.sched_domain.cpu2.domain0.min_interval = 4
 kernel.sched_domain.cpu2.domain0.name = DIE
 kernel.sched_domain.cpu2.domain0.newidle_idx = 0
@@ -548,7 +548,7 @@ kernel.sched_domain.cpu3.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu3.domain0.idle_idx = 1
 kernel.sched_domain.cpu3.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu3.domain0.max_interval = 8
-kernel.sched_domain.cpu3.domain0.max_newidle_lb_cost = 19407
+kernel.sched_domain.cpu3.domain0.max_newidle_lb_cost = 28492
 kernel.sched_domain.cpu3.domain0.min_interval = 4
 kernel.sched_domain.cpu3.domain0.name = DIE
 kernel.sched_domain.cpu3.domain0.newidle_idx = 0
@@ -2148,7 +2148,7 @@ net.ipv6.xfrm6_gc_thresh = 32768
 net.netfilter.nf_conntrack_acct = 0
 net.netfilter.nf_conntrack_buckets = 131072
 net.netfilter.nf_conntrack_checksum = 1
-net.netfilter.nf_conntrack_count = 550
+net.netfilter.nf_conntrack_count = 470
 net.netfilter.nf_conntrack_dccp_loose = 1
 net.netfilter.nf_conntrack_dccp_timeout_closereq = 64
 net.netfilter.nf_conntrack_dccp_timeout_closing = 64
@@ -2272,46 +2272,46 @@ vm.user_reserve_kbytes = 131072
 vm.vfs_cache_pressure = 100
 vm.zone_reclaim_mode = 0
 Filesystem             Size  Used Avail Use% Mounted on
-/dev/mapper/rhel-root   17G  8.7G  8.4G  51% /
+/dev/mapper/rhel-root   17G  8.7G  8.4G  52% /
 devtmpfs               7.8G     0  7.8G   0% /dev
 tmpfs                  7.8G     0  7.8G   0% /dev/shm
 tmpfs                  7.8G  2.1M  7.8G   1% /run
 tmpfs                  7.8G     0  7.8G   0% /sys/fs/cgroup
 /dev/sda1             1014M  186M  829M  19% /boot
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/032a2d43494ff968b71a3803ff896c6254a16b881226adb8e9f74780ba75fbf6/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/032a2d43494ff968b71a3803ff896c6254a16b881226adb8e9f74780ba75fbf6/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/34a6863947469e0ab99bcb675d2887722523b10bb015c00c378ee7754a20786d/shm
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/90c6c412-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/apiserver-token-sqp6t
 tmpfs                  7.8G   12K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/2a167a2d-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/server-certificate
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/2a167a2d-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/router-token-7bvv2
 tmpfs                  7.8G  8.0K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/90c6c412-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/serving-cert
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/46d75689087885eea2e8c8e9d228985390929c4c2988e29147d06bb56349483b/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/46d75689087885eea2e8c8e9d228985390929c4c2988e29147d06bb56349483b/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/7e90c2063b3f5c117b69ace61bb9554508a89fe743b7801670ecd8bf8a69992a/shm
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/33a3eb664aaac752351ae861b9bfd805e25e3e811c21f5086706291723b8850a/merged
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/b8bfd9c0feffd1a6b23e68306a67a330fdbac646c519dec4cfa739bbae57d28f/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/33a3eb664aaac752351ae861b9bfd805e25e3e811c21f5086706291723b8850a/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/b8bfd9c0feffd1a6b23e68306a67a330fdbac646c519dec4cfa739bbae57d28f/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/998eda8f3b8a1247c11d0bc385af8b7faf161845f30bcf747e1ee94a599f3d04/shm
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/8f85d96f704d47ab3ae01423ae0ee9a85e1502435384c36b4d1341b44de5be9b/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/8f85d96f704d47ab3ae01423ae0ee9a85e1502435384c36b4d1341b44de5be9b/merged
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/8d74785e-e925-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/default-token-p7vxh
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/e169e7cc69efc8d8c9656cc6e697464a85b7118fa6cadb94936a744bd8f59c7c/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/e169e7cc69efc8d8c9656cc6e697464a85b7118fa6cadb94936a744bd8f59c7c/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/4119b021c7aac00908ff6b976b643617daf3464891d1d66d6c406e7cfe1f4d7b/shm
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/768b8d0ec5e9cc876d9e95c800e53100da64e68185aca08f2aa5d6a9c848e7c6/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/768b8d0ec5e9cc876d9e95c800e53100da64e68185aca08f2aa5d6a9c848e7c6/merged
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/cc7852be-e929-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/default-token-p7vxh
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/a66f3872917bd00bdca7d01baba9b9aa42301e519beb12490b14a2e9c701db1f/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/a66f3872917bd00bdca7d01baba9b9aa42301e519beb12490b14a2e9c701db1f/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/ea7fdcf8fafd07463af60b5beee13d47447ec64c11a5b67db0f3ccd80429dc2e/shm
 tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/cd8cfdf2-e929-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/default-token-p7vxh
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/900f9c76a3b6b298f5eb5fae8589b29e3b5a1bbe2040c083034848ccd4c043fe/merged
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/9353cdb0fcfbd5c80026484bc40d822b5f2c10fee060f37d4ed7f1770582ec31/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/900f9c76a3b6b298f5eb5fae8589b29e3b5a1bbe2040c083034848ccd4c043fe/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/9353cdb0fcfbd5c80026484bc40d822b5f2c10fee060f37d4ed7f1770582ec31/merged
 shm                     64M     0   64M   0% /var/lib/docker/containers/c095087bf6db225a5370707e59394b13f77fd78c71aa0a1187875bec0d156732/shm
-overlay                 17G  8.7G  8.4G  51% /var/lib/docker/overlay2/4c46001ca2a92009b1f6471c17776ab59a56b357c3793c58f9f82f787a3ac1e4/merged
+overlay                 17G  8.7G  8.4G  52% /var/lib/docker/overlay2/4c46001ca2a92009b1f6471c17776ab59a56b357c3793c58f9f82f787a3ac1e4/merged
 tmpfs                  1.6G     0  1.6G   0% /run/user/0
-Wed Nov 21 22:04:30 EST 2018
+Thu Nov 22 11:06:39 EST 2018
 bash: ntpq: command not found
 PING 10.57.0.46 (10.57.0.46) 56(84) bytes of data.
-64 bytes from 10.57.0.46: icmp_seq=1 ttl=64 time=0.260 ms
-64 bytes from 10.57.0.46: icmp_seq=2 ttl=64 time=0.303 ms
-64 bytes from 10.57.0.46: icmp_seq=3 ttl=64 time=0.354 ms
-64 bytes from 10.57.0.46: icmp_seq=4 ttl=64 time=0.369 ms
-64 bytes from 10.57.0.46: icmp_seq=5 ttl=64 time=0.469 ms
+64 bytes from 10.57.0.46: icmp_seq=1 ttl=64 time=0.241 ms
+64 bytes from 10.57.0.46: icmp_seq=2 ttl=64 time=0.482 ms
+64 bytes from 10.57.0.46: icmp_seq=3 ttl=64 time=0.554 ms
+64 bytes from 10.57.0.46: icmp_seq=4 ttl=64 time=0.411 ms
+64 bytes from 10.57.0.46: icmp_seq=5 ttl=64 time=0.519 ms
 
 --- 10.57.0.46 ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 3999ms
-rtt min/avg/max/mdev = 0.260/0.351/0.469/0.070 ms
+rtt min/avg/max/mdev = 0.241/0.441/0.554/0.112 ms

@@ -1,51 +1,59 @@
 Showing all projects on server https://ocp-server1.ps.lab:8443
 
-svc/docker-registry[default] - 172.30.84.57:5000
-  rc/docker-registry-1 runs openshift3/ose-docker-registry:v3.9.43
-    rc/docker-registry-1 created 7 days ago - 1 pod
+https://docker-registry-default.router.default.svc.cluster.local (passthrough) (svc/docker-registry[default])
+  dc/docker-registry deploys docker.io/openshift3/ose-docker-registry:v3.9.43 
+    deployment #1 deployed 7 days ago - 1 pod
 
 svc/kubernetes[default] - 172.30.0.1 ports 443->8443, 53->8053, 53->8053
 
-svc/registry-console[default] - 172.30.125.209:9000 -> 9090
-  rc/registry-console-1 runs registry.access.redhat.com/openshift3/registry-console:v3.9
-    rc/registry-console-1 created 7 days ago - 1 pod
+https://registry-console-default.router.default.svc.cluster.local (passthrough) (svc/registry-console[default])
+  dc/registry-console deploys registry.access.redhat.com/openshift3/registry-console:v3.9 
+    deployment #1 deployed 7 days ago - 1 pod
 
 svc/router[default] - 172.30.27.215 ports 80, 443, 1936
-  rc/router-1 runs openshift3/ose-haproxy-router:v3.9.43
-    rc/router-1 created 7 days ago
-  rc/router-2 runs openshift3/ose-haproxy-router:v3.9.43
-    rc/router-2 created 7 days ago - 2 pods
+  dc/router deploys docker.io/openshift3/ose-haproxy-router:v3.9.43 
+    deployment #2 deployed 7 days ago - 2 pods
+    deployment #1 failed 7 days ago: newer deployment was found running
 
-svc/apiserver[kube-service-catalog] - 172.30.6.108:443 -> 6443
+https://apiserver-kube-service-catalog.router.default.svc.cluster.local (passthrough) to pod port secure (svc/apiserver[kube-service-catalog])
+  daemonset/apiserver manages registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
+    generation #1 running for 7 days - 1 pod
   pod/apiserver-ch4f6 runs registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
 
-svc/asb[openshift-ansible-service-broker] - 172.30.125.187:1338
-  rc/asb-1 runs registry.access.redhat.com/openshift3/ose-ansible-service-broker:v3.9.43
-    rc/asb-1 created 7 days ago
+https://asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local (reencrypt) to pod port 1338 (svc/asb[openshift-ansible-service-broker])
+  dc/asb deploys registry.access.redhat.com/openshift3/ose-ansible-service-broker:v3.9.43 
+    deployment #1 failed 7 days ago: config change
 
 svc/asb-etcd[openshift-ansible-service-broker] - 172.30.125.63:2379
-  rc/asb-etcd-1 runs registry.access.redhat.com/rhel7/etcd:latest
-    rc/asb-etcd-1 created 7 days ago
+  dc/asb-etcd deploys registry.access.redhat.com/rhel7/etcd:latest 
+    deployment #1 failed 7 days ago: config change
 
 svc/apiserver[openshift-template-service-broker] - 172.30.255.133:443 -> 8443
-  pod/apiserver-qgrkb runs registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
+  daemonset/apiserver manages registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
+    generation #1 running for 7 days - 2 pods
   pod/apiserver-vsz4s runs registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
+  pod/apiserver-qgrkb runs registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
 
 svc/webconsole[openshift-web-console] - 172.30.127.103:443 -> 8443
-  pod/webconsole-7db65c944b-drh6v runs registry.access.redhat.com/openshift3/ose-web-console:v3.9.43
+  deployment/webconsole deploys registry.access.redhat.com/openshift3/ose-web-console:v3.9.43
+    deployment #1 running for 7 days - 1 pod
 
-svc/nginx-example[sergey1] - 172.30.62.125:8080
-  rc/nginx-example-1 runs docker-registry.default.svc:5000/sergey1/nginx-example@sha256:0ee340f37bc8d5314f722dcdc2653b293b6b7025facf4da9332bf6a489d0ccd6
-    rc/nginx-example-1 created 6 days ago - 5 pods
+http://nginx-example-sergey1.router.default.svc.cluster.local (svc/nginx-example[sergey1])
+  dc/nginx-example deploys istag/nginx-example:latest <-
+    bc/nginx-example source builds https://github.com/sclorg/nginx-ex.git on openshift/nginx:1.12 
+    deployment #1 deployed 7 days ago - 5 pods
 
-svc/nginx-example2[sergey1] - 172.30.158.171:8080
-  rc/nginx-example2-1 runs docker-registry.default.svc:5000/sergey1/nginx-example2@sha256:da7edb7971a4ca8417d438d38f5a8efd4aa3c43d4c4424b75df974c5eb3218c7
-    rc/nginx-example2-1 created 6 days ago - 2 pods
+http://nginx-example2-sergey1.router.default.svc.cluster.local (svc/nginx-example2[sergey1])
+  dc/nginx-example2 deploys istag/nginx-example2:latest <-
+    bc/nginx-example2 source builds https://github.com/sclorg/nginx-ex.git on openshift/nginx:1.12 
+    deployment #1 deployed 6 days ago - 2 pods
 
-rc/httpd-ex-1[default] runs docker-registry.default.svc:5000/default/httpd-ex@sha256:1e2be56784847fb0b9000c9fe803d8fa43f825fdd6c608f8b06bba9532b264fd
-  rc/httpd-ex-1 created 6 days ago
+dc/httpd-ex[default] deploys istag/httpd-ex:latest <-
+  bc/httpd-ex source builds https://github.com/sclorg/httpd-ex on istag/httpd-24-centos7:latest 
+  deployment #1 failed 6 days ago: deployer pod no longer exists
 
-pod/controller-manager-h8294[kube-service-catalog] runs registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
+daemonset/controller-manager[kube-service-catalog] manages registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
+  generation #1 running for 7 days - 1 pod
 
 
-10 warnings, 4 infos identified, use 'oc status -v' to see details.
+1 warning, 9 infos identified, use 'oc status -v' to see details.

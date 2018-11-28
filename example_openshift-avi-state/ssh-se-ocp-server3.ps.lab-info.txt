@@ -1,9 +1,15 @@
-ocp-server4.ps.lab
-Containers: 5
- Running: 1
+"docker exec" requires at least 2 argument(s).
+See 'docker exec --help'.
+
+Usage:  docker exec [OPTIONS] CONTAINER COMMAND [ARG...]
+
+Run a command in a running container
+ocp-server3.ps.lab
+Containers: 16
+ Running: 11
  Paused: 0
- Stopped: 4
-Images: 7
+ Stopped: 5
+Images: 9
 Server Version: 1.13.1
 Storage Driver: overlay2
  Backing Filesystem: xfs
@@ -28,14 +34,13 @@ Security Options:
  selinux
 Kernel Version: 3.10.0-957.el7.x86_64
 Operating System: Red Hat Enterprise Linux
-  WARNING: You're not using the default seccomp profile
 OSType: linux
 Architecture: x86_64
 Number of Docker Hooks: 3
 CPUs: 4
 Total Memory: 15.51 GiB
-Name: ocp-server4.ps.lab
-ID: IGJC:WU2L:6UAR:6XWV:NTFF:VVJM:4NHZ:MQRT:YDAR:65Y3:QXOD:EYU6
+Name: ocp-server3.ps.lab
+ID: JROF:35QT:FU6M:DKYL:HEV5:LM6M:QHZV:JABC:TDBY:ZUD2:R54R:KJYN
 Docker Root Dir: /var/lib/docker
 Debug Mode (client): false
 Debug Mode (server): false
@@ -46,27 +51,28 @@ Insecure Registries:
  127.0.0.0/8
 Live Restore Enabled: false
 Registries: registry.access.redhat.com (secure), registry.access.redhat.com (secure), docker.io (secure)
+  WARNING: You're not using the default seccomp profile
 WARNING: bridge-nf-call-iptables is disabled
 WARNING: bridge-nf-call-ip6tables is disabled
 Chain INPUT (policy ACCEPT 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
-1725K  937M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
-1725K  937M OPENSHIFT-FIREWALL-ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
-1451K  919M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
+  22M   29G KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  22M   29G OPENSHIFT-FIREWALL-ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
+4288K 2042M ACCEPT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            state RELATED,ESTABLISHED
     0     0 ACCEPT     icmp --  *      *       0.0.0.0/0            0.0.0.0/0           
- 228K   15M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
-   22  1320 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:22
-45788 3409K OS_FIREWALL_ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
-45783 3408K REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
+ 454K   28M ACCEPT     all  --  lo     *       0.0.0.0/0            0.0.0.0/0           
+  673 40380 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:22
+ 511K   31M OS_FIREWALL_ALLOW  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 286K   18M REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
 
 Chain FORWARD (policy DROP 0 packets, 0 bytes)
  pkts bytes target     prot opt in     out     source               destination         
-2190K  399M ACCEPT     all  --  *      *       0.0.0.0/0            10.57.0.0/22         /* AVI_Networks_Index:1 */
-1733K  202M ACCEPT     all  --  *      *       10.57.0.0/22         0.0.0.0/0            /* AVI_Networks_Index:0 */
-  513  186K ACCEPT     all  --  *      *       0.0.0.0/0            172.18.0.0/16       
-  610  108K ACCEPT     all  --  *      *       172.18.0.0/16        0.0.0.0/0           
-  134 22157 OPENSHIFT-ADMIN-OUTPUT-RULES  all  --  tun0   !tun0   0.0.0.0/0            0.0.0.0/0            /* administrator overrides */
-  333  137K OPENSHIFT-FIREWALL-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
+3616K  553M ACCEPT     all  --  *      *       0.0.0.0/0            10.57.0.0/22         /* AVI_Networks_Index:1 */
+2502K 3377M ACCEPT     all  --  *      *       10.57.0.0/22         0.0.0.0/0            /* AVI_Networks_Index:0 */
+ 978K  162M ACCEPT     all  --  *      *       0.0.0.0/0            172.18.0.0/16       
+1823K   98M ACCEPT     all  --  *      *       172.18.0.0/16        0.0.0.0/0           
+1756K  121M OPENSHIFT-ADMIN-OUTPUT-RULES  all  --  tun0   !tun0   0.0.0.0/0            0.0.0.0/0            /* administrator overrides */
+4936K 3387M OPENSHIFT-FIREWALL-FORWARD  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* firewall overrides */
     0     0 DOCKER-ISOLATION  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
     0     0 DOCKER     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0           
     0     0 ACCEPT     all  --  *      docker0  0.0.0.0/0            0.0.0.0/0            ctstate RELATED,ESTABLISHED
@@ -74,9 +80,9 @@ Chain FORWARD (policy DROP 0 packets, 0 bytes)
     0     0 ACCEPT     all  --  docker0 docker0  0.0.0.0/0            0.0.0.0/0           
     0     0 REJECT     all  --  *      *       0.0.0.0/0            0.0.0.0/0            reject-with icmp-host-prohibited
 
-Chain OUTPUT (policy ACCEPT 1747K packets, 173M bytes)
+Chain OUTPUT (policy ACCEPT 22M packets, 2406M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-1747K  173M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
+  22M 2406M KUBE-FIREWALL  all  --  *      *       0.0.0.0/0            0.0.0.0/0           
 
 Chain DOCKER (1 references)
  pkts bytes target     prot opt in     out     source               destination         
@@ -94,49 +100,49 @@ Chain OPENSHIFT-ADMIN-OUTPUT-RULES (1 references)
 
 Chain OPENSHIFT-FIREWALL-ALLOW (1 references)
  pkts bytes target     prot opt in     out     source               destination         
-   50  5673 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:4789 /* VXLAN incoming */
-   66  4280 ACCEPT     all  --  tun0   *       0.0.0.0/0            0.0.0.0/0            /* from SDN to localhost */
+5734K  697M ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            udp dpt:4789 /* VXLAN incoming */
+  11M   26G ACCEPT     all  --  tun0   *       0.0.0.0/0            0.0.0.0/0            /* from SDN to localhost */
     0     0 ACCEPT     all  --  docker0 *       0.0.0.0/0            0.0.0.0/0            /* from docker to localhost */
 
 Chain OPENSHIFT-FIREWALL-FORWARD (1 references)
  pkts bytes target     prot opt in     out     source               destination         
     0     0 DROP       all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* attempted resend after connection close */ ctstate INVALID
-  199  115K ACCEPT     all  --  *      *       0.0.0.0/0            10.128.0.0/14        /* forward traffic from SDN */
-  134 22157 ACCEPT     all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* forward traffic to SDN */
+3180K 3266M ACCEPT     all  --  *      *       0.0.0.0/0            10.128.0.0/14        /* forward traffic from SDN */
+1756K  121M ACCEPT     all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* forward traffic to SDN */
 
 Chain OS_FIREWALL_ALLOW (1 references)
  pkts bytes target     prot opt in     out     source               destination         
     5   300 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:10250
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:10256
-    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:80
-    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:443
+ 112K 6740K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:80
+ 112K 6739K ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpt:443
     0     0 ACCEPT     udp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW udp dpt:4789
     0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            state NEW tcp dpts:9000:10000
-Chain PREROUTING (policy ACCEPT 45768 packets, 3406K bytes)
+Chain PREROUTING (policy ACCEPT 3773K packets, 351M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-45761 3407K avi        udp  --  *      *       0.0.0.0/0            0.0.0.0/0           
-  104  6284 avi        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           
-45475 3302K DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+2858K  296M avi        udp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+ 915K   55M avi        tcp  --  *      *       0.0.0.0/0            0.0.0.0/0           
+3324K  324M DOCKER     all  --  *      *       0.0.0.0/0            0.0.0.0/0            ADDRTYPE match dst-type LOCAL
+3324K  324M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            172.18.0.1           udp dpt:1550 to:172.18.0.2:1550
     0     0 DNAT       udp  --  *      *       0.0.0.0/0            172.17.0.1           udp dpt:1550 to:172.18.0.2:1550
-    0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.128.0.1           udp dpt:1550 to:172.18.0.2:1550
-    0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.57.0.44           udp dpt:1550 to:172.18.0.2:1550
-45343 3292K KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+    0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.128.2.1           udp dpt:1550 to:172.18.0.2:1550
+    0     0 DNAT       udp  --  *      *       0.0.0.0/0            10.57.0.43           udp dpt:1550 to:172.18.0.2:1550
 
-Chain INPUT (policy ACCEPT 47 packets, 3644 bytes)
+Chain INPUT (policy ACCEPT 3038K packets, 307M bytes)
  pkts bytes target     prot opt in     out     source               destination         
 
-Chain OUTPUT (policy ACCEPT 346K packets, 22M bytes)
+Chain OUTPUT (policy ACCEPT 5972K packets, 503M bytes)
  pkts bytes target     prot opt in     out     source               destination         
- 114K 7306K DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
- 115K 7350K KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
+ 115K 7352K DOCKER     all  --  *      *       0.0.0.0/0           !127.0.0.0/8          ADDRTYPE match dst-type LOCAL
+ 341K   21M KUBE-HOSTPORTS  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
 
-Chain POSTROUTING (policy ACCEPT 346K packets, 22M bytes)
+Chain POSTROUTING (policy ACCEPT 3864K packets, 376M bytes)
  pkts bytes target     prot opt in     out     source               destination         
-    4   240 ACCEPT     all  --  *      bravi   0.0.0.0/0            0.0.0.0/0            /* bravi-rule:1 */
-   76  4560 MASQUERADE  all  --  *      !bravi  172.18.0.0/16        0.0.0.0/0           
- 346K   22M KUBE-POSTROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes postrouting rules */
- 346K   22M OPENSHIFT-MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* rules for masquerading OpenShift traffic */
+   18  1080 ACCEPT     all  --  *      bravi   0.0.0.0/0            0.0.0.0/0            /* bravi-rule:1 */
+ 449K   27M MASQUERADE  all  --  *      !bravi  172.18.0.0/16        0.0.0.0/0           
+5972K  503M KUBE-POSTROUTING  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* kubernetes postrouting rules */
+5972K  503M OPENSHIFT-MASQUERADE  all  --  *      *       0.0.0.0/0            0.0.0.0/0            /* rules for masquerading OpenShift traffic */
     0     0 MASQUERADE  all  --  *      !docker0  172.17.0.0/16        0.0.0.0/0           
     0     0 MASQUERADE  all  --  *      tun0    127.0.0.0/8          0.0.0.0/0            /* SNAT for localhost access to hostports */
 
@@ -161,23 +167,23 @@ Chain KUBE-POSTROUTING (1 references)
 
 Chain OPENSHIFT-MASQUERADE (1 references)
  pkts bytes target     prot opt in     out     source               destination         
-   12   720 MASQUERADE  all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* masquerade pod-to-service and pod-to-external traffic */
+2109K  127M MASQUERADE  all  --  *      *       10.128.0.0/14        0.0.0.0/0            /* masquerade pod-to-service and pod-to-external traffic */
 
 Chain avi (2 references)
  pkts bytes target     prot opt in     out     source               destination         
-172.30.0.0/16 via 172.18.0.2 dev bravi table avi metric 2740 
+172.30.0.0/16 via 172.18.0.2 dev bravi table avi metric 2739 
 default via 10.57.0.1 dev ens192 proto static metric 100 
-10.57.0.0/22 dev ens192 proto kernel scope link src 10.57.0.44 metric 100 
+10.57.0.0/22 dev ens192 proto kernel scope link src 10.57.0.43 metric 100 
 10.128.0.0/14 dev tun0 scope link 
 172.17.0.0/16 dev docker0 proto kernel scope link src 172.17.0.1 
 172.18.0.0/16 dev bravi proto kernel scope link src 172.18.0.1 
 172.30.0.0/16 dev tun0 
-broadcast 10.57.0.0 dev ens192 table local proto kernel scope link src 10.57.0.44 
-local 10.57.0.44 dev ens192 table local proto kernel scope host src 10.57.0.44 
-broadcast 10.57.3.255 dev ens192 table local proto kernel scope link src 10.57.0.44 
-broadcast 10.128.0.0 dev tun0 table local proto kernel scope link src 10.128.0.1 
-local 10.128.0.1 dev tun0 table local proto kernel scope host src 10.128.0.1 
-broadcast 10.128.1.255 dev tun0 table local proto kernel scope link src 10.128.0.1 
+broadcast 10.57.0.0 dev ens192 table local proto kernel scope link src 10.57.0.43 
+local 10.57.0.43 dev ens192 table local proto kernel scope host src 10.57.0.43 
+broadcast 10.57.3.255 dev ens192 table local proto kernel scope link src 10.57.0.43 
+broadcast 10.128.2.0 dev tun0 table local proto kernel scope link src 10.128.2.1 
+local 10.128.2.1 dev tun0 table local proto kernel scope host src 10.128.2.1 
+broadcast 10.128.3.255 dev tun0 table local proto kernel scope link src 10.128.2.1 
 broadcast 127.0.0.0 dev lo table local proto kernel scope link src 127.0.0.1 
 local 127.0.0.0/8 dev lo table local proto kernel scope host src 127.0.0.1 
 local 127.0.0.1 dev lo table local proto kernel scope host src 127.0.0.1 
@@ -199,42 +205,62 @@ unreachable 2002:e000::/19 dev lo metric 1024 error -113 pref medium
 unreachable 3ffe:ffff::/32 dev lo metric 1024 error -113 pref medium
 fe80::/64 dev ens192 proto kernel metric 100 pref medium
 fe80::/64 dev vxlan_sys_4789 proto kernel metric 256 pref medium
-fe80::/64 dev tun0 proto kernel metric 256 mtu 1500 pref medium
+fe80::/64 dev tun0 proto kernel metric 256 pref medium
 fe80::/64 dev avise-ext proto kernel metric 256 pref medium
 fe80::/64 dev bravi proto kernel metric 256 pref medium
+fe80::/64 dev veth34575265 proto kernel metric 256 pref medium
+fe80::/64 dev vethe52d8f99 proto kernel metric 256 pref medium
+fe80::/64 dev veth74038b7a proto kernel metric 256 pref medium
+fe80::/64 dev veth3d68a81b proto kernel metric 256 pref medium
 unreachable default dev lo proto kernel metric 4294967295 error -101 pref medium
 local ::1 dev lo table local proto unspec metric 0 pref medium
 local fe80::200:ff:fe00:1 dev lo table local proto unspec metric 0 pref medium
-local fe80::1c21:3dff:fed4:5692 dev lo table local proto unspec metric 0 pref medium
-local fe80::4018:e8ff:fed2:9dcd dev lo table local proto unspec metric 0 pref medium
-local fe80::54e1:c6ff:fee9:f84e dev lo table local proto unspec metric 0 pref medium
+local fe80::14ef:84ff:fe29:18a dev lo table local proto unspec metric 0 pref medium
+local fe80::18b9:19ff:fe73:1c9a dev lo table local proto unspec metric 0 pref medium
+local fe80::244b:bfff:fe38:52ea dev lo table local proto unspec metric 0 pref medium
+local fe80::44c7:14ff:fe78:c5f3 dev lo table local proto unspec metric 0 pref medium
+local fe80::6c20:fff:fe89:2488 dev lo table local proto unspec metric 0 pref medium
+local fe80::6c47:b9ff:fe79:79b0 dev lo table local proto unspec metric 0 pref medium
+local fe80::e898:9bff:fe32:8941 dev lo table local proto unspec metric 0 pref medium
 ff00::/8 dev ens192 table local metric 256 pref medium
 ff00::/8 dev vxlan_sys_4789 table local metric 256 pref medium
-ff00::/8 dev tun0 table local metric 256 mtu 1500 pref medium
+ff00::/8 dev tun0 table local metric 256 pref medium
 ff00::/8 dev avise-ext table local metric 256 pref medium
 ff00::/8 dev bravi table local metric 256 pref medium
+ff00::/8 dev veth34575265 table local metric 256 pref medium
+ff00::/8 dev vethe52d8f99 table local metric 256 pref medium
+ff00::/8 dev veth74038b7a table local metric 256 pref medium
+ff00::/8 dev veth3d68a81b table local metric 256 pref medium
 unreachable default dev lo proto kernel metric 4294967295 error -101 pref medium
-bash: ifconfig: command not found
+bash: line 1: ifconfig: command not found
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: ens192: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP mode DEFAULT group default qlen 1000
-    link/ether 00:50:56:8f:34:c9 brd ff:ff:ff:ff:ff:ff
+    link/ether 00:50:56:8f:82:d0 brd ff:ff:ff:ff:ff:ff
 7: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN mode DEFAULT group default 
-    link/ether 02:42:d2:3e:69:b0 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:42:b6:56:f3:04 brd ff:ff:ff:ff:ff:ff
 8: ovs-system: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    link/ether f2:31:2a:b6:3c:f7 brd ff:ff:ff:ff:ff:ff
-9: br0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN mode DEFAULT group default qlen 1000
-    link/ether 32:4d:00:ef:be:4e brd ff:ff:ff:ff:ff:ff
+    link/ether fe:a9:96:f1:e2:ff brd ff:ff:ff:ff:ff:ff
+9: br0: <BROADCAST,MULTICAST> mtu 1450 qdisc noop state DOWN mode DEFAULT group default qlen 1000
+    link/ether b2:db:c7:9b:68:4b brd ff:ff:ff:ff:ff:ff
 10: vxlan_sys_4789: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 65000 qdisc noqueue master ovs-system state UNKNOWN mode DEFAULT group default qlen 1000
-    link/ether 1e:21:3d:d4:56:92 brd ff:ff:ff:ff:ff:ff
-11: tun0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
-    link/ether 42:18:e8:d2:9d:cd brd ff:ff:ff:ff:ff:ff
+    link/ether ea:98:9b:32:89:41 brd ff:ff:ff:ff:ff:ff
+11: tun0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UNKNOWN mode DEFAULT group default qlen 1000
+    link/ether 26:4b:bf:38:52:ea brd ff:ff:ff:ff:ff:ff
 12: bravi: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP mode DEFAULT group default qlen 1000
     link/ether 00:00:00:00:00:01 brd ff:ff:ff:ff:ff:ff
 13: bravi-tap: <BROADCAST,MULTICAST> mtu 1500 qdisc noop master bravi state DOWN mode DEFAULT group default qlen 1000
     link/ether 00:00:00:00:00:01 brd ff:ff:ff:ff:ff:ff
 14: avise-ext@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master bravi state UP mode DEFAULT group default qlen 1000
-    link/ether 56:e1:c6:e9:f8:4e brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    link/ether 6e:20:0f:89:24:88 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+15: veth34575265@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP mode DEFAULT group default 
+    link/ether 46:c7:14:78:c5:f3 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+16: vethe52d8f99@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP mode DEFAULT group default 
+    link/ether 1a:b9:19:73:1c:9a brd ff:ff:ff:ff:ff:ff link-netnsid 2
+17: veth74038b7a@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP mode DEFAULT group default 
+    link/ether 16:ef:84:29:01:8a brd ff:ff:ff:ff:ff:ff link-netnsid 3
+18: veth3d68a81b@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP mode DEFAULT group default 
+    link/ether 6e:47:b9:79:79:b0 brd ff:ff:ff:ff:ff:ff link-netnsid 4
 1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
     inet 127.0.0.1/8 scope host lo
@@ -242,8 +268,8 @@ bash: ifconfig: command not found
     inet6 ::1/128 scope host 
        valid_lft forever preferred_lft forever
 2: ens192: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc mq state UP group default qlen 1000
-    link/ether 00:50:56:8f:34:c9 brd ff:ff:ff:ff:ff:ff
-    inet 10.57.0.44/22 brd 10.57.3.255 scope global noprefixroute ens192
+    link/ether 00:50:56:8f:82:d0 brd ff:ff:ff:ff:ff:ff
+    inet 10.57.0.43/22 brd 10.57.3.255 scope global noprefixroute ens192
        valid_lft forever preferred_lft forever
     inet6 fe80::afcf:3ab5:ac4a:73aa/64 scope link tentative noprefixroute dadfailed 
        valid_lft forever preferred_lft forever
@@ -252,22 +278,22 @@ bash: ifconfig: command not found
     inet6 fe80::e730:ab2:7002:3afe/64 scope link tentative noprefixroute dadfailed 
        valid_lft forever preferred_lft forever
 7: docker0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue state DOWN group default 
-    link/ether 02:42:d2:3e:69:b0 brd ff:ff:ff:ff:ff:ff
+    link/ether 02:42:b6:56:f3:04 brd ff:ff:ff:ff:ff:ff
     inet 172.17.0.1/16 scope global docker0
        valid_lft forever preferred_lft forever
 8: ovs-system: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether f2:31:2a:b6:3c:f7 brd ff:ff:ff:ff:ff:ff
-9: br0: <BROADCAST,MULTICAST> mtu 1500 qdisc noop state DOWN group default qlen 1000
-    link/ether 32:4d:00:ef:be:4e brd ff:ff:ff:ff:ff:ff
+    link/ether fe:a9:96:f1:e2:ff brd ff:ff:ff:ff:ff:ff
+9: br0: <BROADCAST,MULTICAST> mtu 1450 qdisc noop state DOWN group default qlen 1000
+    link/ether b2:db:c7:9b:68:4b brd ff:ff:ff:ff:ff:ff
 10: vxlan_sys_4789: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 65000 qdisc noqueue master ovs-system state UNKNOWN group default qlen 1000
-    link/ether 1e:21:3d:d4:56:92 brd ff:ff:ff:ff:ff:ff
-    inet6 fe80::1c21:3dff:fed4:5692/64 scope link 
+    link/ether ea:98:9b:32:89:41 brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::e898:9bff:fe32:8941/64 scope link 
        valid_lft forever preferred_lft forever
-11: tun0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UNKNOWN group default qlen 1000
-    link/ether 42:18:e8:d2:9d:cd brd ff:ff:ff:ff:ff:ff
-    inet 10.128.0.1/23 brd 10.128.1.255 scope global tun0
+11: tun0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/ether 26:4b:bf:38:52:ea brd ff:ff:ff:ff:ff:ff
+    inet 10.128.2.1/23 brd 10.128.3.255 scope global tun0
        valid_lft forever preferred_lft forever
-    inet6 fe80::4018:e8ff:fed2:9dcd/64 scope link 
+    inet6 fe80::244b:bfff:fe38:52ea/64 scope link 
        valid_lft forever preferred_lft forever
 12: bravi: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default qlen 1000
     link/ether 00:00:00:00:00:01 brd ff:ff:ff:ff:ff:ff
@@ -278,8 +304,24 @@ bash: ifconfig: command not found
 13: bravi-tap: <BROADCAST,MULTICAST> mtu 1500 qdisc noop master bravi state DOWN group default qlen 1000
     link/ether 00:00:00:00:00:01 brd ff:ff:ff:ff:ff:ff
 14: avise-ext@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master bravi state UP group default qlen 1000
-    link/ether 56:e1:c6:e9:f8:4e brd ff:ff:ff:ff:ff:ff link-netnsid 0
-    inet6 fe80::54e1:c6ff:fee9:f84e/64 scope link 
+    link/ether 6e:20:0f:89:24:88 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet6 fe80::6c20:fff:fe89:2488/64 scope link 
+       valid_lft forever preferred_lft forever
+15: veth34575265@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default 
+    link/ether 46:c7:14:78:c5:f3 brd ff:ff:ff:ff:ff:ff link-netnsid 1
+    inet6 fe80::44c7:14ff:fe78:c5f3/64 scope link 
+       valid_lft forever preferred_lft forever
+16: vethe52d8f99@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default 
+    link/ether 1a:b9:19:73:1c:9a brd ff:ff:ff:ff:ff:ff link-netnsid 2
+    inet6 fe80::18b9:19ff:fe73:1c9a/64 scope link 
+       valid_lft forever preferred_lft forever
+17: veth74038b7a@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default 
+    link/ether 16:ef:84:29:01:8a brd ff:ff:ff:ff:ff:ff link-netnsid 3
+    inet6 fe80::14ef:84ff:fe29:18a/64 scope link 
+       valid_lft forever preferred_lft forever
+18: veth3d68a81b@if3: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1450 qdisc noqueue master ovs-system state UP group default 
+    link/ether 6e:47:b9:79:79:b0 brd ff:ff:ff:ff:ff:ff link-netnsid 4
+    inet6 fe80::6c47:b9ff:fe79:79b0/64 scope link 
        valid_lft forever preferred_lft forever
 abi.vsyscall32 = 1
 crypto.fips_enabled = 0
@@ -325,17 +367,17 @@ dev.raid.speed_limit_max = 200000
 dev.raid.speed_limit_min = 1000
 dev.scsi.logging_level = 0
 fs.aio-max-nr = 65536
-fs.aio-nr = 0
+fs.aio-nr = 384
 fs.binfmt_misc.status = enabled
-fs.dentry-state = 160904	133105	45	0	0	0
+fs.dentry-state = 189973	155247	45	0	0	0
 fs.dir-notify-enable = 1
 fs.epoll.max_user_watches = 3326545
-fs.file-max = 1609940
-fs.file-nr = 2464	0	1609940
-fs.inode-nr = 71103	500
-fs.inode-state = 71103	500	0	0	0	0	0
+fs.file-max = 1609950
+fs.file-nr = 3136	0	1609950
+fs.inode-nr = 96200	502
+fs.inode-state = 96200	502	0	0	0	0	0
 fs.inotify.max_queued_events = 16384
-fs.inotify.max_user_instances = 8192
+fs.inotify.max_user_instances = 128
 fs.inotify.max_user_watches = 65536
 fs.lease-break-time = 45
 fs.leases-enable = 1
@@ -398,7 +440,7 @@ kernel.ftrace_dump_on_oops = 0
 kernel.ftrace_enabled = 1
 kernel.hardlockup_all_cpu_backtrace = 0
 kernel.hardlockup_panic = 1
-kernel.hostname = ocp-server4.ps.lab
+kernel.hostname = ocp-server3.ps.lab
 kernel.hotplug = 
 kernel.hung_task_check_count = 4194304
 kernel.hung_task_panic = 0
@@ -419,10 +461,10 @@ kernel.modules_disabled = 0
 kernel.msg_next_id = -1
 kernel.msgmax = 8192
 kernel.msgmnb = 16384
-kernel.msgmni = 15885
+kernel.msgmni = 4538
 kernel.ngroups_max = 65536
 kernel.nmi_watchdog = 1
-kernel.ns_last_pid = 130496
+kernel.ns_last_pid = 47516
 kernel.numa_balancing = 0
 kernel.numa_balancing_scan_delay_ms = 1000
 kernel.numa_balancing_scan_period_max_ms = 60000
@@ -453,12 +495,12 @@ kernel.printk_ratelimit_burst = 10
 kernel.pty.max = 4096
 kernel.pty.nr = 15
 kernel.pty.reserve = 1024
-kernel.random.boot_id = 2900c29e-4e68-4d58-bb63-9b96aa9f52fe
-kernel.random.entropy_avail = 2818
+kernel.random.boot_id = 96307e30-e4f1-4e01-a781-8c9c773ac9cc
+kernel.random.entropy_avail = 3030
 kernel.random.poolsize = 4096
 kernel.random.read_wakeup_threshold = 64
 kernel.random.urandom_min_reseed_secs = 60
-kernel.random.uuid = 1ec59472-48e9-4efa-9fad-7d9e233aa618
+kernel.random.uuid = b5dfad1e-b6cd-466f-9214-f1ee35e1e250
 kernel.random.write_wakeup_threshold = 896
 kernel.randomize_va_space = 2
 kernel.real-root-dev = 0
@@ -473,7 +515,7 @@ kernel.sched_domain.cpu0.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu0.domain0.idle_idx = 1
 kernel.sched_domain.cpu0.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu0.domain0.max_interval = 8
-kernel.sched_domain.cpu0.domain0.max_newidle_lb_cost = 13427
+kernel.sched_domain.cpu0.domain0.max_newidle_lb_cost = 20040
 kernel.sched_domain.cpu0.domain0.min_interval = 4
 kernel.sched_domain.cpu0.domain0.name = DIE
 kernel.sched_domain.cpu0.domain0.newidle_idx = 0
@@ -486,7 +528,7 @@ kernel.sched_domain.cpu1.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu1.domain0.idle_idx = 1
 kernel.sched_domain.cpu1.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu1.domain0.max_interval = 8
-kernel.sched_domain.cpu1.domain0.max_newidle_lb_cost = 16542
+kernel.sched_domain.cpu1.domain0.max_newidle_lb_cost = 14428
 kernel.sched_domain.cpu1.domain0.min_interval = 4
 kernel.sched_domain.cpu1.domain0.name = DIE
 kernel.sched_domain.cpu1.domain0.newidle_idx = 0
@@ -499,7 +541,7 @@ kernel.sched_domain.cpu2.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu2.domain0.idle_idx = 1
 kernel.sched_domain.cpu2.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu2.domain0.max_interval = 8
-kernel.sched_domain.cpu2.domain0.max_newidle_lb_cost = 41766
+kernel.sched_domain.cpu2.domain0.max_newidle_lb_cost = 19671
 kernel.sched_domain.cpu2.domain0.min_interval = 4
 kernel.sched_domain.cpu2.domain0.name = DIE
 kernel.sched_domain.cpu2.domain0.newidle_idx = 0
@@ -512,13 +554,13 @@ kernel.sched_domain.cpu3.domain0.forkexec_idx = 0
 kernel.sched_domain.cpu3.domain0.idle_idx = 1
 kernel.sched_domain.cpu3.domain0.imbalance_pct = 125
 kernel.sched_domain.cpu3.domain0.max_interval = 8
-kernel.sched_domain.cpu3.domain0.max_newidle_lb_cost = 11800
+kernel.sched_domain.cpu3.domain0.max_newidle_lb_cost = 13168
 kernel.sched_domain.cpu3.domain0.min_interval = 4
 kernel.sched_domain.cpu3.domain0.name = DIE
 kernel.sched_domain.cpu3.domain0.newidle_idx = 0
 kernel.sched_domain.cpu3.domain0.wake_idx = 0
 kernel.sched_latency_ns = 18000000
-kernel.sched_migration_cost_ns = 500000
+kernel.sched_migration_cost_ns = 5000000
 kernel.sched_min_granularity_ns = 10000000
 kernel.sched_nr_migrate = 32
 kernel.sched_rr_timeslice_ms = 100
@@ -528,7 +570,7 @@ kernel.sched_schedstats = 0
 kernel.sched_shares_window_ns = 10000000
 kernel.sched_time_avg_ms = 1000
 kernel.sched_tunable_scaling = 1
-kernel.sched_wakeup_granularity_ns = 15000000
+kernel.sched_wakeup_granularity_ns = 4000000
 kernel.seccomp.actions_avail = kill trap errno trace allow
 kernel.seccomp.actions_logged = kill trap errno trace
 kernel.sem = 250	32000	32	128
@@ -544,7 +586,7 @@ kernel.stack_tracer_enabled = 0
 kernel.sysctl_writes_strict = 1
 kernel.sysrq = 16
 kernel.tainted = 536870912
-kernel.threads-max = 126897
+kernel.threads-max = 126898
 kernel.timer_migration = 1
 kernel.traceoff_on_warning = 0
 kernel.unknown_nmi_panic = 0
@@ -877,6 +919,110 @@ net.ipv4.conf.tun0.send_redirects = 1
 net.ipv4.conf.tun0.shared_media = 1
 net.ipv4.conf.tun0.src_valid_mark = 0
 net.ipv4.conf.tun0.tag = 0
+net.ipv4.conf.veth34575265.accept_local = 0
+net.ipv4.conf.veth34575265.accept_redirects = 1
+net.ipv4.conf.veth34575265.accept_source_route = 0
+net.ipv4.conf.veth34575265.arp_accept = 0
+net.ipv4.conf.veth34575265.arp_announce = 0
+net.ipv4.conf.veth34575265.arp_filter = 0
+net.ipv4.conf.veth34575265.arp_ignore = 0
+net.ipv4.conf.veth34575265.arp_notify = 0
+net.ipv4.conf.veth34575265.bootp_relay = 0
+net.ipv4.conf.veth34575265.disable_policy = 0
+net.ipv4.conf.veth34575265.disable_xfrm = 0
+net.ipv4.conf.veth34575265.force_igmp_version = 0
+net.ipv4.conf.veth34575265.forwarding = 1
+net.ipv4.conf.veth34575265.log_martians = 0
+net.ipv4.conf.veth34575265.mc_forwarding = 0
+net.ipv4.conf.veth34575265.medium_id = 0
+net.ipv4.conf.veth34575265.promote_secondaries = 1
+net.ipv4.conf.veth34575265.proxy_arp = 0
+net.ipv4.conf.veth34575265.proxy_arp_pvlan = 0
+net.ipv4.conf.veth34575265.route_localnet = 0
+net.ipv4.conf.veth34575265.rp_filter = 0
+net.ipv4.conf.veth34575265.secure_redirects = 1
+net.ipv4.conf.veth34575265.send_redirects = 1
+net.ipv4.conf.veth34575265.shared_media = 1
+net.ipv4.conf.veth34575265.src_valid_mark = 0
+net.ipv4.conf.veth34575265.tag = 0
+net.ipv4.conf.veth3d68a81b.accept_local = 0
+net.ipv4.conf.veth3d68a81b.accept_redirects = 1
+net.ipv4.conf.veth3d68a81b.accept_source_route = 0
+net.ipv4.conf.veth3d68a81b.arp_accept = 0
+net.ipv4.conf.veth3d68a81b.arp_announce = 0
+net.ipv4.conf.veth3d68a81b.arp_filter = 0
+net.ipv4.conf.veth3d68a81b.arp_ignore = 0
+net.ipv4.conf.veth3d68a81b.arp_notify = 0
+net.ipv4.conf.veth3d68a81b.bootp_relay = 0
+net.ipv4.conf.veth3d68a81b.disable_policy = 0
+net.ipv4.conf.veth3d68a81b.disable_xfrm = 0
+net.ipv4.conf.veth3d68a81b.force_igmp_version = 0
+net.ipv4.conf.veth3d68a81b.forwarding = 1
+net.ipv4.conf.veth3d68a81b.log_martians = 0
+net.ipv4.conf.veth3d68a81b.mc_forwarding = 0
+net.ipv4.conf.veth3d68a81b.medium_id = 0
+net.ipv4.conf.veth3d68a81b.promote_secondaries = 1
+net.ipv4.conf.veth3d68a81b.proxy_arp = 0
+net.ipv4.conf.veth3d68a81b.proxy_arp_pvlan = 0
+net.ipv4.conf.veth3d68a81b.route_localnet = 0
+net.ipv4.conf.veth3d68a81b.rp_filter = 0
+net.ipv4.conf.veth3d68a81b.secure_redirects = 1
+net.ipv4.conf.veth3d68a81b.send_redirects = 1
+net.ipv4.conf.veth3d68a81b.shared_media = 1
+net.ipv4.conf.veth3d68a81b.src_valid_mark = 0
+net.ipv4.conf.veth3d68a81b.tag = 0
+net.ipv4.conf.veth74038b7a.accept_local = 0
+net.ipv4.conf.veth74038b7a.accept_redirects = 1
+net.ipv4.conf.veth74038b7a.accept_source_route = 0
+net.ipv4.conf.veth74038b7a.arp_accept = 0
+net.ipv4.conf.veth74038b7a.arp_announce = 0
+net.ipv4.conf.veth74038b7a.arp_filter = 0
+net.ipv4.conf.veth74038b7a.arp_ignore = 0
+net.ipv4.conf.veth74038b7a.arp_notify = 0
+net.ipv4.conf.veth74038b7a.bootp_relay = 0
+net.ipv4.conf.veth74038b7a.disable_policy = 0
+net.ipv4.conf.veth74038b7a.disable_xfrm = 0
+net.ipv4.conf.veth74038b7a.force_igmp_version = 0
+net.ipv4.conf.veth74038b7a.forwarding = 1
+net.ipv4.conf.veth74038b7a.log_martians = 0
+net.ipv4.conf.veth74038b7a.mc_forwarding = 0
+net.ipv4.conf.veth74038b7a.medium_id = 0
+net.ipv4.conf.veth74038b7a.promote_secondaries = 1
+net.ipv4.conf.veth74038b7a.proxy_arp = 0
+net.ipv4.conf.veth74038b7a.proxy_arp_pvlan = 0
+net.ipv4.conf.veth74038b7a.route_localnet = 0
+net.ipv4.conf.veth74038b7a.rp_filter = 0
+net.ipv4.conf.veth74038b7a.secure_redirects = 1
+net.ipv4.conf.veth74038b7a.send_redirects = 1
+net.ipv4.conf.veth74038b7a.shared_media = 1
+net.ipv4.conf.veth74038b7a.src_valid_mark = 0
+net.ipv4.conf.veth74038b7a.tag = 0
+net.ipv4.conf.vethe52d8f99.accept_local = 0
+net.ipv4.conf.vethe52d8f99.accept_redirects = 1
+net.ipv4.conf.vethe52d8f99.accept_source_route = 0
+net.ipv4.conf.vethe52d8f99.arp_accept = 0
+net.ipv4.conf.vethe52d8f99.arp_announce = 0
+net.ipv4.conf.vethe52d8f99.arp_filter = 0
+net.ipv4.conf.vethe52d8f99.arp_ignore = 0
+net.ipv4.conf.vethe52d8f99.arp_notify = 0
+net.ipv4.conf.vethe52d8f99.bootp_relay = 0
+net.ipv4.conf.vethe52d8f99.disable_policy = 0
+net.ipv4.conf.vethe52d8f99.disable_xfrm = 0
+net.ipv4.conf.vethe52d8f99.force_igmp_version = 0
+net.ipv4.conf.vethe52d8f99.forwarding = 1
+net.ipv4.conf.vethe52d8f99.log_martians = 0
+net.ipv4.conf.vethe52d8f99.mc_forwarding = 0
+net.ipv4.conf.vethe52d8f99.medium_id = 0
+net.ipv4.conf.vethe52d8f99.promote_secondaries = 1
+net.ipv4.conf.vethe52d8f99.proxy_arp = 0
+net.ipv4.conf.vethe52d8f99.proxy_arp_pvlan = 0
+net.ipv4.conf.vethe52d8f99.route_localnet = 0
+net.ipv4.conf.vethe52d8f99.rp_filter = 0
+net.ipv4.conf.vethe52d8f99.secure_redirects = 1
+net.ipv4.conf.vethe52d8f99.send_redirects = 1
+net.ipv4.conf.vethe52d8f99.shared_media = 1
+net.ipv4.conf.vethe52d8f99.src_valid_mark = 0
+net.ipv4.conf.vethe52d8f99.tag = 0
 net.ipv4.conf.vxlan_sys_4789.accept_local = 0
 net.ipv4.conf.vxlan_sys_4789.accept_redirects = 1
 net.ipv4.conf.vxlan_sys_4789.accept_source_route = 0
@@ -1067,6 +1213,58 @@ net.ipv4.neigh.tun0.retrans_time_ms = 1000
 net.ipv4.neigh.tun0.ucast_solicit = 3
 net.ipv4.neigh.tun0.unres_qlen = 31
 net.ipv4.neigh.tun0.unres_qlen_bytes = 65536
+net.ipv4.neigh.veth34575265.anycast_delay = 100
+net.ipv4.neigh.veth34575265.app_solicit = 0
+net.ipv4.neigh.veth34575265.base_reachable_time_ms = 30000
+net.ipv4.neigh.veth34575265.delay_first_probe_time = 5
+net.ipv4.neigh.veth34575265.gc_stale_time = 60
+net.ipv4.neigh.veth34575265.locktime = 100
+net.ipv4.neigh.veth34575265.mcast_solicit = 3
+net.ipv4.neigh.veth34575265.proxy_delay = 80
+net.ipv4.neigh.veth34575265.proxy_qlen = 64
+net.ipv4.neigh.veth34575265.retrans_time_ms = 1000
+net.ipv4.neigh.veth34575265.ucast_solicit = 3
+net.ipv4.neigh.veth34575265.unres_qlen = 31
+net.ipv4.neigh.veth34575265.unres_qlen_bytes = 65536
+net.ipv4.neigh.veth3d68a81b.anycast_delay = 100
+net.ipv4.neigh.veth3d68a81b.app_solicit = 0
+net.ipv4.neigh.veth3d68a81b.base_reachable_time_ms = 30000
+net.ipv4.neigh.veth3d68a81b.delay_first_probe_time = 5
+net.ipv4.neigh.veth3d68a81b.gc_stale_time = 60
+net.ipv4.neigh.veth3d68a81b.locktime = 100
+net.ipv4.neigh.veth3d68a81b.mcast_solicit = 3
+net.ipv4.neigh.veth3d68a81b.proxy_delay = 80
+net.ipv4.neigh.veth3d68a81b.proxy_qlen = 64
+net.ipv4.neigh.veth3d68a81b.retrans_time_ms = 1000
+net.ipv4.neigh.veth3d68a81b.ucast_solicit = 3
+net.ipv4.neigh.veth3d68a81b.unres_qlen = 31
+net.ipv4.neigh.veth3d68a81b.unres_qlen_bytes = 65536
+net.ipv4.neigh.veth74038b7a.anycast_delay = 100
+net.ipv4.neigh.veth74038b7a.app_solicit = 0
+net.ipv4.neigh.veth74038b7a.base_reachable_time_ms = 30000
+net.ipv4.neigh.veth74038b7a.delay_first_probe_time = 5
+net.ipv4.neigh.veth74038b7a.gc_stale_time = 60
+net.ipv4.neigh.veth74038b7a.locktime = 100
+net.ipv4.neigh.veth74038b7a.mcast_solicit = 3
+net.ipv4.neigh.veth74038b7a.proxy_delay = 80
+net.ipv4.neigh.veth74038b7a.proxy_qlen = 64
+net.ipv4.neigh.veth74038b7a.retrans_time_ms = 1000
+net.ipv4.neigh.veth74038b7a.ucast_solicit = 3
+net.ipv4.neigh.veth74038b7a.unres_qlen = 31
+net.ipv4.neigh.veth74038b7a.unres_qlen_bytes = 65536
+net.ipv4.neigh.vethe52d8f99.anycast_delay = 100
+net.ipv4.neigh.vethe52d8f99.app_solicit = 0
+net.ipv4.neigh.vethe52d8f99.base_reachable_time_ms = 30000
+net.ipv4.neigh.vethe52d8f99.delay_first_probe_time = 5
+net.ipv4.neigh.vethe52d8f99.gc_stale_time = 60
+net.ipv4.neigh.vethe52d8f99.locktime = 100
+net.ipv4.neigh.vethe52d8f99.mcast_solicit = 3
+net.ipv4.neigh.vethe52d8f99.proxy_delay = 80
+net.ipv4.neigh.vethe52d8f99.proxy_qlen = 64
+net.ipv4.neigh.vethe52d8f99.retrans_time_ms = 1000
+net.ipv4.neigh.vethe52d8f99.ucast_solicit = 3
+net.ipv4.neigh.vethe52d8f99.unres_qlen = 31
+net.ipv4.neigh.vethe52d8f99.unres_qlen_bytes = 65536
 net.ipv4.neigh.vxlan_sys_4789.anycast_delay = 100
 net.ipv4.neigh.vxlan_sys_4789.app_solicit = 0
 net.ipv4.neigh.vxlan_sys_4789.base_reachable_time_ms = 30000
@@ -1109,8 +1307,8 @@ net.ipv4.tcp_dsack = 1
 net.ipv4.tcp_early_retrans = 3
 net.ipv4.tcp_ecn = 2
 net.ipv4.tcp_fack = 1
-net.ipv4.tcp_fastopen = 3
-net.ipv4.tcp_fastopen_key = 0f3e9164-9e946c41-ec5a27a1-4580ffe7
+net.ipv4.tcp_fastopen = 0
+net.ipv4.tcp_fastopen_key = 00000000-00000000-00000000-00000000
 net.ipv4.tcp_fin_timeout = 60
 net.ipv4.tcp_frto = 2
 net.ipv4.tcp_invalid_ratelimit = 500
@@ -1123,7 +1321,7 @@ net.ipv4.tcp_max_orphans = 65536
 net.ipv4.tcp_max_ssthresh = 0
 net.ipv4.tcp_max_syn_backlog = 512
 net.ipv4.tcp_max_tw_buckets = 65536
-net.ipv4.tcp_mem = 378804	505075	757608
+net.ipv4.tcp_mem = 378807	505076	757614
 net.ipv4.tcp_min_tso_segs = 2
 net.ipv4.tcp_moderate_rcvbuf = 1
 net.ipv4.tcp_mtu_probing = 0
@@ -1151,7 +1349,7 @@ net.ipv4.tcp_tw_reuse = 0
 net.ipv4.tcp_window_scaling = 1
 net.ipv4.tcp_wmem = 4096	16384	4194304
 net.ipv4.tcp_workaround_signed_windows = 0
-net.ipv4.udp_mem = 380694	507592	761388
+net.ipv4.udp_mem = 380694	507593	761388
 net.ipv4.udp_rmem_min = 4096
 net.ipv4.udp_wmem_min = 4096
 net.ipv4.xfrm4_gc_thresh = 32768
@@ -1251,7 +1449,7 @@ net.ipv6.conf.br0.max_desync_factor = 600
 net.ipv6.conf.br0.mc_forwarding = 0
 net.ipv6.conf.br0.mldv1_unsolicited_report_interval = 10000
 net.ipv6.conf.br0.mldv2_unsolicited_report_interval = 1000
-net.ipv6.conf.br0.mtu = 1500
+net.ipv6.conf.br0.mtu = 1450
 net.ipv6.conf.br0.ndisc_notify = 0
 net.ipv6.conf.br0.optimistic_dad = 0
 net.ipv6.conf.br0.proxy_ndp = 0
@@ -1539,7 +1737,7 @@ net.ipv6.conf.tun0.max_desync_factor = 600
 net.ipv6.conf.tun0.mc_forwarding = 0
 net.ipv6.conf.tun0.mldv1_unsolicited_report_interval = 10000
 net.ipv6.conf.tun0.mldv2_unsolicited_report_interval = 1000
-net.ipv6.conf.tun0.mtu = 1500
+net.ipv6.conf.tun0.mtu = 1450
 net.ipv6.conf.tun0.ndisc_notify = 0
 net.ipv6.conf.tun0.optimistic_dad = 0
 net.ipv6.conf.tun0.proxy_ndp = 0
@@ -1553,6 +1751,150 @@ net.ipv6.conf.tun0.temp_prefered_lft = 86400
 net.ipv6.conf.tun0.temp_valid_lft = 604800
 net.ipv6.conf.tun0.use_optimistic = 0
 net.ipv6.conf.tun0.use_tempaddr = 0
+net.ipv6.conf.veth34575265.accept_dad = 1
+net.ipv6.conf.veth34575265.accept_ra = 1
+net.ipv6.conf.veth34575265.accept_ra_defrtr = 1
+net.ipv6.conf.veth34575265.accept_ra_pinfo = 1
+net.ipv6.conf.veth34575265.accept_ra_rt_info_max_plen = 0
+net.ipv6.conf.veth34575265.accept_ra_rtr_pref = 1
+net.ipv6.conf.veth34575265.accept_redirects = 1
+net.ipv6.conf.veth34575265.accept_source_route = 0
+net.ipv6.conf.veth34575265.autoconf = 1
+net.ipv6.conf.veth34575265.dad_transmits = 1
+net.ipv6.conf.veth34575265.disable_ipv6 = 0
+net.ipv6.conf.veth34575265.enhanced_dad = 1
+net.ipv6.conf.veth34575265.force_mld_version = 0
+net.ipv6.conf.veth34575265.force_tllao = 0
+net.ipv6.conf.veth34575265.forwarding = 0
+net.ipv6.conf.veth34575265.hop_limit = 64
+net.ipv6.conf.veth34575265.keep_addr_on_down = 0
+net.ipv6.conf.veth34575265.max_addresses = 16
+net.ipv6.conf.veth34575265.max_desync_factor = 600
+net.ipv6.conf.veth34575265.mc_forwarding = 0
+net.ipv6.conf.veth34575265.mldv1_unsolicited_report_interval = 10000
+net.ipv6.conf.veth34575265.mldv2_unsolicited_report_interval = 1000
+net.ipv6.conf.veth34575265.mtu = 1450
+net.ipv6.conf.veth34575265.ndisc_notify = 0
+net.ipv6.conf.veth34575265.optimistic_dad = 0
+net.ipv6.conf.veth34575265.proxy_ndp = 0
+net.ipv6.conf.veth34575265.regen_max_retry = 3
+net.ipv6.conf.veth34575265.router_probe_interval = 60
+net.ipv6.conf.veth34575265.router_solicitation_delay = 1
+net.ipv6.conf.veth34575265.router_solicitation_interval = 4
+net.ipv6.conf.veth34575265.router_solicitations = 3
+sysctl: reading key "net.ipv6.conf.veth34575265.stable_secret"
+net.ipv6.conf.veth34575265.temp_prefered_lft = 86400
+net.ipv6.conf.veth34575265.temp_valid_lft = 604800
+net.ipv6.conf.veth34575265.use_optimistic = 0
+net.ipv6.conf.veth34575265.use_tempaddr = 0
+net.ipv6.conf.veth3d68a81b.accept_dad = 1
+net.ipv6.conf.veth3d68a81b.accept_ra = 1
+net.ipv6.conf.veth3d68a81b.accept_ra_defrtr = 1
+net.ipv6.conf.veth3d68a81b.accept_ra_pinfo = 1
+net.ipv6.conf.veth3d68a81b.accept_ra_rt_info_max_plen = 0
+net.ipv6.conf.veth3d68a81b.accept_ra_rtr_pref = 1
+net.ipv6.conf.veth3d68a81b.accept_redirects = 1
+net.ipv6.conf.veth3d68a81b.accept_source_route = 0
+net.ipv6.conf.veth3d68a81b.autoconf = 1
+net.ipv6.conf.veth3d68a81b.dad_transmits = 1
+net.ipv6.conf.veth3d68a81b.disable_ipv6 = 0
+net.ipv6.conf.veth3d68a81b.enhanced_dad = 1
+net.ipv6.conf.veth3d68a81b.force_mld_version = 0
+net.ipv6.conf.veth3d68a81b.force_tllao = 0
+net.ipv6.conf.veth3d68a81b.forwarding = 0
+net.ipv6.conf.veth3d68a81b.hop_limit = 64
+net.ipv6.conf.veth3d68a81b.keep_addr_on_down = 0
+net.ipv6.conf.veth3d68a81b.max_addresses = 16
+net.ipv6.conf.veth3d68a81b.max_desync_factor = 600
+net.ipv6.conf.veth3d68a81b.mc_forwarding = 0
+net.ipv6.conf.veth3d68a81b.mldv1_unsolicited_report_interval = 10000
+net.ipv6.conf.veth3d68a81b.mldv2_unsolicited_report_interval = 1000
+net.ipv6.conf.veth3d68a81b.mtu = 1450
+net.ipv6.conf.veth3d68a81b.ndisc_notify = 0
+net.ipv6.conf.veth3d68a81b.optimistic_dad = 0
+net.ipv6.conf.veth3d68a81b.proxy_ndp = 0
+net.ipv6.conf.veth3d68a81b.regen_max_retry = 3
+net.ipv6.conf.veth3d68a81b.router_probe_interval = 60
+net.ipv6.conf.veth3d68a81b.router_solicitation_delay = 1
+net.ipv6.conf.veth3d68a81b.router_solicitation_interval = 4
+net.ipv6.conf.veth3d68a81b.router_solicitations = 3
+sysctl: reading key "net.ipv6.conf.veth3d68a81b.stable_secret"
+net.ipv6.conf.veth3d68a81b.temp_prefered_lft = 86400
+net.ipv6.conf.veth3d68a81b.temp_valid_lft = 604800
+net.ipv6.conf.veth3d68a81b.use_optimistic = 0
+net.ipv6.conf.veth3d68a81b.use_tempaddr = 0
+net.ipv6.conf.veth74038b7a.accept_dad = 1
+net.ipv6.conf.veth74038b7a.accept_ra = 1
+net.ipv6.conf.veth74038b7a.accept_ra_defrtr = 1
+net.ipv6.conf.veth74038b7a.accept_ra_pinfo = 1
+net.ipv6.conf.veth74038b7a.accept_ra_rt_info_max_plen = 0
+net.ipv6.conf.veth74038b7a.accept_ra_rtr_pref = 1
+net.ipv6.conf.veth74038b7a.accept_redirects = 1
+net.ipv6.conf.veth74038b7a.accept_source_route = 0
+net.ipv6.conf.veth74038b7a.autoconf = 1
+net.ipv6.conf.veth74038b7a.dad_transmits = 1
+net.ipv6.conf.veth74038b7a.disable_ipv6 = 0
+net.ipv6.conf.veth74038b7a.enhanced_dad = 1
+net.ipv6.conf.veth74038b7a.force_mld_version = 0
+net.ipv6.conf.veth74038b7a.force_tllao = 0
+net.ipv6.conf.veth74038b7a.forwarding = 0
+net.ipv6.conf.veth74038b7a.hop_limit = 64
+net.ipv6.conf.veth74038b7a.keep_addr_on_down = 0
+net.ipv6.conf.veth74038b7a.max_addresses = 16
+net.ipv6.conf.veth74038b7a.max_desync_factor = 600
+net.ipv6.conf.veth74038b7a.mc_forwarding = 0
+net.ipv6.conf.veth74038b7a.mldv1_unsolicited_report_interval = 10000
+net.ipv6.conf.veth74038b7a.mldv2_unsolicited_report_interval = 1000
+net.ipv6.conf.veth74038b7a.mtu = 1450
+net.ipv6.conf.veth74038b7a.ndisc_notify = 0
+net.ipv6.conf.veth74038b7a.optimistic_dad = 0
+net.ipv6.conf.veth74038b7a.proxy_ndp = 0
+net.ipv6.conf.veth74038b7a.regen_max_retry = 3
+net.ipv6.conf.veth74038b7a.router_probe_interval = 60
+net.ipv6.conf.veth74038b7a.router_solicitation_delay = 1
+net.ipv6.conf.veth74038b7a.router_solicitation_interval = 4
+net.ipv6.conf.veth74038b7a.router_solicitations = 3
+sysctl: reading key "net.ipv6.conf.veth74038b7a.stable_secret"
+net.ipv6.conf.veth74038b7a.temp_prefered_lft = 86400
+net.ipv6.conf.veth74038b7a.temp_valid_lft = 604800
+net.ipv6.conf.veth74038b7a.use_optimistic = 0
+net.ipv6.conf.veth74038b7a.use_tempaddr = 0
+net.ipv6.conf.vethe52d8f99.accept_dad = 1
+net.ipv6.conf.vethe52d8f99.accept_ra = 1
+net.ipv6.conf.vethe52d8f99.accept_ra_defrtr = 1
+net.ipv6.conf.vethe52d8f99.accept_ra_pinfo = 1
+net.ipv6.conf.vethe52d8f99.accept_ra_rt_info_max_plen = 0
+net.ipv6.conf.vethe52d8f99.accept_ra_rtr_pref = 1
+net.ipv6.conf.vethe52d8f99.accept_redirects = 1
+net.ipv6.conf.vethe52d8f99.accept_source_route = 0
+net.ipv6.conf.vethe52d8f99.autoconf = 1
+net.ipv6.conf.vethe52d8f99.dad_transmits = 1
+net.ipv6.conf.vethe52d8f99.disable_ipv6 = 0
+net.ipv6.conf.vethe52d8f99.enhanced_dad = 1
+net.ipv6.conf.vethe52d8f99.force_mld_version = 0
+net.ipv6.conf.vethe52d8f99.force_tllao = 0
+net.ipv6.conf.vethe52d8f99.forwarding = 0
+net.ipv6.conf.vethe52d8f99.hop_limit = 64
+net.ipv6.conf.vethe52d8f99.keep_addr_on_down = 0
+net.ipv6.conf.vethe52d8f99.max_addresses = 16
+net.ipv6.conf.vethe52d8f99.max_desync_factor = 600
+net.ipv6.conf.vethe52d8f99.mc_forwarding = 0
+net.ipv6.conf.vethe52d8f99.mldv1_unsolicited_report_interval = 10000
+net.ipv6.conf.vethe52d8f99.mldv2_unsolicited_report_interval = 1000
+net.ipv6.conf.vethe52d8f99.mtu = 1450
+net.ipv6.conf.vethe52d8f99.ndisc_notify = 0
+net.ipv6.conf.vethe52d8f99.optimistic_dad = 0
+net.ipv6.conf.vethe52d8f99.proxy_ndp = 0
+net.ipv6.conf.vethe52d8f99.regen_max_retry = 3
+net.ipv6.conf.vethe52d8f99.router_probe_interval = 60
+net.ipv6.conf.vethe52d8f99.router_solicitation_delay = 1
+net.ipv6.conf.vethe52d8f99.router_solicitation_interval = 4
+net.ipv6.conf.vethe52d8f99.router_solicitations = 3
+sysctl: reading key "net.ipv6.conf.vethe52d8f99.stable_secret"
+net.ipv6.conf.vethe52d8f99.temp_prefered_lft = 86400
+net.ipv6.conf.vethe52d8f99.temp_valid_lft = 604800
+net.ipv6.conf.vethe52d8f99.use_optimistic = 0
+net.ipv6.conf.vethe52d8f99.use_tempaddr = 0
 net.ipv6.conf.vxlan_sys_4789.accept_dad = 1
 net.ipv6.conf.vxlan_sys_4789.accept_ra = 1
 net.ipv6.conf.vxlan_sys_4789.accept_ra_defrtr = 1
@@ -1734,6 +2076,58 @@ net.ipv6.neigh.tun0.retrans_time_ms = 1000
 net.ipv6.neigh.tun0.ucast_solicit = 3
 net.ipv6.neigh.tun0.unres_qlen = 31
 net.ipv6.neigh.tun0.unres_qlen_bytes = 65536
+net.ipv6.neigh.veth34575265.anycast_delay = 100
+net.ipv6.neigh.veth34575265.app_solicit = 0
+net.ipv6.neigh.veth34575265.base_reachable_time_ms = 30000
+net.ipv6.neigh.veth34575265.delay_first_probe_time = 5
+net.ipv6.neigh.veth34575265.gc_stale_time = 60
+net.ipv6.neigh.veth34575265.locktime = 0
+net.ipv6.neigh.veth34575265.mcast_solicit = 3
+net.ipv6.neigh.veth34575265.proxy_delay = 80
+net.ipv6.neigh.veth34575265.proxy_qlen = 64
+net.ipv6.neigh.veth34575265.retrans_time_ms = 1000
+net.ipv6.neigh.veth34575265.ucast_solicit = 3
+net.ipv6.neigh.veth34575265.unres_qlen = 31
+net.ipv6.neigh.veth34575265.unres_qlen_bytes = 65536
+net.ipv6.neigh.veth3d68a81b.anycast_delay = 100
+net.ipv6.neigh.veth3d68a81b.app_solicit = 0
+net.ipv6.neigh.veth3d68a81b.base_reachable_time_ms = 30000
+net.ipv6.neigh.veth3d68a81b.delay_first_probe_time = 5
+net.ipv6.neigh.veth3d68a81b.gc_stale_time = 60
+net.ipv6.neigh.veth3d68a81b.locktime = 0
+net.ipv6.neigh.veth3d68a81b.mcast_solicit = 3
+net.ipv6.neigh.veth3d68a81b.proxy_delay = 80
+net.ipv6.neigh.veth3d68a81b.proxy_qlen = 64
+net.ipv6.neigh.veth3d68a81b.retrans_time_ms = 1000
+net.ipv6.neigh.veth3d68a81b.ucast_solicit = 3
+net.ipv6.neigh.veth3d68a81b.unres_qlen = 31
+net.ipv6.neigh.veth3d68a81b.unres_qlen_bytes = 65536
+net.ipv6.neigh.veth74038b7a.anycast_delay = 100
+net.ipv6.neigh.veth74038b7a.app_solicit = 0
+net.ipv6.neigh.veth74038b7a.base_reachable_time_ms = 30000
+net.ipv6.neigh.veth74038b7a.delay_first_probe_time = 5
+net.ipv6.neigh.veth74038b7a.gc_stale_time = 60
+net.ipv6.neigh.veth74038b7a.locktime = 0
+net.ipv6.neigh.veth74038b7a.mcast_solicit = 3
+net.ipv6.neigh.veth74038b7a.proxy_delay = 80
+net.ipv6.neigh.veth74038b7a.proxy_qlen = 64
+net.ipv6.neigh.veth74038b7a.retrans_time_ms = 1000
+net.ipv6.neigh.veth74038b7a.ucast_solicit = 3
+net.ipv6.neigh.veth74038b7a.unres_qlen = 31
+net.ipv6.neigh.veth74038b7a.unres_qlen_bytes = 65536
+net.ipv6.neigh.vethe52d8f99.anycast_delay = 100
+net.ipv6.neigh.vethe52d8f99.app_solicit = 0
+net.ipv6.neigh.vethe52d8f99.base_reachable_time_ms = 30000
+net.ipv6.neigh.vethe52d8f99.delay_first_probe_time = 5
+net.ipv6.neigh.vethe52d8f99.gc_stale_time = 60
+net.ipv6.neigh.vethe52d8f99.locktime = 0
+net.ipv6.neigh.vethe52d8f99.mcast_solicit = 3
+net.ipv6.neigh.vethe52d8f99.proxy_delay = 80
+net.ipv6.neigh.vethe52d8f99.proxy_qlen = 64
+net.ipv6.neigh.vethe52d8f99.retrans_time_ms = 1000
+net.ipv6.neigh.vethe52d8f99.ucast_solicit = 3
+net.ipv6.neigh.vethe52d8f99.unres_qlen = 31
+net.ipv6.neigh.vethe52d8f99.unres_qlen_bytes = 65536
 net.ipv6.neigh.vxlan_sys_4789.anycast_delay = 100
 net.ipv6.neigh.vxlan_sys_4789.app_solicit = 0
 net.ipv6.neigh.vxlan_sys_4789.base_reachable_time_ms = 30000
@@ -1760,7 +2154,7 @@ net.ipv6.xfrm6_gc_thresh = 32768
 net.netfilter.nf_conntrack_acct = 0
 net.netfilter.nf_conntrack_buckets = 131072
 net.netfilter.nf_conntrack_checksum = 1
-net.netfilter.nf_conntrack_count = 82
+net.netfilter.nf_conntrack_count = 568
 net.netfilter.nf_conntrack_dccp_loose = 1
 net.netfilter.nf_conntrack_dccp_timeout_closereq = 64
 net.netfilter.nf_conntrack_dccp_timeout_closing = 64
@@ -1835,12 +2229,12 @@ sunrpc.transports = tcp 1048576
 sunrpc.transports = udp 32768
 sunrpc.transports = tcp-bc 1048576
 sunrpc.udp_slot_table_entries = 16
-user.max_ipc_namespaces = 63448
-user.max_mnt_namespaces = 63448
-user.max_net_namespaces = 63448
-user.max_pid_namespaces = 63448
+user.max_ipc_namespaces = 63449
+user.max_mnt_namespaces = 63449
+user.max_net_namespaces = 63449
+user.max_pid_namespaces = 63449
 user.max_user_namespaces = 0
-user.max_uts_namespaces = 63448
+user.max_uts_namespaces = 63449
 vm.admin_reserve_kbytes = 8192
 vm.block_dump = 0
 vm.dirty_background_bytes = 0
@@ -1884,25 +2278,47 @@ vm.user_reserve_kbytes = 131072
 vm.vfs_cache_pressure = 100
 vm.zone_reclaim_mode = 0
 Filesystem             Size  Used Avail Use% Mounted on
-/dev/mapper/rhel-root   17G  8.3G  8.8G  49% /
+/dev/mapper/rhel-root   17G  8.9G  8.2G  52% /
 devtmpfs               7.8G     0  7.8G   0% /dev
 tmpfs                  7.8G     0  7.8G   0% /dev/shm
-tmpfs                  7.8G  1.2M  7.8G   1% /run
+tmpfs                  7.8G  2.1M  7.8G   1% /run
 tmpfs                  7.8G     0  7.8G   0% /sys/fs/cgroup
 /dev/sda1             1014M  186M  829M  19% /boot
-overlay                 17G  8.3G  8.8G  49% /var/lib/docker/overlay2/eb000925c2794ce12b69c5d55b0216e65186d631a63d2a4b59efb8c494d1aed6/merged
-shm                     64M     0   64M   0% /var/lib/docker/containers/fc3149229cc88f551e13070415873d16945b2f18fae7eb152ba00910a5763d64/shm
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/032a2d43494ff968b71a3803ff896c6254a16b881226adb8e9f74780ba75fbf6/merged
+shm                     64M     0   64M   0% /var/lib/docker/containers/34a6863947469e0ab99bcb675d2887722523b10bb015c00c378ee7754a20786d/shm
+tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/90c6c412-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/apiserver-token-sqp6t
+tmpfs                  7.8G   12K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/2a167a2d-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/server-certificate
+tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/2a167a2d-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/router-token-7bvv2
+tmpfs                  7.8G  8.0K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/90c6c412-e885-11e8-999a-0050568fd4c6/volumes/kubernetes.io~secret/serving-cert
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/46d75689087885eea2e8c8e9d228985390929c4c2988e29147d06bb56349483b/merged
+shm                     64M     0   64M   0% /var/lib/docker/containers/7e90c2063b3f5c117b69ace61bb9554508a89fe743b7801670ecd8bf8a69992a/shm
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/33a3eb664aaac752351ae861b9bfd805e25e3e811c21f5086706291723b8850a/merged
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/b8bfd9c0feffd1a6b23e68306a67a330fdbac646c519dec4cfa739bbae57d28f/merged
+shm                     64M     0   64M   0% /var/lib/docker/containers/998eda8f3b8a1247c11d0bc385af8b7faf161845f30bcf747e1ee94a599f3d04/shm
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/8f85d96f704d47ab3ae01423ae0ee9a85e1502435384c36b4d1341b44de5be9b/merged
+tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/8d74785e-e925-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/default-token-p7vxh
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/e169e7cc69efc8d8c9656cc6e697464a85b7118fa6cadb94936a744bd8f59c7c/merged
+shm                     64M     0   64M   0% /var/lib/docker/containers/4119b021c7aac00908ff6b976b643617daf3464891d1d66d6c406e7cfe1f4d7b/shm
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/768b8d0ec5e9cc876d9e95c800e53100da64e68185aca08f2aa5d6a9c848e7c6/merged
+tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/cc7852be-e929-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/default-token-p7vxh
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/a66f3872917bd00bdca7d01baba9b9aa42301e519beb12490b14a2e9c701db1f/merged
+shm                     64M     0   64M   0% /var/lib/docker/containers/ea7fdcf8fafd07463af60b5beee13d47447ec64c11a5b67db0f3ccd80429dc2e/shm
+tmpfs                  7.8G   16K  7.8G   1% /var/lib/origin/openshift.local.volumes/pods/cd8cfdf2-e929-11e8-9abe-0050568fd4c6/volumes/kubernetes.io~secret/default-token-p7vxh
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/900f9c76a3b6b298f5eb5fae8589b29e3b5a1bbe2040c083034848ccd4c043fe/merged
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/9353cdb0fcfbd5c80026484bc40d822b5f2c10fee060f37d4ed7f1770582ec31/merged
+shm                     64M     0   64M   0% /var/lib/docker/containers/c095087bf6db225a5370707e59394b13f77fd78c71aa0a1187875bec0d156732/shm
+overlay                 17G  8.9G  8.2G  52% /var/lib/docker/overlay2/4c46001ca2a92009b1f6471c17776ab59a56b357c3793c58f9f82f787a3ac1e4/merged
 tmpfs                  1.6G     0  1.6G   0% /run/user/0
-Wed Nov 28 17:22:41 EST 2018
-bash: ntpq: command not found
-bash: ntpq: command not found
+Wed Nov 28 17:22:37 EST 2018
+bash: line 1: ntpq: command not found
+bash: line 1: ntpq: command not found
 PING 10.57.0.40 (10.57.0.40) 56(84) bytes of data.
-64 bytes from 10.57.0.40: icmp_seq=1 ttl=64 time=0.232 ms
-64 bytes from 10.57.0.40: icmp_seq=2 ttl=64 time=0.205 ms
-64 bytes from 10.57.0.40: icmp_seq=3 ttl=64 time=0.369 ms
-64 bytes from 10.57.0.40: icmp_seq=4 ttl=64 time=0.421 ms
-64 bytes from 10.57.0.40: icmp_seq=5 ttl=64 time=0.351 ms
+64 bytes from 10.57.0.40: icmp_seq=1 ttl=64 time=0.188 ms
+64 bytes from 10.57.0.40: icmp_seq=2 ttl=64 time=0.376 ms
+64 bytes from 10.57.0.40: icmp_seq=3 ttl=64 time=0.417 ms
+64 bytes from 10.57.0.40: icmp_seq=4 ttl=64 time=0.256 ms
+64 bytes from 10.57.0.40: icmp_seq=5 ttl=64 time=0.395 ms
 
 --- 10.57.0.40 ping statistics ---
 5 packets transmitted, 5 received, 0% packet loss, time 4000ms
-rtt min/avg/max/mdev = 0.205/0.315/0.421/0.085 ms
+rtt min/avg/max/mdev = 0.188/0.326/0.417/0.090 ms

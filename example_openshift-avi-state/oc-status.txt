@@ -2,58 +2,58 @@ Showing all projects on server https://ocp-server1.ps.lab:8443
 
 https://docker-registry-default.router.default.svc.cluster.local (passthrough) (svc/docker-registry[default])
   dc/docker-registry deploys docker.io/openshift3/ose-docker-registry:v3.9.43 
-    deployment #1 deployed 7 days ago - 1 pod
+    deployment #1 deployed 13 days ago - 1 pod
 
 svc/kubernetes[default] - 172.30.0.1 ports 443->8443, 53->8053, 53->8053
 
 https://registry-console-default.router.default.svc.cluster.local (passthrough) (svc/registry-console[default])
   dc/registry-console deploys registry.access.redhat.com/openshift3/registry-console:v3.9 
-    deployment #1 deployed 7 days ago - 1 pod
+    deployment #1 deployed 13 days ago - 1 pod
 
 svc/router[default] - 172.30.27.215 ports 80, 443, 1936
   dc/router deploys docker.io/openshift3/ose-haproxy-router:v3.9.43 
-    deployment #2 deployed 7 days ago - 2 pods
-    deployment #1 failed 7 days ago: newer deployment was found running
+    deployment #2 deployed 13 days ago - 2 pods
+    deployment #1 failed 13 days ago: newer deployment was found running
 
 https://apiserver-kube-service-catalog.router.default.svc.cluster.local (passthrough) to pod port secure (svc/apiserver[kube-service-catalog])
   daemonset/apiserver manages registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
-    generation #1 running for 7 days - 1 pod
-  pod/apiserver-ch4f6 runs registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
+    generation #1 running for 13 days - 1 pod
+  pod/apiserver-jb6nl runs registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
 
 https://asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local (reencrypt) to pod port 1338 (svc/asb[openshift-ansible-service-broker])
   dc/asb deploys registry.access.redhat.com/openshift3/ose-ansible-service-broker:v3.9.43 
-    deployment #1 failed 7 days ago: config change
+    deployment #1 failed 13 days ago: config change
 
 svc/asb-etcd[openshift-ansible-service-broker] - 172.30.125.63:2379
   dc/asb-etcd deploys registry.access.redhat.com/rhel7/etcd:latest 
-    deployment #1 failed 7 days ago: config change
+    deployment #1 failed 13 days ago: config change
 
 svc/apiserver[openshift-template-service-broker] - 172.30.255.133:443 -> 8443
   daemonset/apiserver manages registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
-    generation #1 running for 7 days - 2 pods
+    generation #1 running for 13 days - 2 pods
   pod/apiserver-vsz4s runs registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
   pod/apiserver-qgrkb runs registry.access.redhat.com/openshift3/ose-template-service-broker:v3.9.43
 
 svc/webconsole[openshift-web-console] - 172.30.127.103:443 -> 8443
   deployment/webconsole deploys registry.access.redhat.com/openshift3/ose-web-console:v3.9.43
-    deployment #1 running for 7 days - 1 pod
+    deployment #1 running for 13 days - 1 pod
 
 http://nginx-example-sergey1.router.default.svc.cluster.local (svc/nginx-example[sergey1])
   dc/nginx-example deploys istag/nginx-example:latest <-
     bc/nginx-example source builds https://github.com/sclorg/nginx-ex.git on openshift/nginx:1.12 
-    deployment #1 deployed 7 days ago - 5 pods
+    deployment #1 deployed 13 days ago - 5 pods
 
 http://nginx-example2-sergey1.router.default.svc.cluster.local (svc/nginx-example2[sergey1])
   dc/nginx-example2 deploys istag/nginx-example2:latest <-
     bc/nginx-example2 source builds https://github.com/sclorg/nginx-ex.git on openshift/nginx:1.12 
-    deployment #1 deployed 6 days ago - 2 pods
+    deployment #1 deployed 13 days ago - 2 pods
 
 dc/httpd-ex[default] deploys istag/httpd-ex:latest <-
   bc/httpd-ex source builds https://github.com/sclorg/httpd-ex on istag/httpd-24-centos7:latest 
-  deployment #1 failed 6 days ago: deployer pod no longer exists
+  deployment #1 failed 13 days ago: deployer pod no longer exists
 
 daemonset/controller-manager[kube-service-catalog] manages registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43
-  generation #1 running for 7 days - 1 pod
+  generation #1 running for 13 days - 1 pod
 
 
 1 warning, 9 infos identified, use 'oc status -v' to see details.

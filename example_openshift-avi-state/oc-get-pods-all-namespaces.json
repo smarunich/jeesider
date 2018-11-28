@@ -1049,14 +1049,14 @@
                     "ca_hash": "4bf106c2650d206dbb20f4ac1fd7787088c748db",
                     "openshift.io/scc": "hostmount-anyuid"
                 },
-                "creationTimestamp": "2018-11-15T03:20:45Z",
+                "creationTimestamp": "2018-11-28T09:01:04Z",
                 "generateName": "apiserver-",
                 "labels": {
                     "app": "apiserver",
                     "controller-revision-hash": "4251904065",
                     "pod-template-generation": "1"
                 },
-                "name": "apiserver-ch4f6",
+                "name": "apiserver-jb6nl",
                 "namespace": "kube-service-catalog",
                 "ownerReferences": [
                     {
@@ -1068,9 +1068,9 @@
                         "uid": "70940073-e885-11e8-999a-0050568fd4c6"
                     }
                 ],
-                "resourceVersion": "170422",
-                "selfLink": "/api/v1/namespaces/kube-service-catalog/pods/apiserver-ch4f6",
-                "uid": "7095e182-e885-11e8-999a-0050568fd4c6"
+                "resourceVersion": "5930853",
+                "selfLink": "/api/v1/namespaces/kube-service-catalog/pods/apiserver-jb6nl",
+                "uid": "22bd609e-f2ec-11e8-9abe-0050568fd4c6"
             },
             "spec": {
                 "containers": [
@@ -1223,52 +1223,44 @@
                 "conditions": [
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-15T03:20:45Z",
+                        "lastTransitionTime": "2018-11-28T09:01:04Z",
                         "status": "True",
                         "type": "Initialized"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-15T22:18:36Z",
+                        "lastTransitionTime": "2018-11-28T09:01:08Z",
                         "status": "True",
                         "type": "Ready"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-15T03:20:54Z",
+                        "lastTransitionTime": "2018-11-28T09:01:08Z",
                         "status": "True",
                         "type": "PodScheduled"
                     }
                 ],
                 "containerStatuses": [
                     {
-                        "containerID": "docker://d6ba7d5f106cb4063e32fa64f161ef2ff8f91367892c461e3a36cf4dc9b8941b",
+                        "containerID": "docker://e84fff01729cf047434a38ea84cbe97970b525b3a4c61d16c8d981ba4bdad203",
                         "image": "registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43",
                         "imageID": "docker-pullable://registry.access.redhat.com/openshift3/ose-service-catalog@sha256:3cce466f36d31530316f40d8f95a53a4f1017391313127143826b821d8aaf204",
-                        "lastState": {
-                            "terminated": {
-                                "containerID": "docker://5148d2be071bab33308e27ed12c661612946dcd04fa8e0054627cca5cec79b3b",
-                                "exitCode": 1,
-                                "finishedAt": "2018-11-15T22:18:08Z",
-                                "reason": "Error",
-                                "startedAt": "2018-11-15T22:18:08Z"
-                            }
-                        },
+                        "lastState": {},
                         "name": "apiserver",
                         "ready": true,
-                        "restartCount": 3,
+                        "restartCount": 0,
                         "state": {
                             "running": {
-                                "startedAt": "2018-11-15T22:18:36Z"
+                                "startedAt": "2018-11-28T09:01:08Z"
                             }
                         }
                     }
                 ],
                 "hostIP": "10.57.0.41",
                 "phase": "Running",
-                "podIP": "10.129.0.9",
+                "podIP": "10.129.0.17",
                 "qosClass": "BestEffort",
-                "startTime": "2018-11-15T03:20:45Z"
+                "startTime": "2018-11-28T09:01:04Z"
             }
         },
         {
@@ -1278,14 +1270,14 @@
                 "annotations": {
                     "openshift.io/scc": "restricted"
                 },
-                "creationTimestamp": "2018-11-22T13:06:25Z",
+                "creationTimestamp": "2018-11-25T17:50:43Z",
                 "generateName": "controller-manager-",
                 "labels": {
                     "app": "controller-manager",
                     "controller-revision-hash": "2402447286",
                     "pod-template-generation": "1"
                 },
-                "name": "controller-manager-xr662",
+                "name": "controller-manager-c56nf",
                 "namespace": "kube-service-catalog",
                 "ownerReferences": [
                     {
@@ -1297,9 +1289,9 @@
                         "uid": "73852a77-e885-11e8-999a-0050568fd4c6"
                     }
                 ],
-                "resourceVersion": "3225368",
-                "selfLink": "/api/v1/namespaces/kube-service-catalog/pods/controller-manager-xr662",
-                "uid": "6a8cbd08-ee57-11e8-9abe-0050568fd4c6"
+                "resourceVersion": "4708133",
+                "selfLink": "/api/v1/namespaces/kube-service-catalog/pods/controller-manager-c56nf",
+                "uid": "a1812dcc-f0da-11e8-9abe-0050568fd4c6"
             },
             "spec": {
                 "containers": [
@@ -1440,26 +1432,26 @@
                 "conditions": [
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-22T13:06:25Z",
+                        "lastTransitionTime": "2018-11-25T17:50:43Z",
                         "status": "True",
                         "type": "Initialized"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-22T13:06:28Z",
+                        "lastTransitionTime": "2018-11-25T17:50:47Z",
                         "status": "True",
                         "type": "Ready"
                     },
                     {
                         "lastProbeTime": null,
-                        "lastTransitionTime": "2018-11-22T13:06:28Z",
+                        "lastTransitionTime": "2018-11-25T17:50:47Z",
                         "status": "True",
                         "type": "PodScheduled"
                     }
                 ],
                 "containerStatuses": [
                     {
-                        "containerID": "docker://1b0c9ad2c997db1838e4609b422c287e095157a7e47c8a4f2c7f06311cd5ed7b",
+                        "containerID": "docker://db325240580f1e653a16042fceeb1a7e2311bf5a0f51420cfa66fc0e5ea94019",
                         "image": "registry.access.redhat.com/openshift3/ose-service-catalog:v3.9.43",
                         "imageID": "docker-pullable://registry.access.redhat.com/openshift3/ose-service-catalog@sha256:3cce466f36d31530316f40d8f95a53a4f1017391313127143826b821d8aaf204",
                         "lastState": {},
@@ -1468,16 +1460,16 @@
                         "restartCount": 0,
                         "state": {
                             "running": {
-                                "startedAt": "2018-11-22T13:06:28Z"
+                                "startedAt": "2018-11-25T17:50:47Z"
                             }
                         }
                     }
                 ],
                 "hostIP": "10.57.0.41",
                 "phase": "Running",
-                "podIP": "10.129.0.15",
+                "podIP": "10.129.0.16",
                 "qosClass": "BestEffort",
-                "startTime": "2018-11-22T13:06:25Z"
+                "startTime": "2018-11-25T17:50:43Z"
             }
         },
         {

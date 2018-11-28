@@ -13,16 +13,36 @@ import kubernetes.client
 import openshift.client
 import requests.packages.urllib3
 requests.packages.urllib3.disable_warnings()
+import urllib3
+urllib3.disable_warnings()
+
+se_commands = ['df -h',
+               'iptables -nvL',
+               'sysctl -a',
+               'ntpdate -q']
 
 TMP_DIR = tempfile.mkdtemp()
 logging.basicConfig(filename=TMP_DIR + '/collector.log', filemode='w', level=logging.DEBUG)
 
 def clean_up():
-    with tarfile.open(TMP_DIR + '.tar.gz', 'w:gz') as fh:
-        for root, dirs, files in os.walk(TMP_DIR):
-            for f in files:
-                fh.add(os.path.join(root, f))
-    shutil.rmtree(TMP_DIR)
+    #with tarfile.open(TMP_DIR + '.tar.gz', 'w:gz') as fh:
+    #    for root, dirs, files in os.walk(TMP_DIR):
+    #        for f in files:
+    #            fh.add(os.path.join(root, f))
+    #shutil.rmtree(TMP_DIR)
+    print 'TMP_DIR: %s' % TMP_DIR
+    pass
+
+def ssh_cmd(ssh, command, sudo=False, password=None):
+    if sudo:
+        command = 'sudo ' + command
+    cmd = {'command': command}
+    sin, sout, serr = ssh.exec_command(command, get_pty=True)
+    if sudo:
+        sin.write(password + '\n')
+        sin.flush()
+    cmd['response'] = sout.read()
+    return cmd
 
 def handle_k8s(api, cmd):
     filename = TMP_DIR + '/' + cmd + '.json'
@@ -34,6 +54,49 @@ def handle_k8s(api, cmd):
         return response
     except:
         pass
+
+def avi_find_se():
+    r = session.get(base_url + '/api/serviceengine-inventory')
+    r.raise_for_status()
+    se_list = []
+    for se in r.json()['results']:
+        se_list.append({'name': se['config']['name'],
+                        'ip': se['config']['mgmt_ip_address']['addr'],
+                        'state': se['runtime']['oper_status']['state'],
+                        'uuid': se['uuid']})
+    with open(TMP_DIR + '/serviceengine-inventory.json', 'w') as fh:
+        json.dump(r.json(), fh)
+
+    r = session.get(base_url + '/api/securechannel')
+    r.raise_for_status()
+    for sc in r.json()['results']:
+        for se in se_list:
+            if sc['uuid'] == se['uuid']:
+                se['local_ip'] = sc['local_ip']
+    with open(TMP_DIR + '/securechannel.json', 'w') as fh:
+        json.dump(r.json(), fh)
+
+    return se_list
+
+def avi_find_ssh_user(backup):
+    ocp_cloud = avi_find_ocp(backup)
+    r = session.get(base_url + ocp_cloud['oshiftk8s_configuration']['ssh_user_ref'])
+    r.raise_for_status()
+    if r.json()['count'] == 1:
+        ssh_user_ref = r.json()['results'][0]
+        for user in backup['CloudConnectorUser']:
+            if user['uuid'] == ssh_user_ref['uuid']:
+                return user
+
+def avi_find_ocp(backup):
+    ocp_cloud = None
+    for cloud in backup['Cloud']:
+        if cloud['vtype'] == 'CLOUD_OSHIFT_K8S':
+            if ocp_cloud == None:
+                ocp_cloud = cloud
+            else:
+                raise Exception('Multiple vtype CLOUD_OSHIFT_K8S clouds found! Exiting...')
+    return ocp_cloud
 
 def avi_backup():
     # Get the full backup and write it
@@ -84,46 +147,14 @@ def main():
 
     logging.info('startup_args: %s' % args)
     avi_login(args)
+
+    print 'Collecting Avi Controller backup'
     backup = avi_backup()
-
-    # Find the OCP cloud
-    ocp_cloud = None
-    for cloud in backup['Cloud']:
-        if cloud['vtype'] == 'CLOUD_OSHIFT_K8S':
-            if ocp_cloud == None:
-                ocp_cloud = cloud
-            else:
-                raise Exception('Multiple vtype CLOUD_OSHIFT_K8S clouds found! Exiting...')
-
-    # Find the correct SSH users
-    r = session.get(base_url + ocp_cloud['oshiftk8s_configuration']['ssh_user_ref'])
-    r.raise_for_status()
-    if r.json()['count'] == 1:
-        ssh_user_ref = r.json()['results'][0]
-        for user in backup['CloudConnectorUser']:
-            if user['uuid'] == ssh_user_ref['uuid']:
-                ssh_user = user
-
-    # Find the active service engines
-    r = session.get(base_url + '/api/serviceengine-inventory')
-    r.raise_for_status()
-    se_list = []
-    for se in r.json()['results']:
-        se_list.append({'name': se['config']['name'],
-                        'ip': se['config']['mgmt_ip_address']['addr'],
-                        'state': se['runtime']['oper_status']['state'],
-                        'uuid': se['uuid']})
-    with open(TMP_DIR + '/serviceengine-inventory.json', 'w') as fh:
-        json.dump(r.json(), fh)
-
-    r = session.get(base_url + '/api/securechannel')
-    r.raise_for_status()
-    for sc in r.json()['results']:
-        for se in se_list:
-            if sc['uuid'] == se['uuid']:
-                se['local_ip'] = sc['local_ip']
-    with open(TMP_DIR + '/securechannel.json', 'w') as fh:
-        json.dump(r.json(), fh)
+    print 'Finding the OCP Cloud Connector'
+    ocp_cloud = avi_find_ocp(backup)
+    #ssh_user = avi_find_ssh_user(backup)
+    print 'Finding the available Service Engines'
+    se_list = avi_find_se()
 
     # Build the k8s auth material
     cfg = kubernetes.client.Configuration()
@@ -134,7 +165,9 @@ def main():
 
     v1Api = kubernetes.client.CoreV1Api(kubernetes.client.ApiClient(cfg))
 
+    print 'Collecting the K8s node descriptions'
     nodes = handle_k8s(v1Api, 'list_node')
+    print 'Collecting the K8s service descriptions'
     services = handle_k8s(v1Api, 'list_service_for_all_namespaces')
 
     # Forbidden as this user:
@@ -144,17 +177,29 @@ def main():
     # routeApi = openshift.client.RouteOpenshiftIoV1Api(kubernetes.client.ApiClient(cfg))
     # routeApi.list_route_for_all_namespaces()
 
-    logging.getLogger("paramiko").setLevel(logging.DEBUG)
+    # Handle the in container / SE shell commands
     for se in se_list:
         try:
+            print 'Connecting to SE: %s' % se['name']
             se['ssh'] = paramiko.SSHClient()
+            se['ssh'].load_system_host_keys()
+            se['ssh'].set_missing_host_key_policy(paramiko.AutoAddPolicy())
             se['ssh'].connect(se['local_ip'],
                               port=args.secure_channel_port,
                               username=args.username,
                               password=args.password)
-            se['ssh']['stdin'], se['ssh']['stdout'], se['ssh']['stderr'] = se['ssh'].exec_command('whoami')
+            se['se_commands'] = []
+            for command in se_commands:
+                print '\tRunning command: %s' % command
+                se['se_commands'].append(ssh_cmd(se['ssh'], command, sudo=True, password=args.password))
         finally:
-            se['ssh'].close()
+            try:
+                se['ssh'].close()
+                del se['ssh']
+            except KeyError:
+                pass
+    with open(TMP_DIR + '/se_list.json', 'w') as fh:
+        json.dump(se_list, fh)
 
     clean_up()
 

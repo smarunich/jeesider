@@ -124,7 +124,7 @@ items:
       service: asb
     name: asb-1338
     namespace: openshift-ansible-service-broker
-    resourceVersion: "6187705"
+    resourceVersion: "6299177"
     selfLink: /apis/route.openshift.io/v1/namespaces/openshift-ansible-service-broker/routes/asb-1338
     uid: 880f3ae7-e885-11e8-999a-0050568fd4c6
   spec:
@@ -141,9 +141,9 @@ items:
   status:
     ingress:
     - conditions:
-      - lastTransitionTime: 2018-11-28T22:21:52Z
+      - lastTransitionTime: 2018-11-29T04:08:18Z
         message: '{"error": "Error in creating VirtualService asb-1338-openshift-ansible-service-broker.router.default.svc.cluster.local:
-          poolgroup-feb98613-2fc4-45d8-8054-c332686ea289 in pool select is being referred
+          poolgroup-5c3fd67a-7715-4aaf-9a5a-b63e3a883c43 in pool select is being referred
           by other object"}'
         status: "False"
         type: NotReady

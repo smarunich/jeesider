@@ -5,7 +5,7 @@ import paramiko
 import kubernetes.client
 import openshift.client
 import argparse
-
+import StringIO
 import requests.packages.urllib3
 requests.packages.urllib3.disable_warnings()
 
@@ -17,6 +17,7 @@ class Avi(object):
         self.export = None
         self.se_connections = []
         self.ctrl_connections = []
+        self.node_connections = []
         self.k8s = []
         self.host = host
         self.username = username
@@ -36,9 +37,12 @@ class Avi(object):
 
         for c in self.cc_list:
             self.k8s.append(K8s(k8s_cloud=c))
-
-        for se_ip in self._se_local_addresses():
-            self.se_connections.append(AviSE(se_ip, password=self.password, controllers=self.cl_list))
+            for se_ip in self._se_local_addresses(cloud_uuid=c['uuid']):
+                internals = self._get('/api/cloud/' + c['uuid'] + '/internals').json()
+                for node in internals['agents'][0]['oshift_k8s']['hosts']:
+                    user = self._find_cc_user(cloud=c)
+                    self.node_connections.append(K8sNode(node['host_ip'], controllers=self.cl_list, **user))
+                self.se_connections.append(AviSE(se_ip, password=self.password, controllers=self.cl_list))
 
         for c_ip in self.cl_list:
             self.ctrl_connections.append(AviController(c_ip, password=self.password, controllers=self.cl_list))
@@ -87,6 +91,17 @@ class Avi(object):
         if not self._post('/login', data=login_data):
             raise Exception('Failed authenticating as %s:%s with host %s' % (self.username, self.password, self.host))
 
+    def _find_cc_user(self, cloud=None):
+        user = {}
+        if cloud is not None:
+            uuid = self._get(cloud['oshiftk8s_configuration']['ssh_user_ref']).json()['results'][0]['uuid']
+
+            for ccu in self.export['CloudConnectorUser']:
+                if ccu['uuid'] == uuid:
+                    user['username'] = ccu['name']
+                    user['pem'] = ccu['private_key']
+        return user
+
     def _get_dns_vs(self):
         ref = self.export['SystemConfiguration'][0]['dns_virtualservice_refs'][0]
         self._dns_vs = self._get(ref, params={'include_name': True}).json()
@@ -98,13 +113,13 @@ class Avi(object):
             ips.append(node['mgmt_ip'])
         return ips
 
-    def _se_local_addresses(self):
+    def _se_local_addresses(self, cloud_uuid=None):
         se_list = []
         inventory = self._get('/api/serviceengine-inventory', params={'include_name': True})
         securechannel = self._get('/api/securechannel')
         for sc in securechannel.json()['results']:
             for se in inventory.json()['results']:
-                if sc['uuid'] == se['uuid']:
+                if sc['uuid'] == se['uuid'] and cloud_uuid in se['config']['cloud_ref']:
                     se_list.append(sc['local_ip'])
         return se_list
 
@@ -155,7 +170,13 @@ class Avi(object):
 
 
 class SSH_Base(object):
-    def __init__(self, port=22, username=None, password=None):
+    def __init__(self, port=22, username=None, password=None, pem=None):
+        if pem is not None:
+            self._pem = StringIO.StringIO(pem)
+            self._pem = paramiko.RSAKey.from_private_key(self._pem)
+        else:
+            self._pem = None
+        self._ssh = None
         self._cmd_list = []
         self.local_ip = None
         self.local_port = port
@@ -174,23 +195,37 @@ class SSH_Base(object):
         ssh = paramiko.SSHClient()
         ssh.load_system_host_keys()
         ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-        ssh.connect(self.local_ip,
-                    port=self.local_port,
-                    username=self.username,
-                    password=self.password)
+        try:
+            if self.password is not None:
+                ssh.connect(self.local_ip,
+                            port=self.local_port,
+                            username=self.username,
+                            password=self.password)
+            elif self._pem is not None:
+                ssh.connect(self.local_ip,
+                            port=self.local_port,
+                            username=self.username,
+                            pkey=self._pem)
+            print "Connected to host: %s" % self.local_ip
+        except Exception as e:
+            print "Failed to connect to host: %s" % self.local_ip
+            print e.message
+            ssh = None
         return ssh
 
     def _run_cmd(self, command, sudo=False):
-        if sudo:
-            command = 'sudo ' + command
-        # TODO print is just for some feedback
-        print command
-        cmd = {'command': command}
-        sin, sout, serr = self._ssh.exec_command(command, get_pty=True)
-        if sudo:
-            sin.write(self.password + '\n')
-            sin.flush()
-        cmd['response'] = sout.read()
+        cmd = None
+        if self._ssh is not None:
+            if sudo:
+                command = 'sudo ' + command
+            # TODO print is just for some feedback
+            print command
+            cmd = {'command': command}
+            sin, sout, serr = self._ssh.exec_command(command, get_pty=True)
+            if sudo and self.password is not None:
+                sin.write(self.password + '\n')
+                sin.flush()
+            cmd['response'] = sout.read()
         return cmd
 
 
@@ -202,7 +237,7 @@ class AviController(SSH_Base):
         self.local_ip = local_ip
         self.controllers = controllers
         self._cmd_list = ['hostname',
-                          'ls -ail /opt/avi/log',
+                          'ls -ail /opt/avi/log/*',
                           'ps -aux',
                           'top -b -o +%MEM | head -n 22',
                           '/opt/avi/scripts/taskqueue.py -s',
@@ -213,7 +248,10 @@ class AviController(SSH_Base):
         self.command_list = self.run_commands()
         for p in self.ping_controllers():
             self.command_list.append(p)
-        self._ssh.close()
+        try:
+            self._ssh.close()
+        except Exception as e:
+            pass
 
     def ping_controllers(self):
         ctrl_list = []
@@ -241,6 +279,38 @@ class AviSE(SSH_Base):
                           'sysctl -a',
                           'df -h',
                           'ls -ail /opt/avi/log',
+                          'date',
+                          'ntpq -p']
+        self._ssh = self._configure_ssh()
+        self.command_list = self.run_commands()
+        for p in self.ping_controllers():
+            self.command_list.append(p)
+        self._ssh.close()
+
+    def ping_controllers(self):
+        ctrl_list = []
+        for ip in self.controllers:
+            ctrl_list.append(self._run_cmd('ping -c5 %s' % ip))
+        with open(self.local_ip + '.ping.json', 'w') as fh:
+            json.dump(ctrl_list, fh)
+        return ctrl_list
+
+
+class K8sNode(SSH_Base):
+    def __init__(self, local_ip, port=22, username=None, password=None, pem=None, controllers=None):
+        super(K8sNode, self).__init__(port=port, username=username, password=password, pem=pem)
+        self.local_ip = local_ip
+        self.controllers = controllers
+        self._cmd_list = ['hostname',
+                          'docker info',
+                          'iptables -nvL',
+                          'iptables -nvL -t nat',
+                          'ip route show table all',
+                          'ifconfig',
+                          'ip link',
+                          'ip addr',
+                          'sysctl -a',
+                          'df -h',
                           'date',
                           'ntpq -p']
         self._ssh = self._configure_ssh()

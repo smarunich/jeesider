@@ -285,7 +285,10 @@ class AviSE(SSH_Base):
         self.command_list = self.run_commands()
         for p in self.ping_controllers():
             self.command_list.append(p)
-        self._ssh.close()
+        try:
+            self._ssh.close()
+        except Exception as e:
+            pass
 
     def ping_controllers(self):
         ctrl_list = []
@@ -317,7 +320,10 @@ class K8sNode(SSH_Base):
         self.command_list = self.run_commands()
         for p in self.ping_controllers():
             self.command_list.append(p)
-        self._ssh.close()
+        try:
+            self._ssh.close()
+        except Exception as e:
+            pass
 
     def ping_controllers(self):
         ctrl_list = []

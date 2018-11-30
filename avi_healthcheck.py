@@ -30,6 +30,7 @@ class Avi(object):
         self.backup()
         self.alerts()
         self.vs_inventory()
+        self.dns_metrics()
         self.cl_list = self._cluster_runtime()
         self.cc_list = self._ocp_connectors()
 
@@ -41,6 +42,35 @@ class Avi(object):
 
         for c_ip in self.cl_list:
             self.ctrl_connections.append(AviController(c_ip, password=self.password, controllers=self.cl_list))
+
+    def dns_metrics(self):
+        self._get_dns_vs()
+        uuid = self._dns_vs['uuid']
+        path = '/api/analytics/metrics/virtualservice/' + uuid
+        metrics = ['dns_client.avg_resp_type_a',
+                   'dns_client.avg_resp_type_aaaa',
+                   'dns_client.avg_resp_type_ns',
+                   'dns_client.avg_resp_type_srv',
+                   'dns_client.avg_resp_type_mx',
+                   'dns_client.avg_resp_type_other',
+                   'dns_client.avg_complete_queries',
+                   'dns_client.avg_invalid_queries',
+                   'dns_client.avg_domain_lookup_failures',
+                   'dns_client.avg_unsupported_queries',
+                   'dns_client.avg_gslbpool_member_not_available',
+                   'dns_client.avg_tcp_passthrough_errors',
+                   'dns_client.avg_udp_passthrough_errors',
+                   'dns_client.pct_errored_queries',
+                   'dns_client.avg_tcp_queries',
+                   'dns_client.avg_udp_queries',
+                   'l4_client.avg_bandwidth']
+        m = ','.join(metrics)
+        params = {'metric_id': m,
+                  'aggregation': 'METRICS_ANOMALY_AGG_COUNT',
+                  'aggregation_window': '1',
+                  'step': '3600',
+                  'limit': '168'}
+        self._get(path, params=params)
 
     def vs_inventory(self):
         r = self._get('/api/virtualservice-inventory', params={'include_name': True})
@@ -56,6 +86,10 @@ class Avi(object):
         login_data = {'username': self.username, 'password': self.password}
         if not self._post('/login', data=login_data):
             raise Exception('Failed authenticating as %s:%s with host %s' % (self.username, self.password, self.host))
+
+    def _get_dns_vs(self):
+        ref = self.export['SystemConfiguration'][0]['dns_virtualservice_refs'][0]
+        self._dns_vs = self._get(ref, params={'include_name': True}).json()
 
     def _cluster_runtime(self):
         ips = []
@@ -250,7 +284,7 @@ class K8s(object):
         try:
             response = getattr(api, cmd)()
             flat = kubernetes.client.ApiClient().sanitize_for_serialization(response)
-            with open('k8s' + cmd + '.json', 'w') as fh:
+            with open('k8s-' + cmd + '.json', 'w') as fh:
                 json.dump(flat, fh)
             return response
         except Exception as e:

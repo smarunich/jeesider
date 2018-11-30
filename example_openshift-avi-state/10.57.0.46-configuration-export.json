@@ -2474,26 +2474,6 @@
         }, 
         {
             "orchestrator_name": "Oshift_k8s", 
-            "name": "apiserver-microservice", 
-            "url": "/api/microservice/microservice-9856a499-0b1e-49e3-be52-61851b27daa2#apiserver-microservice", 
-            "tenant_ref": "/api/tenant/tenant-7cf79dfe-4a38-42e4-8cc5-beb86f7fbcdd#kube-service-catalog", 
-            "uuid": "microservice-9856a499-0b1e-49e3-be52-61851b27daa2", 
-            "created_by": "oshift-k8s-cloud-connector", 
-            "cloud_config_cksum": "558403f34703de5e2e3d4855cc48d38a", 
-            "application_name": "apiserver", 
-            "containers": [
-                {
-                    "ip": {
-                        "type": "V4", 
-                        "addr": "10.129.0.9"
-                    }, 
-                    "container_id": "d6ba7d5f106cb4063e32fa64f161ef2ff8f91367892c461e3a36cf4dc9b8941b"
-                }
-            ], 
-            "ip_list": true
-        }, 
-        {
-            "orchestrator_name": "Oshift_k8s", 
             "name": "webconsole-microservice", 
             "url": "/api/microservice/microservice-eba77c0f-ee1d-4353-8fb3-859a167891a8#webconsole-microservice", 
             "tenant_ref": "/api/tenant/tenant-e6412aab-6523-4e46-9b1e-3a4bb68a770f#openshift-web-console", 
@@ -2610,6 +2590,26 @@
                         "addr": "10.131.0.11"
                     }, 
                     "container_id": "ebd216aed2ed5e7578d737530442db39306b22a95675dd6dd8ee1684bb7e6435"
+                }
+            ], 
+            "ip_list": true
+        }, 
+        {
+            "orchestrator_name": "Oshift_k8s", 
+            "name": "apiserver-microservice", 
+            "url": "/api/microservice/microservice-9856a499-0b1e-49e3-be52-61851b27daa2#apiserver-microservice", 
+            "tenant_ref": "/api/tenant/tenant-7cf79dfe-4a38-42e4-8cc5-beb86f7fbcdd#kube-service-catalog", 
+            "uuid": "microservice-9856a499-0b1e-49e3-be52-61851b27daa2", 
+            "created_by": "oshift-k8s-cloud-connector", 
+            "cloud_config_cksum": "f0d966c9fa5a2dc0f16b3fd6623cfd24", 
+            "application_name": "apiserver", 
+            "containers": [
+                {
+                    "ip": {
+                        "type": "V4", 
+                        "addr": "10.129.0.17"
+                    }, 
+                    "container_id": "e84fff01729cf047434a38ea84cbe97970b525b3a4c61d16c8d981ba4bdad203"
                 }
             ], 
             "ip_list": true
@@ -3705,17 +3705,17 @@
             "capacity_estimation": false, 
             "servers": [
                 {
-                    "external_orchestration_id": "7095e182-e885-11e8-999a-0050568fd4c6--170422", 
+                    "external_orchestration_id": "22bd609e-f2ec-11e8-9abe-0050568fd4c6--5930853", 
                     "ratio": 1, 
                     "ip": {
                         "type": "V4", 
-                        "addr": "10.129.0.9"
+                        "addr": "10.129.0.17"
                     }, 
-                    "hostname": "10.129.0.9", 
+                    "hostname": "10.129.0.17", 
                     "enabled": true, 
                     "verify_network": false, 
                     "server_node": "10.57.0.41", 
-                    "external_uuid": "d6ba7d5f106cb4063e32fa64f161ef2ff8f91367892c461e3a36cf4dc9b8941b", 
+                    "external_uuid": "e84fff01729cf047434a38ea84cbe97970b525b3a4c61d16c8d981ba4bdad203", 
                     "resolve_server_by_dns": false, 
                     "static": false, 
                     "rewrite_host_header": false, 
@@ -3746,7 +3746,7 @@
                 "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
             ], 
             "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "45b6ae25116c28a7bbc65c693efe81b5"
+            "cloud_config_cksum": "0f183294f953e49602f9369e4806a348"
         }, 
         {
             "lb_algorithm": "LB_ALGORITHM_LEAST_CONNECTIONS", 
@@ -3949,17 +3949,17 @@
             "capacity_estimation": false, 
             "servers": [
                 {
-                    "external_orchestration_id": "7095e182-e885-11e8-999a-0050568fd4c6--170422", 
+                    "external_orchestration_id": "22bd609e-f2ec-11e8-9abe-0050568fd4c6--5930853", 
                     "ratio": 1, 
                     "ip": {
                         "type": "V4", 
-                        "addr": "10.129.0.9"
+                        "addr": "10.129.0.17"
                     }, 
-                    "hostname": "10.129.0.9", 
+                    "hostname": "10.129.0.17", 
                     "enabled": true, 
                     "verify_network": false, 
                     "server_node": "10.57.0.41", 
-                    "external_uuid": "d6ba7d5f106cb4063e32fa64f161ef2ff8f91367892c461e3a36cf4dc9b8941b", 
+                    "external_uuid": "e84fff01729cf047434a38ea84cbe97970b525b3a4c61d16c8d981ba4bdad203", 
                     "resolve_server_by_dns": false, 
                     "static": false, 
                     "rewrite_host_header": false, 
@@ -3990,7 +3990,7 @@
                 "/api/healthmonitor/healthmonitor-4a45c55e-5a66-4f25-8e89-c6db3a6b098d#System-TCP"
             ], 
             "connection_ramp_duration": 10, 
-            "cloud_config_cksum": "a85cf4eca0f6d4c554a7e8940655e981"
+            "cloud_config_cksum": "a12f16ba6653a9f5a57c6ab91d28b00f"
         }, 
         {
             "lb_algorithm": "LB_ALGORITHM_CONSISTENT_HASH", 
@@ -5623,21 +5623,21 @@
             "is_internal_policy": false
         }, 
         {
+            "name": "nginx-example2-sergey1.router.default.svc.cluster.local-httppolicyset", 
+            "url": "/api/httppolicyset/httppolicyset-6704834e-355f-4033-a5fb-0b7f61ee6e78#nginx-example2-sergey1.router.default.svc.cluster.local-httppolicyset", 
+            "tenant_ref": "/api/tenant/tenant-7de91f9f-4aff-4b45-92d2-9eedf8e44ca7#sergey1", 
+            "uuid": "httppolicyset-6704834e-355f-4033-a5fb-0b7f61ee6e78", 
+            "created_by": "oshift-k8s-cloud-connector", 
+            "cloud_config_cksum": "d329959355764759ecce025a36b18e5b", 
+            "is_internal_policy": false
+        }, 
+        {
             "name": "parent-vs-ocp-Default-Group-httppolicyset", 
             "url": "/api/httppolicyset/httppolicyset-4a9005fa-9512-4b28-a6f0-8412151571bd#parent-vs-ocp-Default-Group-httppolicyset", 
             "tenant_ref": "/api/tenant/admin#admin", 
             "uuid": "httppolicyset-4a9005fa-9512-4b28-a6f0-8412151571bd", 
             "created_by": "oshift-k8s-cloud-connector", 
             "cloud_config_cksum": "5076f26c1306674005ec476c6fa87a55", 
-            "is_internal_policy": false
-        }, 
-        {
-            "name": "nginx-example2-sergey1.router.default.svc.cluster.local-httppolicyset", 
-            "url": "/api/httppolicyset/httppolicyset-05879d52-f827-4900-92c1-b89a2df91943#nginx-example2-sergey1.router.default.svc.cluster.local-httppolicyset", 
-            "tenant_ref": "/api/tenant/tenant-7de91f9f-4aff-4b45-92d2-9eedf8e44ca7#sergey1", 
-            "uuid": "httppolicyset-05879d52-f827-4900-92c1-b89a2df91943", 
-            "created_by": "oshift-k8s-cloud-connector", 
-            "cloud_config_cksum": "d329959355764759ecce025a36b18e5b", 
             "is_internal_policy": false
         }
     ], 
@@ -6395,15 +6395,15 @@
             "analytics_profile_ref": "/api/analyticsprofile/analyticsprofile-8677edb8-ba0f-489a-859b-795eaa2e3bc9#System-Analytics-Profile", 
             "cloud_type": "CLOUD_OSHIFT_K8S", 
             "uuid": "virtualservice-7a37b875-abe0-4ad1-9572-fa67f94fd693", 
+            "max_cps_per_client": 0, 
             "cloud_ref": "/api/cloud/cloud-5f2a37fe-294f-4a20-83c7-de562a14ec5a#ocp", 
             "se_group_ref": "/api/serviceenginegroup/serviceenginegroup-83be60a9-0696-432f-9a32-1a5e92fd1ce7#Default-Group", 
             "created_by": "oshift-k8s-cloud-connector", 
             "scaleout_ecmp": false, 
-            "max_cps_per_client": 0, 
+            "use_bridge_ip_as_vip": false, 
             "traffic_enabled": true, 
             "type": "VS_TYPE_NORMAL", 
             "tenant_ref": "/api/tenant/tenant-7de91f9f-4aff-4b45-92d2-9eedf8e44ca7#sergey1", 
-            "use_bridge_ip_as_vip": false, 
             "vsvip_ref": "/api/vsvip/vsvip-57b42f2e-e268-4c54-8975-9435d451700e#vsvip-eReFXq", 
             "bulk_sync_kvcache": false, 
             "http_policies": [
@@ -6442,6 +6442,12 @@
             "flow_dist": "LOAD_AWARE", 
             "delay_fairness": false, 
             "vrf_context_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
+            "http_policies": [
+                {
+                    "index": 12, 
+                    "http_policy_set_ref": "/api/httppolicyset/httppolicyset-4a9005fa-9512-4b28-a6f0-8412151571bd#parent-vs-ocp-Default-Group-httppolicyset"
+                }
+            ], 
             "analytics_profile_ref": "/api/analyticsprofile/analyticsprofile-8677edb8-ba0f-489a-859b-795eaa2e3bc9#System-Analytics-Profile", 
             "cloud_type": "CLOUD_OSHIFT_K8S", 
             "uuid": "virtualservice-02cd2a6b-f588-4015-9b40-c0582b05f12e", 
@@ -6456,15 +6462,9 @@
             "ssl_key_and_certificate_refs": [
                 "/api/sslkeyandcertificate/sslkeyandcertificate-5856e1da-13fa-4b32-9fac-a38bb766ef9f#System-Default-Cert"
             ], 
-            "use_bridge_ip_as_vip": false, 
             "vsvip_ref": "/api/vsvip/vsvip-57ecf35b-4d46-4028-991d-6c840beb64c2#vsvip-6f618e", 
             "bulk_sync_kvcache": false, 
-            "http_policies": [
-                {
-                    "index": 12, 
-                    "http_policy_set_ref": "/api/httppolicyset/httppolicyset-4a9005fa-9512-4b28-a6f0-8412151571bd#parent-vs-ocp-Default-Group-httppolicyset"
-                }
-            ], 
+            "use_bridge_ip_as_vip": false, 
             "application_profile_ref": "/api/applicationprofile/applicationprofile-0f4f182d-b6ed-4328-b8ca-b1dd93c57133#System-HTTP", 
             "active_standby_se_tag": "ACTIVE_STANDBY_SE_1", 
             "use_vip_as_snat": false, 
@@ -6503,7 +6503,11 @@
             "weight": 1, 
             "enabled": true, 
             "flow_dist": "LOAD_AWARE", 
-            "remove_listening_port_on_vs_down": false, 
+            "content_rewrite": {
+                "rewritable_content_ref": "/api/stringgroup/stringgroup-cccc2385-af39-497c-8373-0abbe5ae1623#System-Rewritable-Content-Types", 
+                "response_rewrite_enabled": false, 
+                "request_rewrite_enabled": false
+            }, 
             "delay_fairness": false, 
             "vrf_context_ref": "/api/vrfcontext/vrfcontext-b5465dc8-317b-474c-9c54-ad6aa40a0dfd#global", 
             "sideband_profile": {
@@ -6544,11 +6548,7 @@
             "url": "/api/virtualservice/virtualservice-076b4b47-7ae8-4237-b22c-b2d54d42abb2#ns1", 
             "ssl_sess_cache_avg_size": 1024, 
             "enable_autogw": true, 
-            "content_rewrite": {
-                "rewritable_content_ref": "/api/stringgroup/stringgroup-cccc2385-af39-497c-8373-0abbe5ae1623#System-Rewritable-Content-Types", 
-                "response_rewrite_enabled": false, 
-                "request_rewrite_enabled": false
-            }, 
+            "remove_listening_port_on_vs_down": false, 
             "network_security_policy_ref": "/api/networksecuritypolicy/networksecuritypolicy-866112fd-0406-41e5-ae20-cf389442c164#vs-ns1-ocp-ns", 
             "close_client_conn_on_config_update": false, 
             "analytics_policy": {
@@ -12431,10 +12431,10 @@
             "cpu_socket_affinity": false, 
             "se_uuids": [
                 "se-ocp-server1.ps.lab-avitag-1", 
-                "se-ocp-server2.ps.lab-avitag-1", 
-                "se-ocp-server3.ps.lab-avitag-1", 
+                "se-ocp-server5.ps.lab-avitag-1", 
                 "se-ocp-server4.ps.lab-avitag-1", 
-                "se-ocp-server5.ps.lab-avitag-1"
+                "se-ocp-server2.ps.lab-avitag-1", 
+                "se-ocp-server3.ps.lab-avitag-1"
             ], 
             "config_debugs_on_all_cores": false, 
             "se_dpdk_pmd": 0, 

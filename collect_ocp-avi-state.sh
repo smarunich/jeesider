@@ -95,9 +95,11 @@ oc get clusterrolebinding &> $DEST/oc-get-clusterrolebinding.txt
 
 ### SSH DISCOVERY
 NODES_LIST=`oc get nodes | tail -n +2 | awk '{printf $1"\n"}'`
-SSH_COLLECTION_CMDS="hostname;docker info;iptables -nvL;iptables -nvL -t nat;ip route show table all;ifconfig;ip link;ip addr;sysctl -a;df -h;date;ntpq -p;ping -c5 $AVI_CONTROLLER"
+SSH_COLLECTION_CMDS="hostname ; docker info ; iptables -nvL ; iptables -nvL -t nat ; ip route show table all ; ifconfig ; ip link ; ip addr ; sysctl -a ; df -h ; date ; ntpq -p ; ping -c5 $AVI_CONTROLLER"
 for NODE in $NODES_LIST; do
     ssh -oStrictHostKeyChecking=no $NODE $SSH_COLLECTION_CMDS &> $DEST/ssh-$NODE-info.txt
+    SE_CONTAINER=`ssh -oStrictHostKeyChecking=no $NODE docker ps | grep avi | awk '{printf $10"\n"}'`
+    ssh -oStrictHostKeyChecking=no $NODE docker exec -i $SE_CONTAINER /bin/sh -c "'$(echo $SSH_COLLECTION_CMDS)'" &> $DEST/ssh-se-$SE_CONTAINER-info.txt
 done
 
 ### AVI VANTAGE DISCOVERY

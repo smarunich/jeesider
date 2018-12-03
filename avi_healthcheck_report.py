@@ -4,31 +4,45 @@ import re
 import argparse
 import datetime
 
-class Avi_Config(object):
-    def __init__(self, file_path, cloud):
+class K8s():
+    def __init__(self, file_path):
+        with open(file_path + '/k8s-list_project.json') as file_name:
+            self.k8s_projects = json.load(file_name)
+    def projects_list(self):
+        projects_list = []
+        for project in self.k8s_projects['items']:
+            projects_list.append(project['metadata']['name'])
+        return projects_list
+
+class Avi(object):
+    def __init__(self, file_path, cloud, k8s):
         self.cloud = cloud
+        self.k8s = k8s
         with open(file_path + '/api-configuration-export.json') as file_name:
             self.config = json.load(file_name)
         with open(file_path + '/api-serviceengine-inventory.json') as file_name:
             self.se_inventory= json.load(file_name)
         with open(file_path + '/api-cluster-runtime.json') as file_name:
             self.cluster_runtime = json.load(file_name)
+        with open(file_path + '/api-alert.json') as file_name:
+            self.alerts = json.load(file_name)['results']
         report = json.dumps({
             'total_objs': self.total_objs(),
             'cloud': self.cloud_oshiftk8s(),
             'se_groups': self.se_groups(),
             'se_vs_distribution': self.se_vs_distribution(),
+            'dns_vs_state': self.dns_vs_state(),
             'cluster_state': self.cluster_state(),
-            'backup_to_remote_host': self.backup_to_remote_host()
+            'backup_to_remote_host': self.backup_to_remote_host(),
+            'alerts': self.alerts,
+            'lingering_tenants': self.find_lingering_tenants(),
         }, indent=2, sort_keys=False)
         print report
-
     ''' lookup name from obj ref '''
     def _lookup_name_from_obj_ref(self,obj_ref):
         obj_name = re.search(r"name=([^&]*)",
             obj_ref).group(1)
         return obj_name
-
     ''' total objs for provided cloud '''
     def total_objs(self):
         total_objs = {}
@@ -111,6 +125,7 @@ class Avi_Config(object):
                         oshiftk8s_configuration['ns_configured_domain'] = \
                     provider_obj['internal_profile']['dns_service_domain'][0]['domain_name']
         return oshiftk8s_configuration
+    ''' se_groups configuration '''
     def se_groups(self):
         se_groups_configuration = {}
         for se_group_obj in self.config['ServiceEngineGroup']:
@@ -152,7 +167,7 @@ class Avi_Config(object):
                 except:
                     pass
         return se_groups_configuration
-
+    ''' se inventory analysis '''
     def se_vs_distribution(self):
         se_vs_distribution = {}
         for se in self.se_inventory['results']:
@@ -161,9 +176,11 @@ class Avi_Config(object):
                     'nw_vs': len(se['config']['virtualservice_refs']),
                 }
         return se_vs_distribution
+    ''' cluster runtime analysis '''
     def cluster_state(self):
         cluster_state = self.cluster_runtime['cluster_state']
         return cluster_state
+    ''' backup '''
     def backup_to_remote_host(self):
         # Needs https://10.57.0.46/api/backup
         try:
@@ -171,12 +188,45 @@ class Avi_Config(object):
         except:
             backup_to_remote_host = False
         return backup_to_remote_host
+    ''' dns vs state '''
+    def dns_vs_state(self):
+        url = self.config['SystemConfiguration'][0]['dns_virtualservice_refs'][0]
+        for vs in self.config['VirtualService']:
+            if re.search(url, vs['url']):
+                # UDF
+                dns_vs = {
+                'udf_log': {
+                    'udf_log_throttle': vs['analytics_policy']['udf_log_throttle'],
+                    'enabled': vs['analytics_policy']['enabled']
+                    },
+                # Non-Significant  Logs
+                'non_significant_logs_enabled': vs['analytics_policy']['full_client_logs']['enabled']
+                }
+                # Real-Time Metrics
+                try:
+                    dns_vs['realtime_metrics_enabled'] = vs['analytics_policy']['metrics_realtime_update']['enabled']
+                except:
+                    dns_vs['realtime_metrics_enabled'] = False
+                applicationprofile_name = self._lookup_name_from_obj_ref(
+                    vs['application_profile_ref'])
+                for applicationprofile_obj in self.config['ApplicationProfile']:
+                    if applicationprofile_name == applicationprofile_obj['name']:
+                        dns_vs['dns_service_profile'] = applicationprofile_obj['dns_service_profile']
+        return dns_vs
+    ''' search for lingering tenants '''
+    def find_lingering_tenants(self):
+        tenants_list = []
+        for tenant in self.config['Tenant']:
+            tenants_list.append(tenant['name'])
+        lingering_tenants = list(set(tenants_list) - set(self.k8s.projects_list()) - set(['admin']))
+        return lingering_tenants
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser("./avi_healthcheck_report.py --dir . --cloud 'Fabric UK OAT'")
     parser.add_argument('--dir', type=str, action='store',
     default='')
     parser.add_argument('--cloud', type=str, action='store',
                         default='')
     args = parser.parse_args()
-    avi_config = Avi_Config(file_path=args.dir,cloud=args.cloud)
+    avi = Avi(file_path=args.dir, cloud=args.cloud,
+              k8s=K8s(file_path=args.dir))

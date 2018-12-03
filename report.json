@@ -1,5 +1,20 @@
 {
   "backup_to_remote_host": false, 
+  "se_groups": {
+    "Default-Group": {
+      "extra_config_multiplier": 0, 
+      "max_vs_per_se": 10, 
+      "connection_memory_percentage": 50, 
+      "vcpus_per_se": 1, 
+      "placement_mode": "PLACEMENT_MODE_AUTO", 
+      "log_disksz": 10000, 
+      "min_scaleout_per_vs": 1, 
+      "memory_per_se": 1024, 
+      "extra_shared_config_memory": 0, 
+      "max_se": 10, 
+      "algo": "PLACEMENT_ALGO_PACKED"
+    }
+  }, 
   "cluster_state": {
     "up_since": "2018-11-27 18:00:39", 
     "progress": 100, 
@@ -16,21 +31,8 @@
       "nw_vs": 4
     }
   }, 
-  "se_groups": {
-    "Default-Group": {
-      "extra_config_multiplier": 0, 
-      "max_vs_per_se": 10, 
-      "connection_memory_percentage": 50, 
-      "vcpus_per_se": 1, 
-      "placement_mode": "PLACEMENT_MODE_AUTO", 
-      "log_disksz": 10000, 
-      "min_scaleout_per_vs": 1, 
-      "memory_per_se": 1024, 
-      "extra_shared_config_memory": 0, 
-      "max_se": 10, 
-      "algo": "PLACEMENT_ALGO_PACKED"
-    }
-  }, 
+  "alerts": [], 
+  "lingering_tenants": [], 
   "total_objs": {
     "PoolGroup": 104, 
     "VirtualService": 73, 
@@ -117,5 +119,23 @@
         }
       ]
     ]
+  }, 
+  "dns_vs_state": {
+    "realtime_metrics_enabled": false, 
+    "dns_service_profile": {
+      "dns_over_tcp_enabled": true, 
+      "ecs_stripping_enabled": true, 
+      "negative_caching_ttl": 30, 
+      "aaaa_empty_response": true, 
+      "num_dns_ip": 1, 
+      "error_response": "DNS_ERROR_RESPONSE_NONE", 
+      "ttl": 30, 
+      "edns": false
+    }, 
+    "udf_log": {
+      "udf_log_throttle": 10, 
+      "enabled": true
+    }, 
+    "non_significant_logs_enabled": false
   }
 }

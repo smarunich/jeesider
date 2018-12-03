@@ -1,0 +1,121 @@
+{
+  "backup_to_remote_host": false, 
+  "cluster_state": {
+    "up_since": "2018-11-27 18:00:39", 
+    "progress": 100, 
+    "state": "CLUSTER_UP_HA_ACTIVE"
+  }, 
+  "se_vs_distribution": {
+    "loninfabod3.uk.db.com--se--red-pine-d7sqg": {
+      "nw_vs": 10
+    }, 
+    "loninfabod8.uk.db.com--se--wild-sun-m4be3": {
+      "nw_vs": 9
+    }, 
+    "loninfabod6.uk.db.com--se--old-sound-duvkw": {
+      "nw_vs": 4
+    }
+  }, 
+  "se_groups": {
+    "Default-Group": {
+      "extra_config_multiplier": 0, 
+      "max_vs_per_se": 10, 
+      "connection_memory_percentage": 50, 
+      "vcpus_per_se": 1, 
+      "placement_mode": "PLACEMENT_MODE_AUTO", 
+      "log_disksz": 10000, 
+      "min_scaleout_per_vs": 1, 
+      "memory_per_se": 1024, 
+      "extra_shared_config_memory": 0, 
+      "max_se": 10, 
+      "algo": "PLACEMENT_ALGO_PACKED"
+    }
+  }, 
+  "total_objs": {
+    "PoolGroup": 104, 
+    "VirtualService": 73, 
+    "VrfContext": 2, 
+    "VsVip": 73, 
+    "DebugVirtualService": 73, 
+    "VsVip_NS": 23, 
+    "ServiceEngineGroup": 1, 
+    "ServiceEngine": 3, 
+    "VsVip_EW": 50, 
+    "VIMgrSEVMRuntime": 3, 
+    "Pool": 103
+  }, 
+  "cloud": {
+    "default_service_as_east_west_service": true, 
+    "use_controller_image": true, 
+    "ns_configured_domain": "uko1f.paas.intranet.db.com", 
+    "app_sync_frequency": 60, 
+    "se_include_attributes": [
+      {
+        "attribute": "region", 
+        "value": "infra"
+      }
+    ], 
+    "se_deployment_method": "SE_CREATE_SSH", 
+    "use_service_cluster_ip_as_ew_vip": false, 
+    "ew_configured_subnets": [
+      [
+        {
+          "prefix": {
+            "mask": 16, 
+            "ip_addr": {
+              "type": "V4", 
+              "addr": "169.254.0.0"
+            }
+          }, 
+          "static_ranges": [
+            {
+              "begin": {
+                "type": "V4", 
+                "addr": "169.254.0.2"
+              }, 
+              "end": {
+                "type": "V4", 
+                "addr": "169.254.5.254"
+              }
+            }
+          ]
+        }
+      ]
+    ], 
+    "ew_configured_domain": "eastwest.uko1f.paas.intranet.db.com", 
+    "docker_registry_se": {
+      "oshift_registry": {
+        "registry_service": "docker-registry", 
+        "registry_namespace": "default"
+      }, 
+      "se_repository_push": false, 
+      "registry": "oat-docker-registry-uko2f.svc.paas.intranet.db.com/fabric-vendor-images/se", 
+      "private": true
+    }, 
+    "nw_configured_subnets": [
+      [
+        {
+          "prefix": {
+            "mask": 24, 
+            "ip_addr": {
+              "type": "V4", 
+              "addr": "10.200.1.0"
+            }
+          }, 
+          "static_ranges": [
+            {
+              "begin": {
+                "type": "V4", 
+                "addr": "10.200.1.2"
+              }, 
+              "end": {
+                "type": "V4", 
+                "addr": "10.200.1.239"
+              }
+            }
+          ]
+        }
+      ]
+    ]
+  }
+}
